@@ -1,0 +1,12 @@
+[submodule "RFUI.Core"]
+	path = RFUI.Core
+	url = https://github.com/RFUI/Core.git
+[submodule "AFNetworking"]
+	path = AFNetworking
+	url = https://github.com/Chinamobo/AFNetworking.git
+[submodule "RFUI.Alpha"]
+	path = RFUI.Alpha
+	url = https://github.com/RFUI/Alpha.git
+[submodule "RFUI.RFSegue"]
+	path = RFUI.RFSegue
+	url = https://github.com/RFUI/RFSegue.git

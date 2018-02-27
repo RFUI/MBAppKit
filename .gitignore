@@ -1,0 +1,32 @@
+
+# Xcode Project
+xcuserdata/
+project.xcworkspace/
+
+# Xcode Injection
+IOSInjectionProject/
+OSXInjectionProject/
+
+# Build
+Scripts/build/
+build/
+DerivedData
+*.ipa
+
+# CocoaPods
+Pods/
+
+# CSV
+*.orig
+.svn
+
+# Other
+*~
+.DS_Store
+*.swp
+*.save
+._*
+*.bak
+
+/include/
+/Resources/
