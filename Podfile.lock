@@ -1,5 +1,4 @@
 PODS:
-  - JSONModel (1.7.0)
   - RFKit/Category/Default (2.0.0):
     - RFKit/Category/NSArray
     - RFKit/Category/NSBundle
@@ -95,7 +94,6 @@ PODS:
     - RFKit/Foundation
 
 DEPENDENCIES:
-  - JSONModel (from `https://github.com/Chinamobo/JSONModel.git`)
   - RFKit/Category/NSDate (from `RFUI.Core/RFKit`)
   - RFKit/Category/NSDateFormatter (from `RFUI.Core/RFKit`)
   - RFKit/Category/NSFileManager (from `RFUI.Core/RFKit`)
@@ -107,20 +105,12 @@ DEPENDENCIES:
   - RFKit/Default (from `RFUI.Core/RFKit`)
 
 EXTERNAL SOURCES:
-  JSONModel:
-    :git: https://github.com/Chinamobo/JSONModel.git
   RFKit:
     :path: RFUI.Core/RFKit
 
-CHECKOUT OPTIONS:
-  JSONModel:
-    :commit: 5575c9f278ca8959b3f5590524e5a2702f8655b8
-    :git: https://github.com/Chinamobo/JSONModel.git
-
 SPEC CHECKSUMS:
-  JSONModel: 401e70a832da7448ef239d58a78b3aa0fe68feab
   RFKit: 8d04979b6ed46d7acb9df79d26597f6279ecde4d
 
-PODFILE CHECKSUM: c2225ca87763095db9d6c6d94da367cacfbe6bc0
+PODFILE CHECKSUM: 9a9e0dae2a22ff22745c338b90de7b2773e42894
 
 COCOAPODS: 1.4.0

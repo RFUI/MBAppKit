@@ -1,7 +1,8 @@
+project 'MBAppKit.xcodeproj'
+
 platform :ios, '9.0'
 
 target 'MBAppKit' do
-    pod 'JSONModel', :git => 'https://github.com/Chinamobo/JSONModel.git'
     pod 'RFKit', :path => 'RFUI.Core/RFKit', :subspecs => [
         'Default',
         'Category/NSDate',
