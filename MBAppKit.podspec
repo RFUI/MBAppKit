@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'MBAppKit'
-  s.version  = '0.2.0'
+  s.version  = '0.2.2'
   s.author   = 'BB9z'
   s.license  = { :type => 'private', :text => 'Copyright © 2018 BB9z. All rights reserved.' }
   s.homepage = 'https://github.com/RFUI/MBAppKit'

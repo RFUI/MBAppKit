@@ -1,4 +1,6 @@
 
+#include "../../Config/Target.xcconfig"
+
 // 编译脚本位置
 MBBuildScriptRoot = $(PROJECT_DIR)/Support
 

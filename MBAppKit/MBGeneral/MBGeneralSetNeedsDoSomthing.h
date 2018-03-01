@@ -9,6 +9,7 @@
  http://www.apache.org/licenses/LICENSE-2.0
 */
 #import "RFUI.h"
+#import <objc/runtime.h>
 
 /*!
  setNeedsDoSomething 是一种范式，其他代码请求我们做什么事，我们不立即去做而是设置了一个标示，

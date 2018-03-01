@@ -18,7 +18,9 @@
 		D5410411204575DE00BE79E7 /* MBGeneralType.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D541040B204573A000BE79E7 /* MBGeneralType.h */; };
 		D5410412204575DE00BE79E7 /* MBWorker.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D54103EF2045492600BE79E7 /* MBWorker.h */; };
 		D5410413204575DE00BE79E7 /* MBWorkerQueue.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D54103EE2045492600BE79E7 /* MBWorkerQueue.h */; };
-		D54492092045298200A1A206 /* libRFKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D5CFF5962045284F00D47917 /* libRFKit.a */; };
+		D562811020477EB000E58406 /* MBUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = D562810F20477EB000E58406 /* MBUserDefaults.m */; };
+		D562811220478FB700E58406 /* MBUserDefaults.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D562810E20477EB000E58406 /* MBUserDefaults.h */; };
+		D562811320478FB700E58406 /* MBUserDefaultsMakeProperty.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D56281112047862F00E58406 /* MBUserDefaultsMakeProperty.h */; };
 		D59CB01C20452F3500C6A464 /* MBGeneralViewUpdating.m in Sources */ = {isa = PBXBuildFile; fileRef = D59CB00320452F3500C6A464 /* MBGeneralViewUpdating.m */; };
 		D59CB01D20452F3600C6A464 /* MBGeneralSetNeedsDoSomthing.m in Sources */ = {isa = PBXBuildFile; fileRef = D59CB00520452F3500C6A464 /* MBGeneralSetNeedsDoSomthing.m */; };
 		D59CB01E20452F3600C6A464 /* MBGeneralCallback.m in Sources */ = {isa = PBXBuildFile; fileRef = D59CB00820452F3500C6A464 /* MBGeneralCallback.m */; };
@@ -196,13 +198,6 @@
 			remoteGlobalIDString = FD0D63E6860662F35038C82A89D62DB6;
 			remoteInfo = "Pods-MBAppKit";
 		};
-		D5CFF5952045284F00D47917 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = D5CFF58B2045284F00D47917 /* Pods.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = 87EE9FC0DCEC0E93FE408584726C2616;
-			remoteInfo = RFKit;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -240,6 +235,8 @@
 				D59CB03120452F5D00C6A464 /* MBGeneralViewUpdating.h in Copy Headers to Include */,
 				D5410410204575DE00BE79E7 /* MBModel.h in Copy Headers to Include */,
 				D5BA55122046367200E4F335 /* MBUser.h in Copy Headers to Include */,
+				D562811220478FB700E58406 /* MBUserDefaults.h in Copy Headers to Include */,
+				D562811320478FB700E58406 /* MBUserDefaultsMakeProperty.h in Copy Headers to Include */,
 				D5410412204575DE00BE79E7 /* MBWorker.h in Copy Headers to Include */,
 				D5410413204575DE00BE79E7 /* MBWorkerQueue.h in Copy Headers to Include */,
 				D5CFF4EA20451ECD00D47917 /* RFAnimationTransitioning.h in Copy Headers to Include */,
@@ -333,6 +330,10 @@
 		D541040B204573A000BE79E7 /* MBGeneralType.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBGeneralType.h; sourceTree = "<group>"; };
 		D541040C204573A000BE79E7 /* MBGeneralType.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBGeneralType.m; sourceTree = "<group>"; };
 		D558FDFD2046927100A01EE6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D56281092046EF0000E58406 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D562810E20477EB000E58406 /* MBUserDefaults.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBUserDefaults.h; sourceTree = "<group>"; };
+		D562810F20477EB000E58406 /* MBUserDefaults.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBUserDefaults.m; sourceTree = "<group>"; };
+		D56281112047862F00E58406 /* MBUserDefaultsMakeProperty.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBUserDefaultsMakeProperty.h; sourceTree = "<group>"; };
 		D59CB00320452F3500C6A464 /* MBGeneralViewUpdating.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBGeneralViewUpdating.m; sourceTree = "<group>"; };
 		D59CB00420452F3500C6A464 /* MBGeneralListExchanging.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBGeneralListExchanging.h; sourceTree = "<group>"; };
 		D59CB00520452F3500C6A464 /* MBGeneralSetNeedsDoSomthing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBGeneralSetNeedsDoSomthing.m; sourceTree = "<group>"; };
@@ -518,7 +519,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8F54E19AC855077BD3424748 /* libPods-MBAppKit.a in Frameworks */,
-				D54492092045298200A1A206 /* libRFKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -543,6 +543,14 @@
 				B4FEB880DEA47F3ECACDD291 /* Pods-MBAppKit.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		D524251C2046E99400460DF5 /* AppImplementation */ = {
+			isa = PBXGroup;
+			children = (
+				D56281092046EF0000E58406 /* README.md */,
+			);
+			path = AppImplementation;
 			sourceTree = "<group>";
 		};
 		D54103DB20453CD000BE79E7 /* MBAPI */ = {
@@ -572,6 +580,16 @@
 				D5410408204572E400BE79E7 /* MBModel.m */,
 			);
 			path = MBModel;
+			sourceTree = "<group>";
+		};
+		D562810C20477E6D00E58406 /* MBUserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				D562810E20477EB000E58406 /* MBUserDefaults.h */,
+				D562810F20477EB000E58406 /* MBUserDefaults.m */,
+				D56281112047862F00E58406 /* MBUserDefaultsMakeProperty.h */,
+			);
+			path = MBUserDefaults;
 			sourceTree = "<group>";
 		};
 		D59CB00220452F3500C6A464 /* MBGeneral */ = {
@@ -648,11 +666,13 @@
 		D5CFF0F920450E5A00D47917 /* MBAppKit */ = {
 			isa = PBXGroup;
 			children = (
+				D524251C2046E99400460DF5 /* AppImplementation */,
 				D54103DB20453CD000BE79E7 /* MBAPI */,
 				D5BA5524204648F300E4F335 /* MBApplicationDelegate */,
 				D59CB00220452F3500C6A464 /* MBGeneral */,
 				D5410403204572BA00BE79E7 /* MBModel */,
 				D5BA550B2046365F00E4F335 /* MBUser */,
+				D562810C20477E6D00E58406 /* MBUserDefaults */,
 				D54103EB2045492600BE79E7 /* MBWorker */,
 				D5CFF0FA20450E5A00D47917 /* MBAppKit.h */,
 				D5CFF0FB20450E5A00D47917 /* MBAppKit.m */,
@@ -1046,7 +1066,6 @@
 			isa = PBXGroup;
 			children = (
 				D5CFF5942045284F00D47917 /* libPods-MBAppKit.a */,
-				D5CFF5962045284F00D47917 /* libRFKit.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -1145,13 +1164,6 @@
 			remoteRef = D5CFF5932045284F00D47917 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		D5CFF5962045284F00D47917 /* libRFKit.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libRFKit.a;
-			remoteRef = D5CFF5952045284F00D47917 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 /* End PBXReferenceProxy section */
 
 /* Begin PBXShellScriptBuildPhase section */
@@ -1234,6 +1246,7 @@
 				D59CB01C20452F3500C6A464 /* MBGeneralViewUpdating.m in Sources */,
 				D541040A204572E500BE79E7 /* MBModel.m in Sources */,
 				D5BA55112046365F00E4F335 /* MBUser.m in Sources */,
+				D562811020477EB000E58406 /* MBUserDefaults.m in Sources */,
 				D54103F42045492600BE79E7 /* MBWorker.m in Sources */,
 				D54103F32045492600BE79E7 /* MBWorkerQueue.m in Sources */,
 				D5CFF4E420451EA300D47917 /* RFAnimationTransitioning.m in Sources */,
@@ -1379,7 +1392,6 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../Pods/Headers/Public\"/**";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -1430,7 +1442,6 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../Pods/Headers/Public\"/**";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -1448,7 +1459,6 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -1463,7 +1473,6 @@
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
