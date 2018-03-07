@@ -10,6 +10,7 @@
  
  JSONModel 封装，线程安全，工具等
  */
+#import "RFUI.h"
 #import "JSONModel.h"
 #import "MBGeneralType.h"
 
@@ -21,13 +22,14 @@
 @interface MBModel : JSONModel
 
 /// 用另一个模型更新当前模型（另一个模型的空字段不作为新数据）
-- (BOOL)mergeFromModel:(MBModel *)anotherModel;
+- (BOOL)mergeFromModel:(__kindof JSONModel *)anotherModel;
 
 @end
 
-
 /**
- 定义忽略规则
+ @define MBModelIgnoreProperties
+ 
+ 生成定义忽略规则
  
  如果属性已经用 <Ignore> 标记了，可以不定义在这里
  */
@@ -51,7 +53,8 @@
 
 
 /**
- KeyMapper
+ @define MBModelKeyMapper
+ 
  支持对父类KeyMapper的继承
  */
 #define MBModelKeyMapper(CLASS, ...)\
@@ -67,7 +70,8 @@
     }
 
 /**
- KeyMapper
+ @define MBModelKeyMpperForSnakeCase
+
  默认将下划线命名转化为驼峰命名
  不支持对父类KeyMapper的继承
  */
@@ -199,6 +203,10 @@ typedef NS_ENUM(int, MBModelSyncFlag) {
 
 /**
  前置引用语法糖
+ 
+ @code
+ @importModel(aModelClass)
+ @endcode
  */
 #define importModel(KIND)\
 class KIND; @protocol KIND;
