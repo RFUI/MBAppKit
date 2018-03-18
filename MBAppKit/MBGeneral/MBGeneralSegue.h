@@ -12,7 +12,24 @@
 #import "RFUI.h"
 
 /*!
+ UIViewController 基类的 prepareForSegue:sender: 方法已被重载为符合 MBGeneralItemExchanging、MBGeneralListItemExchanging 的通用实现。
  
+ 通用实现大概是：
+ 
+ * 如果 destinationViewController 通过 item 传值，依次从以下来源寻找 item 传递
+    1. source vc 的 itemForSegue:sender:
+    2. sender 的 item
+    3. sender 各级父 view（直到 vc 的 view）的 item
+    4. vc 的 item
+ 
+ * 如果 destinationViewController 通过 items 传值，依次从以下来源寻找 item 传递
+    1. sender 的 items
+    2. sender 各级父 view（直到 vc 的 view）的 items
+    3. vc 的 items
+ 
+ 如果默认实现传递的对象不符合业务，可以在业务 vc 中重写 prepareForSegue:sender: 或者 itemForSegue:sender: 方法。
+ 
+ 一般情况下，因为已有默认实现，MBSynthesize 宏可以不用了。
  */
 
 @protocol MBGeneralSegue <NSObject>
@@ -23,9 +40,6 @@
 @end
 
 @interface UIViewController (MBGeneralSegue)
-/// 伪实现，只用于代码补全
-- (nullable id)itemForSegue:(nonnull UIStoryboardSegue *)segue sender:(nullable id)sender;
-
 @end
 
 /**
