@@ -2,6 +2,7 @@
 #import "MBAPI.h"
 #import "MBGeneralCallback.h"
 #import "RFMessageManager+RFDisplay.h"
+#import "RFNetworkActivityIndicatorMessage.h"
 
 MBAPI *MBAPI_global_ = nil;
 
@@ -90,11 +91,11 @@ MBAPI *MBAPI_global_ = nil;
 #pragma mark - 状态提醒
 
 + (void)showSuccessStatus:(NSString *)message {
-    [self.global.networkActivityIndicatorManager showWithTitle:nil message:message status:RFNetworkActivityIndicatorStatusSuccess modal:NO priority:RFNetworkActivityIndicatorMessagePriorityHigh autoHideAfterTimeInterval:0 identifier:nil groupIdentifier:nil userInfo:nil];
+    [self.global.networkActivityIndicatorManager showWithTitle:nil message:message status:RFNetworkActivityIndicatorStatusSuccess modal:NO priority:RFMessageDisplayPriorityHigh autoHideAfterTimeInterval:0 identifier:nil groupIdentifier:nil userInfo:nil];
 }
 
 + (void)showErrorStatus:(NSString *)message {
-    [self.global.networkActivityIndicatorManager showWithTitle:nil message:message status:RFNetworkActivityIndicatorStatusFail modal:NO priority:RFNetworkActivityIndicatorMessagePriorityHigh autoHideAfterTimeInterval:0 identifier:nil groupIdentifier:nil userInfo:nil];
+    [self.global.networkActivityIndicatorManager showWithTitle:nil message:message status:RFNetworkActivityIndicatorStatusFail modal:NO priority:RFMessageDisplayPriorityHigh autoHideAfterTimeInterval:0 identifier:nil groupIdentifier:nil userInfo:nil];
 }
 
 + (void)alertError:(NSError *)error title:(NSString *)title {
