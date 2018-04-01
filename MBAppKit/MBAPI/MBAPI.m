@@ -88,20 +88,6 @@ MBAPI *MBAPI_global_ = nil;
     [self.global cancelOperationsWithGroupIdentifier:NSStringFromClass([viewController class])];
 }
 
-#pragma mark - 状态提醒
-
-+ (void)showSuccessStatus:(NSString *)message {
-    [self.global.networkActivityIndicatorManager showWithTitle:nil message:message status:RFNetworkActivityIndicatorStatusSuccess modal:NO priority:RFMessageDisplayPriorityHigh autoHideAfterTimeInterval:0 identifier:nil groupIdentifier:nil userInfo:nil];
-}
-
-+ (void)showErrorStatus:(NSString *)message {
-    [self.global.networkActivityIndicatorManager showWithTitle:nil message:message status:RFNetworkActivityIndicatorStatusFail modal:NO priority:RFMessageDisplayPriorityHigh autoHideAfterTimeInterval:0 identifier:nil groupIdentifier:nil userInfo:nil];
-}
-
-+ (void)alertError:(NSError *)error title:(NSString *)title {
-    [self.global.networkActivityIndicatorManager alertError:error title:title];
-}
-
 @end
 
 #import <objc/runtime.h>

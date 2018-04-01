@@ -119,23 +119,6 @@
  */
 + (void)cancelOperationsWithViewController:(nullable id)viewController;
 
-#pragma mark - 状态提醒
-
-/**
- 显示一个操作成功的信息，显示一段时间后自动隐藏
- */
-+ (void)showSuccessStatus:(nullable NSString *)message;
-
-/**
- 显示一个错误提醒，一段时间后自动隐藏
- */
-+ (void)showErrorStatus:(nullable NSString *)message;
-
-/**
- 显示一个操作失败的错误消息，显示一段时间后自动隐藏
- */
-+ (void)alertError:(nullable NSError *)error title:(nullable NSString *)title;
-
 @end
 
 
