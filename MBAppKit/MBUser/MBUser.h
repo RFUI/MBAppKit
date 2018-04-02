@@ -10,6 +10,10 @@
 #import "MBModel.h"
 #import "RFInitializing.h"
 
+#ifndef MBUserStringUID
+#   define MBUserStringUID 0
+#endif
+
 /**
  当前用户的管理模块
  
@@ -47,13 +51,23 @@ typedef void (^MBUserCurrentUserChangeCallback)(__kindof MBUser *__nullable curr
 
 #pragma mark - 状态
 
+#if MBUserStringUID
+- (nullable instancetype)initWithID:(nonnull MBIdentifier)uid NS_DESIGNATED_INITIALIZER;
+#else
 /**
  由 ID 创建用户对象，输入不大于 0 返回 nil
  */
 - (nullable instancetype)initWithID:(MBID)uid NS_DESIGNATED_INITIALIZER;
+#endif
+
+- (nullable instancetype)init NS_UNAVAILABLE;
 
 /// 用户 ID
+#if MBUserStringUID
+@property (nonnull, readonly) MBIdentifier uid;
+#else
 @property (readonly) MBID uid;
+#endif
 
 #pragma mark - 子类重写
 
