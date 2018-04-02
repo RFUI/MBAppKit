@@ -9,8 +9,7 @@
  Apache License, Version 2.0
  http://www.apache.org/licenses/LICENSE-2.0
  */
-
-#import "RFUI.h"
+#import "RFRuntime.h"
 
 /**
  标准视图间 model 交换协议

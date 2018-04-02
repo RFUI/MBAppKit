@@ -8,8 +8,7 @@
  Apache License, Version 2.0
  http://www.apache.org/licenses/LICENSE-2.0
  */
-#pragma once
-#import "RFUI.h"
+#import "RFRuntime.h"
 
 /*!
  UIViewController 基类的 prepareForSegue:sender: 方法已被重载为符合 MBGeneralItemExchanging、MBGeneralListItemExchanging 的通用实现。

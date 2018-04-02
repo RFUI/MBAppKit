@@ -7,8 +7,8 @@
  Apache License, Version 2.0
  http://www.apache.org/licenses/LICENSE-2.0
  */
-#import "RFUI.h"
 #import "MBModel.h"
+#import "RFInitializing.h"
 
 /**
  当前用户的管理模块

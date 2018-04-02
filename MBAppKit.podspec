@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'MBAppKit'
-  s.version  = '0.2.2'
+  s.version  = '0.3.0'
   s.author   = 'BB9z'
   s.license  = { :type => 'private', :text => 'Copyright © 2018 BB9z. All rights reserved.' }
   s.homepage = 'https://github.com/RFUI/MBAppKit'
@@ -12,11 +12,15 @@ Pod::Spec.new do |s|
   
   # s.vendored_frameworks = 'Output/*.framework'
   # s.vendored_libraries = 'Output/**/*.a'
+
+  s.dependency 'RFKit'
+  s.dependency 'AFNetworking/NSURLConnection', '~> 2.6'
+  s.dependency 'RFMessageManager/RFNetworkActivityIndicatorMessage', '~> 0.2'
+  s.dependency 'RFAPI', '~> 1.0'
+
+  s.pod_target_xcconfig = { 'HEADER_SEARCH_PATHS' => '"$(SRCROOT)/../Frameworks/RFUI/Alpha/**" "$(SRCROOT)/../MBAppKit/MBAppKit"' }
+  s.exclude_files = 'MBAppKit/shadow.h'
   s.source_files = [
-    'include/*.h',
-    'Pods/Headers/Public/**/*.h'
+    'MBAppKit/**/*.{h,m}'
   ]
-   s.resources = [
-     'Resources/*'
-   ]
 end

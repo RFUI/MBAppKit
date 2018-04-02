@@ -10,7 +10,7 @@
  
  JSONModel 封装，线程安全，工具等
  */
-#import "RFUI.h"
+#import "RFRuntime.h"
 #import "JSONModel.h"
 #import "MBGeneralType.h"
 

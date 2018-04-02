@@ -27,6 +27,3 @@ Pods/
 *.save
 ._*
 *.bak
-
-/include/
-/Resources/

@@ -47,140 +47,7 @@
 		D5BA552A2046491B00E4F335 /* MBApplicationDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D5BA55292046491B00E4F335 /* MBApplicationDelegate.m */; };
 		D5BA552D20465AF900E4F335 /* MBApplicationDelegate.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5BA55282046491B00E4F335 /* MBApplicationDelegate.h */; };
 		D5CFF0FC20450E5A00D47917 /* MBAppKit.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF0FB20450E5A00D47917 /* MBAppKit.m */; };
-		D5CFF14B2045114000D47917 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF10B2045113F00D47917 /* AFURLResponseSerialization.m */; };
-		D5CFF15B2045114000D47917 /* AFHTTPSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF1302045113F00D47917 /* AFHTTPSessionManager.m */; };
-		D5CFF15C2045114000D47917 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF1322045113F00D47917 /* AFURLConnectionOperation.m */; };
-		D5CFF15D2045114000D47917 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF1342045113F00D47917 /* AFURLSessionManager.m */; };
-		D5CFF15E2045114000D47917 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF1352045113F00D47917 /* AFHTTPRequestOperationManager.m */; };
-		D5CFF15F2045114000D47917 /* AFURLRequestSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF1362045113F00D47917 /* AFURLRequestSerialization.m */; };
-		D5CFF1602045114000D47917 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF1372045113F00D47917 /* AFHTTPRequestOperation.m */; };
-		D5CFF1612045114000D47917 /* AFNetworkReachabilityManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF1392045113F00D47917 /* AFNetworkReachabilityManager.m */; };
-		D5CFF1622045114000D47917 /* AFSecurityPolicy.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF13A2045113F00D47917 /* AFSecurityPolicy.m */; };
-		D5CFF30D20451B7000D47917 /* UITableView+RFTableViewCellHeight.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF30820451B7000D47917 /* UITableView+RFTableViewCellHeight.m */; };
-		D5CFF30E20451B7000D47917 /* RFTableViewCellHeightDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF30920451B7000D47917 /* RFTableViewCellHeightDelegate.m */; };
-		D5CFF32720451BBF00D47917 /* RFDelegateChain.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF31420451BBF00D47917 /* RFDelegateChain.m */; };
-		D5CFF32820451BBF00D47917 /* UITextFiledDelegateChain.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF31620451BBF00D47917 /* UITextFiledDelegateChain.m */; };
-		D5CFF32D20451BBF00D47917 /* UICollectionViewDelegateChain.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF31B20451BBF00D47917 /* UICollectionViewDelegateChain.m */; };
-		D5CFF32F20451BBF00D47917 /* UIScrollViewDelegateChain.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF31D20451BBF00D47917 /* UIScrollViewDelegateChain.m */; };
-		D5CFF33220451BBF00D47917 /* UICollectionViewDelegateFlowLayoutChain.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF32020451BBF00D47917 /* UICollectionViewDelegateFlowLayoutChain.m */; };
-		D5CFF33320451BBF00D47917 /* UIWebViewDelegateChain.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF32120451BBF00D47917 /* UIWebViewDelegateChain.m */; };
-		D5CFF33420451BBF00D47917 /* UISearchBarDelegateChain.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF32220451BBF00D47917 /* UISearchBarDelegateChain.m */; };
-		D5CFF33520451BBF00D47917 /* UITextViewDelegateChain.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF32320451BBF00D47917 /* UITextViewDelegateChain.m */; };
-		D5CFF33620451BBF00D47917 /* UICollectionViewDataSourceChain.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF32420451BBF00D47917 /* UICollectionViewDataSourceChain.m */; };
-		D5CFF43B20451BD400D47917 /* RFUI.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF3C720451BD400D47917 /* RFUI.m */; };
-		D5CFF43C20451BD400D47917 /* RFKeyboard.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF3C820451BD400D47917 /* RFKeyboard.m */; };
-		D5CFF43E20451C9B00D47917 /* UICollectionViewDataSourceChain.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF31C20451BBF00D47917 /* UICollectionViewDataSourceChain.h */; };
-		D5CFF43F20451C9B00D47917 /* UICollectionViewDelegateChain.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF31F20451BBF00D47917 /* UICollectionViewDelegateChain.h */; };
-		D5CFF44020451C9B00D47917 /* UICollectionViewDelegateFlowLayoutChain.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF31A20451BBF00D47917 /* UICollectionViewDelegateFlowLayoutChain.h */; };
-		D5CFF44120451C9B00D47917 /* UIScrollViewDelegateChain.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF32520451BBF00D47917 /* UIScrollViewDelegateChain.h */; };
-		D5CFF44220451C9B00D47917 /* UISearchBarDelegateChain.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF31820451BBF00D47917 /* UISearchBarDelegateChain.h */; };
-		D5CFF44320451C9B00D47917 /* UITextFiledDelegateChain.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF31E20451BBF00D47917 /* UITextFiledDelegateChain.h */; };
-		D5CFF44420451C9B00D47917 /* UITextViewDelegateChain.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF31720451BBF00D47917 /* UITextViewDelegateChain.h */; };
-		D5CFF44520451C9B00D47917 /* UIWebViewDelegateChain.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF31920451BBF00D47917 /* UIWebViewDelegateChain.h */; };
-		D5CFF44620451C9B00D47917 /* RFDelegateChain.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF32620451BBF00D47917 /* RFDelegateChain.h */; };
-		D5CFF44720451C9B00D47917 /* RFTableViewCellHeightDelegate.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF30B20451B7000D47917 /* RFTableViewCellHeightDelegate.h */; };
-		D5CFF44820451C9B00D47917 /* UITableView+RFTableViewCellHeight.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF30C20451B7000D47917 /* UITableView+RFTableViewCellHeight.h */; };
-		D5CFF44920451C9B00D47917 /* RFInitializing.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF3C120451BD400D47917 /* RFInitializing.h */; };
-		D5CFF44A20451C9B00D47917 /* RFKeyboard.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF3C020451BD400D47917 /* RFKeyboard.h */; };
-		D5CFF44B20451C9B00D47917 /* RFUI.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF3BE20451BD400D47917 /* RFUI.h */; };
-		D5CFF44C20451C9B00D47917 /* RFUIDebug.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF3C220451BD400D47917 /* RFUIDebug.h */; };
-		D5CFF44D20451C9B00D47917 /* RFUIInterfaceOrientationSupport.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF3C520451BD400D47917 /* RFUIInterfaceOrientationSupport.h */; };
 		D5CFF44E20451CBF00D47917 /* MBAppKit.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF0FA20450E5A00D47917 /* MBAppKit.h */; };
-		D5CFF45E20451D7F00D47917 /* RFAPIDefineManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF45920451D7F00D47917 /* RFAPIDefineManager.m */; };
-		D5CFF45F20451D7F00D47917 /* RFAPIDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF45A20451D7F00D47917 /* RFAPIDefine.m */; };
-		D5CFF46020451D7F00D47917 /* RFAPIDefineConfigFileKeys.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF45B20451D7F00D47917 /* RFAPIDefineConfigFileKeys.m */; };
-		D5CFF46120451D7F00D47917 /* RFAPICacheManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF45C20451D7F00D47917 /* RFAPICacheManager.m */; };
-		D5CFF46220451D7F00D47917 /* RFAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF45D20451D7F00D47917 /* RFAPI.m */; };
-		D5CFF46C20451DB100D47917 /* RFAsynchronousPushAsRootSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF46420451DB100D47917 /* RFAsynchronousPushAsRootSegue.m */; };
-		D5CFF46D20451DB100D47917 /* RFAsynchronousPushSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF46720451DB100D47917 /* RFAsynchronousPushSegue.m */; };
-		D5CFF46E20451DB100D47917 /* RFAsynchronousPresentSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF46920451DB100D47917 /* RFAsynchronousPresentSegue.m */; };
-		D5CFF46F20451DB100D47917 /* RFAsynchronousSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF46B20451DB100D47917 /* RFAsynchronousSegue.m */; };
-		D5CFF47320451DCD00D47917 /* RFBlockSelectorPerform.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF47220451DCC00D47917 /* RFBlockSelectorPerform.m */; };
-		D5CFF47920451DDD00D47917 /* RFButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF47720451DDD00D47917 /* RFButton.m */; };
-		D5CFF47A20451DDD00D47917 /* RFControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF47820451DDD00D47917 /* RFControl.m */; };
-		D5CFF47E20451DF900D47917 /* RFContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF47D20451DF800D47917 /* RFContainerView.m */; };
-		D5CFF48220451E0900D47917 /* RFDataSourceArray.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF48020451E0900D47917 /* RFDataSourceArray.m */; };
-		D5CFF48920451E1B00D47917 /* RFDrawImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF48520451E1B00D47917 /* RFDrawImage.m */; };
-		D5CFF48A20451E1B00D47917 /* RFKVOWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF48820451E1B00D47917 /* RFKVOWrapper.m */; };
-		D5CFF49820451E3200D47917 /* RFNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF48D20451E3200D47917 /* RFNavigationController.m */; };
-		D5CFF49920451E3200D47917 /* RFMessageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF49020451E3200D47917 /* RFMessageManager.m */; };
-		D5CFF49C20451E3200D47917 /* RFMessageManager+RFDisplay.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF49620451E3200D47917 /* RFMessageManager+RFDisplay.m */; };
-		D5CFF4A320451E7500D47917 /* RFSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF49F20451E7400D47917 /* RFSwizzle.m */; };
-		D5CFF4A420451E7500D47917 /* RFSynthesizeCategoryProperty.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF4A120451E7500D47917 /* RFSynthesizeCategoryProperty.m */; };
-		D5CFF4B320451E8F00D47917 /* RFTableViewAutoFetchDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF4A620451E8E00D47917 /* RFTableViewAutoFetchDataSource.m */; };
-		D5CFF4B420451E8F00D47917 /* UIScrollView+RFScrollViewContentDistance.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF4AA20451E8E00D47917 /* UIScrollView+RFScrollViewContentDistance.m */; };
-		D5CFF4B520451E8F00D47917 /* RFTableViewPullToFetchPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF4AB20451E8E00D47917 /* RFTableViewPullToFetchPlugin.m */; };
-		D5CFF4B620451E8F00D47917 /* RFPageTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF4AF20451E8F00D47917 /* RFPageTabController.m */; };
-		D5CFF4B720451E8F00D47917 /* RFTabController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF4B220451E8F00D47917 /* RFTabController.m */; };
-		D5CFF4DA20451EA300D47917 /* UIButton+RFResizableBackgroundImage.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF4BB20451EA200D47917 /* UIButton+RFResizableBackgroundImage.m */; };
-		D5CFF4DB20451EA300D47917 /* RFLine.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF4BF20451EA200D47917 /* RFLine.m */; };
-		D5CFF4DC20451EA300D47917 /* UIView+RFPatternImageBackground.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF4C020451EA300D47917 /* UIView+RFPatternImageBackground.m */; };
-		D5CFF4DD20451EA300D47917 /* RFDrawView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF4C120451EA300D47917 /* RFDrawView.m */; };
-		D5CFF4DE20451EA300D47917 /* RFRoundingCornersView.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF4C320451EA300D47917 /* RFRoundingCornersView.m */; };
-		D5CFF4DF20451EA300D47917 /* UIView+RFLayerApperance.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF4C420451EA300D47917 /* UIView+RFLayerApperance.m */; };
-		D5CFF4E020451EA300D47917 /* UIViewController+RFTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF4C820451EA300D47917 /* UIViewController+RFTransitioning.m */; };
-		D5CFF4E120451EA300D47917 /* RFNavigationPopInteractionController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF4C920451EA300D47917 /* RFNavigationPopInteractionController.m */; };
-		D5CFF4E220451EA300D47917 /* RFPullDownToPopInteractionController.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF4CB20451EA300D47917 /* RFPullDownToPopInteractionController.m */; };
-		D5CFF4E320451EA300D47917 /* RFNavigationControllerTransitionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF4CD20451EA300D47917 /* RFNavigationControllerTransitionDelegate.m */; };
-		D5CFF4E420451EA300D47917 /* RFAnimationTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF4CE20451EA300D47917 /* RFAnimationTransitioning.m */; };
-		D5CFF4E520451EA300D47917 /* RFMagicMoveTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF4D520451EA300D47917 /* RFMagicMoveTransitioning.m */; };
-		D5CFF4E620451EA300D47917 /* RFMoveInFromBottomTransitioning.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF4D620451EA300D47917 /* RFMoveInFromBottomTransitioning.m */; };
-		D5CFF4E720451EA300D47917 /* RFTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF4D820451EA300D47917 /* RFTimer.m */; };
-		D5CFF4E820451ECD00D47917 /* RFTimer.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF4D920451EA300D47917 /* RFTimer.h */; };
-		D5CFF4E920451ECD00D47917 /* RFNavigationControllerTransitionDelegate.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF4C620451EA300D47917 /* RFNavigationControllerTransitionDelegate.h */; };
-		D5CFF4EA20451ECD00D47917 /* RFAnimationTransitioning.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF4C720451EA300D47917 /* RFAnimationTransitioning.h */; };
-		D5CFF4EB20451ECD00D47917 /* RFPullDownToPopInteractionController.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF4CC20451EA300D47917 /* RFPullDownToPopInteractionController.h */; };
-		D5CFF4EC20451ECD00D47917 /* RFNavigationPopInteractionController.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF4CF20451EA300D47917 /* RFNavigationPopInteractionController.h */; };
-		D5CFF4ED20451ECD00D47917 /* UIViewController+RFTransitioning.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF4D020451EA300D47917 /* UIViewController+RFTransitioning.h */; };
-		D5CFF4EE20451ECD00D47917 /* RFMagicMoveTransitioning.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF4D220451EA300D47917 /* RFMagicMoveTransitioning.h */; };
-		D5CFF4EF20451ECD00D47917 /* RFMoveInFromBottomTransitioning.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF4D320451EA300D47917 /* RFMoveInFromBottomTransitioning.h */; };
-		D5CFF4F020451ECD00D47917 /* RFTransitioningStyel.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF4D420451EA300D47917 /* RFTransitioningStyel.h */; };
-		D5CFF4F120451ECD00D47917 /* RFLine.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF4B920451EA200D47917 /* RFLine.h */; };
-		D5CFF4F220451ECD00D47917 /* UIView+RFPatternImageBackground.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF4BA20451EA200D47917 /* UIView+RFPatternImageBackground.h */; };
-		D5CFF4F320451ECD00D47917 /* RFDrawView.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF4BC20451EA200D47917 /* RFDrawView.h */; };
-		D5CFF4F420451ECD00D47917 /* UIView+RFLayerApperance.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF4BD20451EA200D47917 /* UIView+RFLayerApperance.h */; };
-		D5CFF4F520451ECD00D47917 /* RFRoundingCornersView.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF4BE20451EA200D47917 /* RFRoundingCornersView.h */; };
-		D5CFF4F620451ECD00D47917 /* UIButton+RFResizableBackgroundImage.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF4C220451EA300D47917 /* UIButton+RFResizableBackgroundImage.h */; };
-		D5CFF4F720451ECD00D47917 /* RFTabController.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF4B020451E8F00D47917 /* RFTabController.h */; };
-		D5CFF4F820451ECD00D47917 /* RFPageTabController.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF4B120451E8F00D47917 /* RFPageTabController.h */; };
-		D5CFF4F920451ECD00D47917 /* RFTableViewAutoFetchDataSource.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF4A820451E8E00D47917 /* RFTableViewAutoFetchDataSource.h */; };
-		D5CFF4FA20451ECD00D47917 /* UIScrollView+RFScrollViewContentDistance.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF4AC20451E8E00D47917 /* UIScrollView+RFScrollViewContentDistance.h */; };
-		D5CFF4FB20451ECD00D47917 /* RFTableViewPullToFetchPlugin.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF4AD20451E8E00D47917 /* RFTableViewPullToFetchPlugin.h */; };
-		D5CFF4FC20451ECD00D47917 /* RFSwizzle.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF49E20451E7400D47917 /* RFSwizzle.h */; };
-		D5CFF4FD20451ECD00D47917 /* RFSynthesizeCategoryProperty.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF4A220451E7500D47917 /* RFSynthesizeCategoryProperty.h */; };
-		D5CFF4FE20451ECD00D47917 /* RFMessageManager+RFDisplay.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF48F20451E3200D47917 /* RFMessageManager+RFDisplay.h */; };
-		D5CFF50020451ECD00D47917 /* RFMessageManager.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF49720451E3200D47917 /* RFMessageManager.h */; };
-		D5CFF50120451ECD00D47917 /* RFNavigationController.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF48C20451E3200D47917 /* RFNavigationController.h */; };
-		D5CFF50220451ECD00D47917 /* RFDrawImage.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF48420451E1B00D47917 /* RFDrawImage.h */; };
-		D5CFF50320451ECD00D47917 /* RFKVOWrapper.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF48720451E1B00D47917 /* RFKVOWrapper.h */; };
-		D5CFF50420451ECD00D47917 /* RFDataSourceArray.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF48120451E0900D47917 /* RFDataSourceArray.h */; };
-		D5CFF50520451ECD00D47917 /* RFContainerView.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF47C20451DF800D47917 /* RFContainerView.h */; };
-		D5CFF50620451ECD00D47917 /* RFButton.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF47520451DDD00D47917 /* RFButton.h */; };
-		D5CFF50720451ECD00D47917 /* RFControl.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF47620451DDD00D47917 /* RFControl.h */; };
-		D5CFF50820451ECD00D47917 /* RFBlockSelectorPerform.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF47120451DCC00D47917 /* RFBlockSelectorPerform.h */; };
-		D5CFF50920451ECD00D47917 /* RFAsynchronousPresentSegue.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF46520451DB100D47917 /* RFAsynchronousPresentSegue.h */; };
-		D5CFF50A20451ECD00D47917 /* RFAsynchronousSegue.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF46620451DB100D47917 /* RFAsynchronousSegue.h */; };
-		D5CFF50B20451ECD00D47917 /* RFAsynchronousPushAsRootSegue.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF46820451DB100D47917 /* RFAsynchronousPushAsRootSegue.h */; };
-		D5CFF50C20451ECD00D47917 /* RFAsynchronousPushSegue.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF46A20451DB100D47917 /* RFAsynchronousPushSegue.h */; };
-		D5CFF50D20451ECD00D47917 /* RFAPI.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF45320451D7F00D47917 /* RFAPI.h */; };
-		D5CFF50E20451ECD00D47917 /* RFAPICacheManager.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF45420451D7F00D47917 /* RFAPICacheManager.h */; };
-		D5CFF50F20451ECD00D47917 /* RFAPIDefine.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF45620451D7F00D47917 /* RFAPIDefine.h */; };
-		D5CFF51020451ECD00D47917 /* RFAPIDefineManager.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF45720451D7F00D47917 /* RFAPIDefineManager.h */; };
-		D5CFF51120451ECD00D47917 /* RFAPIDefineConfigFileKeys.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF45820451D7F00D47917 /* RFAPIDefineConfigFileKeys.h */; };
-		D5CFF565204522DF00D47917 /* AFHTTPRequestOperation.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF1062045113F00D47917 /* AFHTTPRequestOperation.h */; };
-		D5CFF566204522DF00D47917 /* AFHTTPRequestOperationManager.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF1072045113F00D47917 /* AFHTTPRequestOperationManager.h */; };
-		D5CFF567204522DF00D47917 /* AFHTTPSessionManager.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF14A2045113F00D47917 /* AFHTTPSessionManager.h */; };
-		D5CFF568204522DF00D47917 /* AFNetworking.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF1382045113F00D47917 /* AFNetworking.h */; };
-		D5CFF569204522DF00D47917 /* AFNetworkReachabilityManager.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF1052045113F00D47917 /* AFNetworkReachabilityManager.h */; };
-		D5CFF56A204522DF00D47917 /* AFSecurityPolicy.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF1042045113F00D47917 /* AFSecurityPolicy.h */; };
-		D5CFF56B204522DF00D47917 /* AFURLConnectionOperation.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF10A2045113F00D47917 /* AFURLConnectionOperation.h */; };
-		D5CFF56C204522DF00D47917 /* AFURLRequestSerialization.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF1092045113F00D47917 /* AFURLRequestSerialization.h */; };
-		D5CFF56D204522DF00D47917 /* AFURLResponseSerialization.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF1332045113F00D47917 /* AFURLResponseSerialization.h */; };
-		D5CFF56E204522DF00D47917 /* AFURLSessionManager.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF1082045113F00D47917 /* AFURLSessionManager.h */; };
-		D5CFF584204524D700D47917 /* RFRefreshControl.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF583204524D600D47917 /* RFRefreshControl.m */; };
-		D5CFF585204524E500D47917 /* RFRefreshControl.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF582204524D600D47917 /* RFRefreshControl.h */; };
-		D5CFF5892045253300D47917 /* RFRefreshButton.m in Sources */ = {isa = PBXBuildFile; fileRef = D5CFF5872045253300D47917 /* RFRefreshButton.m */; };
-		D5CFF58A2045253E00D47917 /* RFRefreshButton.h in Copy Headers to Include */ = {isa = PBXBuildFile; fileRef = D5CFF5882045253300D47917 /* RFRefreshButton.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -207,16 +74,6 @@
 			dstPath = "$(PROJECT_DIR)/include";
 			dstSubfolderSpec = 0;
 			files = (
-				D5CFF565204522DF00D47917 /* AFHTTPRequestOperation.h in Copy Headers to Include */,
-				D5CFF566204522DF00D47917 /* AFHTTPRequestOperationManager.h in Copy Headers to Include */,
-				D5CFF567204522DF00D47917 /* AFHTTPSessionManager.h in Copy Headers to Include */,
-				D5CFF568204522DF00D47917 /* AFNetworking.h in Copy Headers to Include */,
-				D5CFF569204522DF00D47917 /* AFNetworkReachabilityManager.h in Copy Headers to Include */,
-				D5CFF56A204522DF00D47917 /* AFSecurityPolicy.h in Copy Headers to Include */,
-				D5CFF56B204522DF00D47917 /* AFURLConnectionOperation.h in Copy Headers to Include */,
-				D5CFF56C204522DF00D47917 /* AFURLRequestSerialization.h in Copy Headers to Include */,
-				D5CFF56D204522DF00D47917 /* AFURLResponseSerialization.h in Copy Headers to Include */,
-				D5CFF56E204522DF00D47917 /* AFURLSessionManager.h in Copy Headers to Include */,
 				D54103E320453EC800BE79E7 /* MBAPI.h in Copy Headers to Include */,
 				D5CFF44E20451CBF00D47917 /* MBAppKit.h in Copy Headers to Include */,
 				D5BA552D20465AF900E4F335 /* MBApplicationDelegate.h in Copy Headers to Include */,
@@ -239,65 +96,6 @@
 				D562811320478FB700E58406 /* MBUserDefaultsMakeProperty.h in Copy Headers to Include */,
 				D5410412204575DE00BE79E7 /* MBWorker.h in Copy Headers to Include */,
 				D5410413204575DE00BE79E7 /* MBWorkerQueue.h in Copy Headers to Include */,
-				D5CFF4EA20451ECD00D47917 /* RFAnimationTransitioning.h in Copy Headers to Include */,
-				D5CFF50D20451ECD00D47917 /* RFAPI.h in Copy Headers to Include */,
-				D5CFF50E20451ECD00D47917 /* RFAPICacheManager.h in Copy Headers to Include */,
-				D5CFF50F20451ECD00D47917 /* RFAPIDefine.h in Copy Headers to Include */,
-				D5CFF51120451ECD00D47917 /* RFAPIDefineConfigFileKeys.h in Copy Headers to Include */,
-				D5CFF51020451ECD00D47917 /* RFAPIDefineManager.h in Copy Headers to Include */,
-				D5CFF50920451ECD00D47917 /* RFAsynchronousPresentSegue.h in Copy Headers to Include */,
-				D5CFF50B20451ECD00D47917 /* RFAsynchronousPushAsRootSegue.h in Copy Headers to Include */,
-				D5CFF50C20451ECD00D47917 /* RFAsynchronousPushSegue.h in Copy Headers to Include */,
-				D5CFF50A20451ECD00D47917 /* RFAsynchronousSegue.h in Copy Headers to Include */,
-				D5CFF50820451ECD00D47917 /* RFBlockSelectorPerform.h in Copy Headers to Include */,
-				D5CFF50620451ECD00D47917 /* RFButton.h in Copy Headers to Include */,
-				D5CFF50520451ECD00D47917 /* RFContainerView.h in Copy Headers to Include */,
-				D5CFF50720451ECD00D47917 /* RFControl.h in Copy Headers to Include */,
-				D5CFF50420451ECD00D47917 /* RFDataSourceArray.h in Copy Headers to Include */,
-				D5CFF44620451C9B00D47917 /* RFDelegateChain.h in Copy Headers to Include */,
-				D5CFF50220451ECD00D47917 /* RFDrawImage.h in Copy Headers to Include */,
-				D5CFF4F320451ECD00D47917 /* RFDrawView.h in Copy Headers to Include */,
-				D5CFF44920451C9B00D47917 /* RFInitializing.h in Copy Headers to Include */,
-				D5CFF44A20451C9B00D47917 /* RFKeyboard.h in Copy Headers to Include */,
-				D5CFF50320451ECD00D47917 /* RFKVOWrapper.h in Copy Headers to Include */,
-				D5CFF4F120451ECD00D47917 /* RFLine.h in Copy Headers to Include */,
-				D5CFF4EE20451ECD00D47917 /* RFMagicMoveTransitioning.h in Copy Headers to Include */,
-				D5CFF4FE20451ECD00D47917 /* RFMessageManager+RFDisplay.h in Copy Headers to Include */,
-				D5CFF50020451ECD00D47917 /* RFMessageManager.h in Copy Headers to Include */,
-				D5CFF4EF20451ECD00D47917 /* RFMoveInFromBottomTransitioning.h in Copy Headers to Include */,
-				D5CFF50120451ECD00D47917 /* RFNavigationController.h in Copy Headers to Include */,
-				D5CFF4E920451ECD00D47917 /* RFNavigationControllerTransitionDelegate.h in Copy Headers to Include */,
-				D5CFF4EC20451ECD00D47917 /* RFNavigationPopInteractionController.h in Copy Headers to Include */,
-				D5CFF4F820451ECD00D47917 /* RFPageTabController.h in Copy Headers to Include */,
-				D5CFF4EB20451ECD00D47917 /* RFPullDownToPopInteractionController.h in Copy Headers to Include */,
-				D5CFF58A2045253E00D47917 /* RFRefreshButton.h in Copy Headers to Include */,
-				D5CFF585204524E500D47917 /* RFRefreshControl.h in Copy Headers to Include */,
-				D5CFF4F520451ECD00D47917 /* RFRoundingCornersView.h in Copy Headers to Include */,
-				D5CFF4FC20451ECD00D47917 /* RFSwizzle.h in Copy Headers to Include */,
-				D5CFF4FD20451ECD00D47917 /* RFSynthesizeCategoryProperty.h in Copy Headers to Include */,
-				D5CFF4F720451ECD00D47917 /* RFTabController.h in Copy Headers to Include */,
-				D5CFF4F920451ECD00D47917 /* RFTableViewAutoFetchDataSource.h in Copy Headers to Include */,
-				D5CFF44720451C9B00D47917 /* RFTableViewCellHeightDelegate.h in Copy Headers to Include */,
-				D5CFF4FB20451ECD00D47917 /* RFTableViewPullToFetchPlugin.h in Copy Headers to Include */,
-				D5CFF4E820451ECD00D47917 /* RFTimer.h in Copy Headers to Include */,
-				D5CFF4F020451ECD00D47917 /* RFTransitioningStyel.h in Copy Headers to Include */,
-				D5CFF44B20451C9B00D47917 /* RFUI.h in Copy Headers to Include */,
-				D5CFF44C20451C9B00D47917 /* RFUIDebug.h in Copy Headers to Include */,
-				D5CFF44D20451C9B00D47917 /* RFUIInterfaceOrientationSupport.h in Copy Headers to Include */,
-				D5CFF4F620451ECD00D47917 /* UIButton+RFResizableBackgroundImage.h in Copy Headers to Include */,
-				D5CFF43E20451C9B00D47917 /* UICollectionViewDataSourceChain.h in Copy Headers to Include */,
-				D5CFF43F20451C9B00D47917 /* UICollectionViewDelegateChain.h in Copy Headers to Include */,
-				D5CFF44020451C9B00D47917 /* UICollectionViewDelegateFlowLayoutChain.h in Copy Headers to Include */,
-				D5CFF4FA20451ECD00D47917 /* UIScrollView+RFScrollViewContentDistance.h in Copy Headers to Include */,
-				D5CFF44120451C9B00D47917 /* UIScrollViewDelegateChain.h in Copy Headers to Include */,
-				D5CFF44220451C9B00D47917 /* UISearchBarDelegateChain.h in Copy Headers to Include */,
-				D5CFF44820451C9B00D47917 /* UITableView+RFTableViewCellHeight.h in Copy Headers to Include */,
-				D5CFF44320451C9B00D47917 /* UITextFiledDelegateChain.h in Copy Headers to Include */,
-				D5CFF44420451C9B00D47917 /* UITextViewDelegateChain.h in Copy Headers to Include */,
-				D5CFF4F420451ECD00D47917 /* UIView+RFLayerApperance.h in Copy Headers to Include */,
-				D5CFF4F220451ECD00D47917 /* UIView+RFPatternImageBackground.h in Copy Headers to Include */,
-				D5CFF4ED20451ECD00D47917 /* UIViewController+RFTransitioning.h in Copy Headers to Include */,
-				D5CFF44520451C9B00D47917 /* UIWebViewDelegateChain.h in Copy Headers to Include */,
 			);
 			name = "Copy Headers to Include";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -317,7 +115,6 @@
 /* Begin PBXFileReference section */
 		3A2C97CA9A73633ED07A548F /* libPods-MBAppKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MBAppKit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4FEB880DEA47F3ECACDD291 /* Pods-MBAppKit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MBAppKit.release.xcconfig"; path = "Pods/Target Support Files/Pods-MBAppKit/Pods-MBAppKit.release.xcconfig"; sourceTree = "<group>"; };
-		D54103CD204531B800BE79E7 /* refresh.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = refresh.sh; sourceTree = "<group>"; };
 		D54103DF20453CEA00BE79E7 /* MBAPI.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBAPI.h; sourceTree = "<group>"; };
 		D54103E020453CEA00BE79E7 /* MBAPI.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBAPI.m; sourceTree = "<group>"; };
 		D54103EC2045492600BE79E7 /* MBWorkerQueue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBWorkerQueue.m; sourceTree = "<group>"; };
@@ -363,152 +160,7 @@
 		D5CFF0F720450E5A00D47917 /* libMBAppKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMBAppKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5CFF0FA20450E5A00D47917 /* MBAppKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MBAppKit.h; sourceTree = "<group>"; };
 		D5CFF0FB20450E5A00D47917 /* MBAppKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MBAppKit.m; sourceTree = "<group>"; };
-		D5CFF1042045113F00D47917 /* AFSecurityPolicy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSecurityPolicy.h; sourceTree = "<group>"; };
-		D5CFF1052045113F00D47917 /* AFNetworkReachabilityManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworkReachabilityManager.h; sourceTree = "<group>"; };
-		D5CFF1062045113F00D47917 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
-		D5CFF1072045113F00D47917 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
-		D5CFF1082045113F00D47917 /* AFURLSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLSessionManager.h; sourceTree = "<group>"; };
-		D5CFF1092045113F00D47917 /* AFURLRequestSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLRequestSerialization.h; sourceTree = "<group>"; };
-		D5CFF10A2045113F00D47917 /* AFURLConnectionOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLConnectionOperation.h; sourceTree = "<group>"; };
-		D5CFF10B2045113F00D47917 /* AFURLResponseSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLResponseSerialization.m; sourceTree = "<group>"; };
-		D5CFF1302045113F00D47917 /* AFHTTPSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPSessionManager.m; sourceTree = "<group>"; };
-		D5CFF1322045113F00D47917 /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = "<group>"; };
-		D5CFF1332045113F00D47917 /* AFURLResponseSerialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFURLResponseSerialization.h; sourceTree = "<group>"; };
-		D5CFF1342045113F00D47917 /* AFURLSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLSessionManager.m; sourceTree = "<group>"; };
-		D5CFF1352045113F00D47917 /* AFHTTPRequestOperationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperationManager.m; sourceTree = "<group>"; };
-		D5CFF1362045113F00D47917 /* AFURLRequestSerialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLRequestSerialization.m; sourceTree = "<group>"; };
-		D5CFF1372045113F00D47917 /* AFHTTPRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFHTTPRequestOperation.m; sourceTree = "<group>"; };
-		D5CFF1382045113F00D47917 /* AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFNetworking.h; sourceTree = "<group>"; };
-		D5CFF1392045113F00D47917 /* AFNetworkReachabilityManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFNetworkReachabilityManager.m; sourceTree = "<group>"; };
-		D5CFF13A2045113F00D47917 /* AFSecurityPolicy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSecurityPolicy.m; sourceTree = "<group>"; };
-		D5CFF14A2045113F00D47917 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
-		D5CFF16C204518FA00D47917 /* build_xib.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build_xib.sh; sourceTree = "<group>"; };
-		D5CFF16D204518FA00D47917 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
-		D5CFF16E204518FA00D47917 /* clean_output.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = clean_output.sh; sourceTree = "<group>"; };
-		D5CFF16F204518FA00D47917 /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
-		D5CFF170204518FA00D47917 /* build_universal.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build_universal.sh; sourceTree = "<group>"; };
-		D5CFF171204518FA00D47917 /* clean.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = clean.sh; sourceTree = "<group>"; };
-		D5CFF172204518FA00D47917 /* build_storyboard.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build_storyboard.sh; sourceTree = "<group>"; };
-		D5CFF173204518FA00D47917 /* build_combine.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = build_combine.sh; sourceTree = "<group>"; };
-		D5CFF30820451B7000D47917 /* UITableView+RFTableViewCellHeight.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+RFTableViewCellHeight.m"; sourceTree = "<group>"; };
-		D5CFF30920451B7000D47917 /* RFTableViewCellHeightDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFTableViewCellHeightDelegate.m; sourceTree = "<group>"; };
-		D5CFF30A20451B7000D47917 /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
-		D5CFF30B20451B7000D47917 /* RFTableViewCellHeightDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFTableViewCellHeightDelegate.h; sourceTree = "<group>"; };
-		D5CFF30C20451B7000D47917 /* UITableView+RFTableViewCellHeight.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+RFTableViewCellHeight.h"; sourceTree = "<group>"; };
-		D5CFF31420451BBF00D47917 /* RFDelegateChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFDelegateChain.m; sourceTree = "<group>"; };
-		D5CFF31620451BBF00D47917 /* UITextFiledDelegateChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextFiledDelegateChain.m; sourceTree = "<group>"; };
-		D5CFF31720451BBF00D47917 /* UITextViewDelegateChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextViewDelegateChain.h; sourceTree = "<group>"; };
-		D5CFF31820451BBF00D47917 /* UISearchBarDelegateChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UISearchBarDelegateChain.h; sourceTree = "<group>"; };
-		D5CFF31920451BBF00D47917 /* UIWebViewDelegateChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIWebViewDelegateChain.h; sourceTree = "<group>"; };
-		D5CFF31A20451BBF00D47917 /* UICollectionViewDelegateFlowLayoutChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewDelegateFlowLayoutChain.h; sourceTree = "<group>"; };
-		D5CFF31B20451BBF00D47917 /* UICollectionViewDelegateChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewDelegateChain.m; sourceTree = "<group>"; };
-		D5CFF31C20451BBF00D47917 /* UICollectionViewDataSourceChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewDataSourceChain.h; sourceTree = "<group>"; };
-		D5CFF31D20451BBF00D47917 /* UIScrollViewDelegateChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIScrollViewDelegateChain.m; sourceTree = "<group>"; };
-		D5CFF31E20451BBF00D47917 /* UITextFiledDelegateChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITextFiledDelegateChain.h; sourceTree = "<group>"; };
-		D5CFF31F20451BBF00D47917 /* UICollectionViewDelegateChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICollectionViewDelegateChain.h; sourceTree = "<group>"; };
-		D5CFF32020451BBF00D47917 /* UICollectionViewDelegateFlowLayoutChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewDelegateFlowLayoutChain.m; sourceTree = "<group>"; };
-		D5CFF32120451BBF00D47917 /* UIWebViewDelegateChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIWebViewDelegateChain.m; sourceTree = "<group>"; };
-		D5CFF32220451BBF00D47917 /* UISearchBarDelegateChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UISearchBarDelegateChain.m; sourceTree = "<group>"; };
-		D5CFF32320451BBF00D47917 /* UITextViewDelegateChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UITextViewDelegateChain.m; sourceTree = "<group>"; };
-		D5CFF32420451BBF00D47917 /* UICollectionViewDataSourceChain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UICollectionViewDataSourceChain.m; sourceTree = "<group>"; };
-		D5CFF32520451BBF00D47917 /* UIScrollViewDelegateChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIScrollViewDelegateChain.h; sourceTree = "<group>"; };
-		D5CFF32620451BBF00D47917 /* RFDelegateChain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFDelegateChain.h; sourceTree = "<group>"; };
-		D5CFF3BE20451BD400D47917 /* RFUI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFUI.h; sourceTree = "<group>"; };
-		D5CFF3C020451BD400D47917 /* RFKeyboard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFKeyboard.h; sourceTree = "<group>"; };
-		D5CFF3C120451BD400D47917 /* RFInitializing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFInitializing.h; sourceTree = "<group>"; };
-		D5CFF3C220451BD400D47917 /* RFUIDebug.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFUIDebug.h; sourceTree = "<group>"; };
-		D5CFF3C520451BD400D47917 /* RFUIInterfaceOrientationSupport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFUIInterfaceOrientationSupport.h; sourceTree = "<group>"; };
-		D5CFF3C720451BD400D47917 /* RFUI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFUI.m; sourceTree = "<group>"; };
-		D5CFF3C820451BD400D47917 /* RFKeyboard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFKeyboard.m; sourceTree = "<group>"; };
-		D5CFF45120451D7F00D47917 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/RFAPI.strings"; sourceTree = "<group>"; };
-		D5CFF45220451D7F00D47917 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/RFAPI.strings; sourceTree = "<group>"; };
-		D5CFF45320451D7F00D47917 /* RFAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFAPI.h; sourceTree = "<group>"; };
-		D5CFF45420451D7F00D47917 /* RFAPICacheManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFAPICacheManager.h; sourceTree = "<group>"; };
-		D5CFF45620451D7F00D47917 /* RFAPIDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFAPIDefine.h; sourceTree = "<group>"; };
-		D5CFF45720451D7F00D47917 /* RFAPIDefineManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFAPIDefineManager.h; sourceTree = "<group>"; };
-		D5CFF45820451D7F00D47917 /* RFAPIDefineConfigFileKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFAPIDefineConfigFileKeys.h; sourceTree = "<group>"; };
-		D5CFF45920451D7F00D47917 /* RFAPIDefineManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFAPIDefineManager.m; sourceTree = "<group>"; };
-		D5CFF45A20451D7F00D47917 /* RFAPIDefine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFAPIDefine.m; sourceTree = "<group>"; };
-		D5CFF45B20451D7F00D47917 /* RFAPIDefineConfigFileKeys.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFAPIDefineConfigFileKeys.m; sourceTree = "<group>"; };
-		D5CFF45C20451D7F00D47917 /* RFAPICacheManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFAPICacheManager.m; sourceTree = "<group>"; };
-		D5CFF45D20451D7F00D47917 /* RFAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFAPI.m; sourceTree = "<group>"; };
-		D5CFF46420451DB100D47917 /* RFAsynchronousPushAsRootSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFAsynchronousPushAsRootSegue.m; sourceTree = "<group>"; };
-		D5CFF46520451DB100D47917 /* RFAsynchronousPresentSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFAsynchronousPresentSegue.h; sourceTree = "<group>"; };
-		D5CFF46620451DB100D47917 /* RFAsynchronousSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFAsynchronousSegue.h; sourceTree = "<group>"; };
-		D5CFF46720451DB100D47917 /* RFAsynchronousPushSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFAsynchronousPushSegue.m; sourceTree = "<group>"; };
-		D5CFF46820451DB100D47917 /* RFAsynchronousPushAsRootSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFAsynchronousPushAsRootSegue.h; sourceTree = "<group>"; };
-		D5CFF46920451DB100D47917 /* RFAsynchronousPresentSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFAsynchronousPresentSegue.m; sourceTree = "<group>"; };
-		D5CFF46A20451DB100D47917 /* RFAsynchronousPushSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFAsynchronousPushSegue.h; sourceTree = "<group>"; };
-		D5CFF46B20451DB100D47917 /* RFAsynchronousSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFAsynchronousSegue.m; sourceTree = "<group>"; };
-		D5CFF47120451DCC00D47917 /* RFBlockSelectorPerform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFBlockSelectorPerform.h; sourceTree = "<group>"; };
-		D5CFF47220451DCC00D47917 /* RFBlockSelectorPerform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFBlockSelectorPerform.m; sourceTree = "<group>"; };
-		D5CFF47520451DDD00D47917 /* RFButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFButton.h; sourceTree = "<group>"; };
-		D5CFF47620451DDD00D47917 /* RFControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFControl.h; sourceTree = "<group>"; };
-		D5CFF47720451DDD00D47917 /* RFButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFButton.m; sourceTree = "<group>"; };
-		D5CFF47820451DDD00D47917 /* RFControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFControl.m; sourceTree = "<group>"; };
-		D5CFF47C20451DF800D47917 /* RFContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFContainerView.h; sourceTree = "<group>"; };
-		D5CFF47D20451DF800D47917 /* RFContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFContainerView.m; sourceTree = "<group>"; };
-		D5CFF48020451E0900D47917 /* RFDataSourceArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFDataSourceArray.m; sourceTree = "<group>"; };
-		D5CFF48120451E0900D47917 /* RFDataSourceArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFDataSourceArray.h; sourceTree = "<group>"; };
-		D5CFF48420451E1B00D47917 /* RFDrawImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFDrawImage.h; sourceTree = "<group>"; };
-		D5CFF48520451E1B00D47917 /* RFDrawImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFDrawImage.m; sourceTree = "<group>"; };
-		D5CFF48720451E1B00D47917 /* RFKVOWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFKVOWrapper.h; sourceTree = "<group>"; };
-		D5CFF48820451E1B00D47917 /* RFKVOWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFKVOWrapper.m; sourceTree = "<group>"; };
-		D5CFF48C20451E3200D47917 /* RFNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFNavigationController.h; sourceTree = "<group>"; };
-		D5CFF48D20451E3200D47917 /* RFNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFNavigationController.m; sourceTree = "<group>"; };
-		D5CFF48F20451E3200D47917 /* RFMessageManager+RFDisplay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "RFMessageManager+RFDisplay.h"; sourceTree = "<group>"; };
-		D5CFF49020451E3200D47917 /* RFMessageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFMessageManager.m; sourceTree = "<group>"; };
-		D5CFF49620451E3200D47917 /* RFMessageManager+RFDisplay.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "RFMessageManager+RFDisplay.m"; sourceTree = "<group>"; };
-		D5CFF49720451E3200D47917 /* RFMessageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFMessageManager.h; sourceTree = "<group>"; };
-		D5CFF49E20451E7400D47917 /* RFSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFSwizzle.h; sourceTree = "<group>"; };
-		D5CFF49F20451E7400D47917 /* RFSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFSwizzle.m; sourceTree = "<group>"; };
-		D5CFF4A120451E7500D47917 /* RFSynthesizeCategoryProperty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFSynthesizeCategoryProperty.m; sourceTree = "<group>"; };
-		D5CFF4A220451E7500D47917 /* RFSynthesizeCategoryProperty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFSynthesizeCategoryProperty.h; sourceTree = "<group>"; };
-		D5CFF4A620451E8E00D47917 /* RFTableViewAutoFetchDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFTableViewAutoFetchDataSource.m; sourceTree = "<group>"; };
-		D5CFF4A720451E8E00D47917 /* Readme.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
-		D5CFF4A820451E8E00D47917 /* RFTableViewAutoFetchDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFTableViewAutoFetchDataSource.h; sourceTree = "<group>"; };
-		D5CFF4AA20451E8E00D47917 /* UIScrollView+RFScrollViewContentDistance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+RFScrollViewContentDistance.m"; sourceTree = "<group>"; };
-		D5CFF4AB20451E8E00D47917 /* RFTableViewPullToFetchPlugin.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFTableViewPullToFetchPlugin.m; sourceTree = "<group>"; };
-		D5CFF4AC20451E8E00D47917 /* UIScrollView+RFScrollViewContentDistance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+RFScrollViewContentDistance.h"; sourceTree = "<group>"; };
-		D5CFF4AD20451E8E00D47917 /* RFTableViewPullToFetchPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFTableViewPullToFetchPlugin.h; sourceTree = "<group>"; };
-		D5CFF4AF20451E8F00D47917 /* RFPageTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFPageTabController.m; sourceTree = "<group>"; };
-		D5CFF4B020451E8F00D47917 /* RFTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFTabController.h; sourceTree = "<group>"; };
-		D5CFF4B120451E8F00D47917 /* RFPageTabController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFPageTabController.h; sourceTree = "<group>"; };
-		D5CFF4B220451E8F00D47917 /* RFTabController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFTabController.m; sourceTree = "<group>"; };
-		D5CFF4B920451EA200D47917 /* RFLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFLine.h; sourceTree = "<group>"; };
-		D5CFF4BA20451EA200D47917 /* UIView+RFPatternImageBackground.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RFPatternImageBackground.h"; sourceTree = "<group>"; };
-		D5CFF4BB20451EA200D47917 /* UIButton+RFResizableBackgroundImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+RFResizableBackgroundImage.m"; sourceTree = "<group>"; };
-		D5CFF4BC20451EA200D47917 /* RFDrawView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFDrawView.h; sourceTree = "<group>"; };
-		D5CFF4BD20451EA200D47917 /* UIView+RFLayerApperance.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+RFLayerApperance.h"; sourceTree = "<group>"; };
-		D5CFF4BE20451EA200D47917 /* RFRoundingCornersView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFRoundingCornersView.h; sourceTree = "<group>"; };
-		D5CFF4BF20451EA200D47917 /* RFLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFLine.m; sourceTree = "<group>"; };
-		D5CFF4C020451EA300D47917 /* UIView+RFPatternImageBackground.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+RFPatternImageBackground.m"; sourceTree = "<group>"; };
-		D5CFF4C120451EA300D47917 /* RFDrawView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFDrawView.m; sourceTree = "<group>"; };
-		D5CFF4C220451EA300D47917 /* UIButton+RFResizableBackgroundImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+RFResizableBackgroundImage.h"; sourceTree = "<group>"; };
-		D5CFF4C320451EA300D47917 /* RFRoundingCornersView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFRoundingCornersView.m; sourceTree = "<group>"; };
-		D5CFF4C420451EA300D47917 /* UIView+RFLayerApperance.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+RFLayerApperance.m"; sourceTree = "<group>"; };
-		D5CFF4C620451EA300D47917 /* RFNavigationControllerTransitionDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFNavigationControllerTransitionDelegate.h; sourceTree = "<group>"; };
-		D5CFF4C720451EA300D47917 /* RFAnimationTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFAnimationTransitioning.h; sourceTree = "<group>"; };
-		D5CFF4C820451EA300D47917 /* UIViewController+RFTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+RFTransitioning.m"; sourceTree = "<group>"; };
-		D5CFF4C920451EA300D47917 /* RFNavigationPopInteractionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFNavigationPopInteractionController.m; sourceTree = "<group>"; };
-		D5CFF4CB20451EA300D47917 /* RFPullDownToPopInteractionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFPullDownToPopInteractionController.m; sourceTree = "<group>"; };
-		D5CFF4CC20451EA300D47917 /* RFPullDownToPopInteractionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFPullDownToPopInteractionController.h; sourceTree = "<group>"; };
-		D5CFF4CD20451EA300D47917 /* RFNavigationControllerTransitionDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFNavigationControllerTransitionDelegate.m; sourceTree = "<group>"; };
-		D5CFF4CE20451EA300D47917 /* RFAnimationTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFAnimationTransitioning.m; sourceTree = "<group>"; };
-		D5CFF4CF20451EA300D47917 /* RFNavigationPopInteractionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFNavigationPopInteractionController.h; sourceTree = "<group>"; };
-		D5CFF4D020451EA300D47917 /* UIViewController+RFTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+RFTransitioning.h"; sourceTree = "<group>"; };
-		D5CFF4D220451EA300D47917 /* RFMagicMoveTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFMagicMoveTransitioning.h; sourceTree = "<group>"; };
-		D5CFF4D320451EA300D47917 /* RFMoveInFromBottomTransitioning.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFMoveInFromBottomTransitioning.h; sourceTree = "<group>"; };
-		D5CFF4D420451EA300D47917 /* RFTransitioningStyel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFTransitioningStyel.h; sourceTree = "<group>"; };
-		D5CFF4D520451EA300D47917 /* RFMagicMoveTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFMagicMoveTransitioning.m; sourceTree = "<group>"; };
-		D5CFF4D620451EA300D47917 /* RFMoveInFromBottomTransitioning.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFMoveInFromBottomTransitioning.m; sourceTree = "<group>"; };
-		D5CFF4D820451EA300D47917 /* RFTimer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFTimer.m; sourceTree = "<group>"; };
-		D5CFF4D920451EA300D47917 /* RFTimer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFTimer.h; sourceTree = "<group>"; };
 		D5CFF54E204521E000D47917 /* MBAppKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = MBAppKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		D5CFF582204524D600D47917 /* RFRefreshControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFRefreshControl.h; sourceTree = "<group>"; };
-		D5CFF583204524D600D47917 /* RFRefreshControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFRefreshControl.m; sourceTree = "<group>"; };
-		D5CFF5872045253300D47917 /* RFRefreshButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RFRefreshButton.m; sourceTree = "<group>"; };
-		D5CFF5882045253300D47917 /* RFRefreshButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RFRefreshButton.h; sourceTree = "<group>"; };
 		D5CFF58B2045284F00D47917 /* Pods.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = Pods.xcodeproj; path = Pods/Pods.xcodeproj; sourceTree = "<group>"; };
 		EEC1950217389F8927C6CE98 /* Pods-MBAppKit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MBAppKit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MBAppKit/Pods-MBAppKit.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -528,10 +180,7 @@
 		13DB3867BBA4EA494F41DF26 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D5CFF1032045113F00D47917 /* AFNetworking */,
 				3A2C97CA9A73633ED07A548F /* libPods-MBAppKit.a */,
-				D5CFF17620451B5200D47917 /* RFUI.Alpha */,
-				D5CFF33920451BD300D47917 /* RFUI.Core */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -648,7 +297,6 @@
 				D5CFF0F920450E5A00D47917 /* MBAppKit */,
 				A2062B4966742DB76E4293A8 /* Pods */,
 				D5CFF0F820450E5A00D47917 /* Products */,
-				D5CFF16B204518FA00D47917 /* Support */,
 				D5CFF54E204521E000D47917 /* MBAppKit.podspec */,
 				D5CFF58B2045284F00D47917 /* Pods.xcodeproj */,
 				D558FDFD2046927100A01EE6 /* README.md */,
@@ -679,387 +327,6 @@
 				D54103F720454AE000BE79E7 /* shadow.h */,
 			);
 			path = MBAppKit;
-			sourceTree = "<group>";
-		};
-		D5CFF1032045113F00D47917 /* AFNetworking */ = {
-			isa = PBXGroup;
-			children = (
-				D5CFF1062045113F00D47917 /* AFHTTPRequestOperation.h */,
-				D5CFF1372045113F00D47917 /* AFHTTPRequestOperation.m */,
-				D5CFF1072045113F00D47917 /* AFHTTPRequestOperationManager.h */,
-				D5CFF1352045113F00D47917 /* AFHTTPRequestOperationManager.m */,
-				D5CFF14A2045113F00D47917 /* AFHTTPSessionManager.h */,
-				D5CFF1302045113F00D47917 /* AFHTTPSessionManager.m */,
-				D5CFF1382045113F00D47917 /* AFNetworking.h */,
-				D5CFF1052045113F00D47917 /* AFNetworkReachabilityManager.h */,
-				D5CFF1392045113F00D47917 /* AFNetworkReachabilityManager.m */,
-				D5CFF1042045113F00D47917 /* AFSecurityPolicy.h */,
-				D5CFF13A2045113F00D47917 /* AFSecurityPolicy.m */,
-				D5CFF10A2045113F00D47917 /* AFURLConnectionOperation.h */,
-				D5CFF1322045113F00D47917 /* AFURLConnectionOperation.m */,
-				D5CFF1092045113F00D47917 /* AFURLRequestSerialization.h */,
-				D5CFF1362045113F00D47917 /* AFURLRequestSerialization.m */,
-				D5CFF1332045113F00D47917 /* AFURLResponseSerialization.h */,
-				D5CFF10B2045113F00D47917 /* AFURLResponseSerialization.m */,
-				D5CFF1082045113F00D47917 /* AFURLSessionManager.h */,
-				D5CFF1342045113F00D47917 /* AFURLSessionManager.m */,
-			);
-			path = AFNetworking;
-			sourceTree = "<group>";
-		};
-		D5CFF16B204518FA00D47917 /* Support */ = {
-			isa = PBXGroup;
-			children = (
-				D5CFF173204518FA00D47917 /* build_combine.sh */,
-				D5CFF172204518FA00D47917 /* build_storyboard.sh */,
-				D5CFF170204518FA00D47917 /* build_universal.sh */,
-				D5CFF16C204518FA00D47917 /* build_xib.sh */,
-				D5CFF171204518FA00D47917 /* clean.sh */,
-				D5CFF16E204518FA00D47917 /* clean_output.sh */,
-				D5CFF16D204518FA00D47917 /* Debug.xcconfig */,
-				D54103CD204531B800BE79E7 /* refresh.sh */,
-				D5CFF16F204518FA00D47917 /* Release.xcconfig */,
-			);
-			path = Support;
-			sourceTree = "<group>";
-		};
-		D5CFF17620451B5200D47917 /* RFUI.Alpha */ = {
-			isa = PBXGroup;
-			children = (
-				D5CFF44F20451D7F00D47917 /* RFAPI */,
-				D5CFF46320451DB100D47917 /* RFAsynchronousSegue */,
-				D5CFF47020451DCC00D47917 /* RFBlockSelectorPerform */,
-				D5CFF47420451DDD00D47917 /* RFButton */,
-				D5CFF47B20451DF800D47917 /* RFContainerView */,
-				D5CFF47F20451E0900D47917 /* RFDataSourceArray */,
-				D5CFF31320451BBF00D47917 /* RFDelegateChain */,
-				D5CFF48320451E1B00D47917 /* RFDrawImage */,
-				D5CFF48620451E1B00D47917 /* RFKVOWrapper */,
-				D5CFF48E20451E3200D47917 /* RFMessageManager */,
-				D5CFF48B20451E3200D47917 /* RFNavigationController */,
-				D5CFF5862045253300D47917 /* RFRefreshButton */,
-				D5CFF581204524D600D47917 /* RFRefreshControl */,
-				D5CFF49D20451E7400D47917 /* RFSwizzle */,
-				D5CFF4A020451E7500D47917 /* RFSynthesize */,
-				D5CFF4AE20451E8F00D47917 /* RFTabController */,
-				D5CFF4A520451E8E00D47917 /* RFTableViewAutoFetchDataSource */,
-				D5CFF30720451B7000D47917 /* RFTableViewCellHeightDelegate */,
-				D5CFF4A920451E8E00D47917 /* RFTableViewPullToFetchPlugin */,
-				D5CFF4D720451EA300D47917 /* RFTimer */,
-				D5CFF4C520451EA300D47917 /* RFTransitioning */,
-				D5CFF4B820451EA200D47917 /* RFViewApperance */,
-			);
-			path = RFUI.Alpha;
-			sourceTree = "<group>";
-		};
-		D5CFF30720451B7000D47917 /* RFTableViewCellHeightDelegate */ = {
-			isa = PBXGroup;
-			children = (
-				D5CFF30A20451B7000D47917 /* Readme.md */,
-				D5CFF30B20451B7000D47917 /* RFTableViewCellHeightDelegate.h */,
-				D5CFF30920451B7000D47917 /* RFTableViewCellHeightDelegate.m */,
-				D5CFF30C20451B7000D47917 /* UITableView+RFTableViewCellHeight.h */,
-				D5CFF30820451B7000D47917 /* UITableView+RFTableViewCellHeight.m */,
-			);
-			path = RFTableViewCellHeightDelegate;
-			sourceTree = "<group>";
-		};
-		D5CFF31320451BBF00D47917 /* RFDelegateChain */ = {
-			isa = PBXGroup;
-			children = (
-				D5CFF31520451BBF00D47917 /* UIKit */,
-				D5CFF32620451BBF00D47917 /* RFDelegateChain.h */,
-				D5CFF31420451BBF00D47917 /* RFDelegateChain.m */,
-			);
-			path = RFDelegateChain;
-			sourceTree = "<group>";
-		};
-		D5CFF31520451BBF00D47917 /* UIKit */ = {
-			isa = PBXGroup;
-			children = (
-				D5CFF31C20451BBF00D47917 /* UICollectionViewDataSourceChain.h */,
-				D5CFF32420451BBF00D47917 /* UICollectionViewDataSourceChain.m */,
-				D5CFF31F20451BBF00D47917 /* UICollectionViewDelegateChain.h */,
-				D5CFF31B20451BBF00D47917 /* UICollectionViewDelegateChain.m */,
-				D5CFF31A20451BBF00D47917 /* UICollectionViewDelegateFlowLayoutChain.h */,
-				D5CFF32020451BBF00D47917 /* UICollectionViewDelegateFlowLayoutChain.m */,
-				D5CFF32520451BBF00D47917 /* UIScrollViewDelegateChain.h */,
-				D5CFF31D20451BBF00D47917 /* UIScrollViewDelegateChain.m */,
-				D5CFF31820451BBF00D47917 /* UISearchBarDelegateChain.h */,
-				D5CFF32220451BBF00D47917 /* UISearchBarDelegateChain.m */,
-				D5CFF31E20451BBF00D47917 /* UITextFiledDelegateChain.h */,
-				D5CFF31620451BBF00D47917 /* UITextFiledDelegateChain.m */,
-				D5CFF31720451BBF00D47917 /* UITextViewDelegateChain.h */,
-				D5CFF32320451BBF00D47917 /* UITextViewDelegateChain.m */,
-				D5CFF31920451BBF00D47917 /* UIWebViewDelegateChain.h */,
-				D5CFF32120451BBF00D47917 /* UIWebViewDelegateChain.m */,
-			);
-			path = UIKit;
-			sourceTree = "<group>";
-		};
-		D5CFF33920451BD300D47917 /* RFUI.Core */ = {
-			isa = PBXGroup;
-			children = (
-				D5CFF3C120451BD400D47917 /* RFInitializing.h */,
-				D5CFF3C020451BD400D47917 /* RFKeyboard.h */,
-				D5CFF3C820451BD400D47917 /* RFKeyboard.m */,
-				D5CFF3BE20451BD400D47917 /* RFUI.h */,
-				D5CFF3C720451BD400D47917 /* RFUI.m */,
-				D5CFF3C220451BD400D47917 /* RFUIDebug.h */,
-				D5CFF3C520451BD400D47917 /* RFUIInterfaceOrientationSupport.h */,
-			);
-			path = RFUI.Core;
-			sourceTree = "<group>";
-		};
-		D5CFF44F20451D7F00D47917 /* RFAPI */ = {
-			isa = PBXGroup;
-			children = (
-				D5CFF45520451D7F00D47917 /* RFAPIDefine */,
-				D5CFF45320451D7F00D47917 /* RFAPI.h */,
-				D5CFF45D20451D7F00D47917 /* RFAPI.m */,
-				D5CFF45020451D7F00D47917 /* RFAPI.strings */,
-				D5CFF45420451D7F00D47917 /* RFAPICacheManager.h */,
-				D5CFF45C20451D7F00D47917 /* RFAPICacheManager.m */,
-			);
-			path = RFAPI;
-			sourceTree = "<group>";
-		};
-		D5CFF45520451D7F00D47917 /* RFAPIDefine */ = {
-			isa = PBXGroup;
-			children = (
-				D5CFF45620451D7F00D47917 /* RFAPIDefine.h */,
-				D5CFF45A20451D7F00D47917 /* RFAPIDefine.m */,
-				D5CFF45820451D7F00D47917 /* RFAPIDefineConfigFileKeys.h */,
-				D5CFF45B20451D7F00D47917 /* RFAPIDefineConfigFileKeys.m */,
-				D5CFF45720451D7F00D47917 /* RFAPIDefineManager.h */,
-				D5CFF45920451D7F00D47917 /* RFAPIDefineManager.m */,
-			);
-			path = RFAPIDefine;
-			sourceTree = "<group>";
-		};
-		D5CFF46320451DB100D47917 /* RFAsynchronousSegue */ = {
-			isa = PBXGroup;
-			children = (
-				D5CFF46520451DB100D47917 /* RFAsynchronousPresentSegue.h */,
-				D5CFF46920451DB100D47917 /* RFAsynchronousPresentSegue.m */,
-				D5CFF46820451DB100D47917 /* RFAsynchronousPushAsRootSegue.h */,
-				D5CFF46420451DB100D47917 /* RFAsynchronousPushAsRootSegue.m */,
-				D5CFF46A20451DB100D47917 /* RFAsynchronousPushSegue.h */,
-				D5CFF46720451DB100D47917 /* RFAsynchronousPushSegue.m */,
-				D5CFF46620451DB100D47917 /* RFAsynchronousSegue.h */,
-				D5CFF46B20451DB100D47917 /* RFAsynchronousSegue.m */,
-			);
-			path = RFAsynchronousSegue;
-			sourceTree = "<group>";
-		};
-		D5CFF47020451DCC00D47917 /* RFBlockSelectorPerform */ = {
-			isa = PBXGroup;
-			children = (
-				D5CFF47120451DCC00D47917 /* RFBlockSelectorPerform.h */,
-				D5CFF47220451DCC00D47917 /* RFBlockSelectorPerform.m */,
-			);
-			path = RFBlockSelectorPerform;
-			sourceTree = "<group>";
-		};
-		D5CFF47420451DDD00D47917 /* RFButton */ = {
-			isa = PBXGroup;
-			children = (
-				D5CFF47520451DDD00D47917 /* RFButton.h */,
-				D5CFF47720451DDD00D47917 /* RFButton.m */,
-				D5CFF47620451DDD00D47917 /* RFControl.h */,
-				D5CFF47820451DDD00D47917 /* RFControl.m */,
-			);
-			path = RFButton;
-			sourceTree = "<group>";
-		};
-		D5CFF47B20451DF800D47917 /* RFContainerView */ = {
-			isa = PBXGroup;
-			children = (
-				D5CFF47C20451DF800D47917 /* RFContainerView.h */,
-				D5CFF47D20451DF800D47917 /* RFContainerView.m */,
-			);
-			path = RFContainerView;
-			sourceTree = "<group>";
-		};
-		D5CFF47F20451E0900D47917 /* RFDataSourceArray */ = {
-			isa = PBXGroup;
-			children = (
-				D5CFF48120451E0900D47917 /* RFDataSourceArray.h */,
-				D5CFF48020451E0900D47917 /* RFDataSourceArray.m */,
-			);
-			path = RFDataSourceArray;
-			sourceTree = "<group>";
-		};
-		D5CFF48320451E1B00D47917 /* RFDrawImage */ = {
-			isa = PBXGroup;
-			children = (
-				D5CFF48420451E1B00D47917 /* RFDrawImage.h */,
-				D5CFF48520451E1B00D47917 /* RFDrawImage.m */,
-			);
-			path = RFDrawImage;
-			sourceTree = "<group>";
-		};
-		D5CFF48620451E1B00D47917 /* RFKVOWrapper */ = {
-			isa = PBXGroup;
-			children = (
-				D5CFF48720451E1B00D47917 /* RFKVOWrapper.h */,
-				D5CFF48820451E1B00D47917 /* RFKVOWrapper.m */,
-			);
-			path = RFKVOWrapper;
-			sourceTree = "<group>";
-		};
-		D5CFF48B20451E3200D47917 /* RFNavigationController */ = {
-			isa = PBXGroup;
-			children = (
-				D5CFF48C20451E3200D47917 /* RFNavigationController.h */,
-				D5CFF48D20451E3200D47917 /* RFNavigationController.m */,
-			);
-			path = RFNavigationController;
-			sourceTree = "<group>";
-		};
-		D5CFF48E20451E3200D47917 /* RFMessageManager */ = {
-			isa = PBXGroup;
-			children = (
-				D5CFF48F20451E3200D47917 /* RFMessageManager+RFDisplay.h */,
-				D5CFF49620451E3200D47917 /* RFMessageManager+RFDisplay.m */,
-				D5CFF49720451E3200D47917 /* RFMessageManager.h */,
-				D5CFF49020451E3200D47917 /* RFMessageManager.m */,
-			);
-			path = RFMessageManager;
-			sourceTree = "<group>";
-		};
-		D5CFF49D20451E7400D47917 /* RFSwizzle */ = {
-			isa = PBXGroup;
-			children = (
-				D5CFF49E20451E7400D47917 /* RFSwizzle.h */,
-				D5CFF49F20451E7400D47917 /* RFSwizzle.m */,
-			);
-			path = RFSwizzle;
-			sourceTree = "<group>";
-		};
-		D5CFF4A020451E7500D47917 /* RFSynthesize */ = {
-			isa = PBXGroup;
-			children = (
-				D5CFF4A220451E7500D47917 /* RFSynthesizeCategoryProperty.h */,
-				D5CFF4A120451E7500D47917 /* RFSynthesizeCategoryProperty.m */,
-			);
-			path = RFSynthesize;
-			sourceTree = "<group>";
-		};
-		D5CFF4A520451E8E00D47917 /* RFTableViewAutoFetchDataSource */ = {
-			isa = PBXGroup;
-			children = (
-				D5CFF4A720451E8E00D47917 /* Readme.md */,
-				D5CFF4A820451E8E00D47917 /* RFTableViewAutoFetchDataSource.h */,
-				D5CFF4A620451E8E00D47917 /* RFTableViewAutoFetchDataSource.m */,
-			);
-			path = RFTableViewAutoFetchDataSource;
-			sourceTree = "<group>";
-		};
-		D5CFF4A920451E8E00D47917 /* RFTableViewPullToFetchPlugin */ = {
-			isa = PBXGroup;
-			children = (
-				D5CFF4AD20451E8E00D47917 /* RFTableViewPullToFetchPlugin.h */,
-				D5CFF4AB20451E8E00D47917 /* RFTableViewPullToFetchPlugin.m */,
-				D5CFF4AC20451E8E00D47917 /* UIScrollView+RFScrollViewContentDistance.h */,
-				D5CFF4AA20451E8E00D47917 /* UIScrollView+RFScrollViewContentDistance.m */,
-			);
-			path = RFTableViewPullToFetchPlugin;
-			sourceTree = "<group>";
-		};
-		D5CFF4AE20451E8F00D47917 /* RFTabController */ = {
-			isa = PBXGroup;
-			children = (
-				D5CFF4B120451E8F00D47917 /* RFPageTabController.h */,
-				D5CFF4AF20451E8F00D47917 /* RFPageTabController.m */,
-				D5CFF4B020451E8F00D47917 /* RFTabController.h */,
-				D5CFF4B220451E8F00D47917 /* RFTabController.m */,
-			);
-			path = RFTabController;
-			sourceTree = "<group>";
-		};
-		D5CFF4B820451EA200D47917 /* RFViewApperance */ = {
-			isa = PBXGroup;
-			children = (
-				D5CFF4BC20451EA200D47917 /* RFDrawView.h */,
-				D5CFF4C120451EA300D47917 /* RFDrawView.m */,
-				D5CFF4B920451EA200D47917 /* RFLine.h */,
-				D5CFF4BF20451EA200D47917 /* RFLine.m */,
-				D5CFF4BE20451EA200D47917 /* RFRoundingCornersView.h */,
-				D5CFF4C320451EA300D47917 /* RFRoundingCornersView.m */,
-				D5CFF4C220451EA300D47917 /* UIButton+RFResizableBackgroundImage.h */,
-				D5CFF4BB20451EA200D47917 /* UIButton+RFResizableBackgroundImage.m */,
-				D5CFF4BD20451EA200D47917 /* UIView+RFLayerApperance.h */,
-				D5CFF4C420451EA300D47917 /* UIView+RFLayerApperance.m */,
-				D5CFF4BA20451EA200D47917 /* UIView+RFPatternImageBackground.h */,
-				D5CFF4C020451EA300D47917 /* UIView+RFPatternImageBackground.m */,
-			);
-			path = RFViewApperance;
-			sourceTree = "<group>";
-		};
-		D5CFF4C520451EA300D47917 /* RFTransitioning */ = {
-			isa = PBXGroup;
-			children = (
-				D5CFF4CA20451EA300D47917 /* RFInteractiveTransitioning */,
-				D5CFF4D120451EA300D47917 /* RFTransitioningStyle */,
-				D5CFF4C720451EA300D47917 /* RFAnimationTransitioning.h */,
-				D5CFF4CE20451EA300D47917 /* RFAnimationTransitioning.m */,
-				D5CFF4C620451EA300D47917 /* RFNavigationControllerTransitionDelegate.h */,
-				D5CFF4CD20451EA300D47917 /* RFNavigationControllerTransitionDelegate.m */,
-				D5CFF4CF20451EA300D47917 /* RFNavigationPopInteractionController.h */,
-				D5CFF4C920451EA300D47917 /* RFNavigationPopInteractionController.m */,
-				D5CFF4D020451EA300D47917 /* UIViewController+RFTransitioning.h */,
-				D5CFF4C820451EA300D47917 /* UIViewController+RFTransitioning.m */,
-			);
-			path = RFTransitioning;
-			sourceTree = "<group>";
-		};
-		D5CFF4CA20451EA300D47917 /* RFInteractiveTransitioning */ = {
-			isa = PBXGroup;
-			children = (
-				D5CFF4CC20451EA300D47917 /* RFPullDownToPopInteractionController.h */,
-				D5CFF4CB20451EA300D47917 /* RFPullDownToPopInteractionController.m */,
-			);
-			path = RFInteractiveTransitioning;
-			sourceTree = "<group>";
-		};
-		D5CFF4D120451EA300D47917 /* RFTransitioningStyle */ = {
-			isa = PBXGroup;
-			children = (
-				D5CFF4D220451EA300D47917 /* RFMagicMoveTransitioning.h */,
-				D5CFF4D520451EA300D47917 /* RFMagicMoveTransitioning.m */,
-				D5CFF4D320451EA300D47917 /* RFMoveInFromBottomTransitioning.h */,
-				D5CFF4D620451EA300D47917 /* RFMoveInFromBottomTransitioning.m */,
-				D5CFF4D420451EA300D47917 /* RFTransitioningStyel.h */,
-			);
-			path = RFTransitioningStyle;
-			sourceTree = "<group>";
-		};
-		D5CFF4D720451EA300D47917 /* RFTimer */ = {
-			isa = PBXGroup;
-			children = (
-				D5CFF4D920451EA300D47917 /* RFTimer.h */,
-				D5CFF4D820451EA300D47917 /* RFTimer.m */,
-			);
-			path = RFTimer;
-			sourceTree = "<group>";
-		};
-		D5CFF581204524D600D47917 /* RFRefreshControl */ = {
-			isa = PBXGroup;
-			children = (
-				D5CFF582204524D600D47917 /* RFRefreshControl.h */,
-				D5CFF583204524D600D47917 /* RFRefreshControl.m */,
-			);
-			path = RFRefreshControl;
-			sourceTree = "<group>";
-		};
-		D5CFF5862045253300D47917 /* RFRefreshButton */ = {
-			isa = PBXGroup;
-			children = (
-				D5CFF5882045253300D47917 /* RFRefreshButton.h */,
-				D5CFF5872045253300D47917 /* RFRefreshButton.m */,
-			);
-			path = RFRefreshButton;
 			sourceTree = "<group>";
 		};
 		D5CFF58C2045284F00D47917 /* Products */ = {
@@ -1222,15 +489,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D5CFF1602045114000D47917 /* AFHTTPRequestOperation.m in Sources */,
-				D5CFF15E2045114000D47917 /* AFHTTPRequestOperationManager.m in Sources */,
-				D5CFF15B2045114000D47917 /* AFHTTPSessionManager.m in Sources */,
-				D5CFF1612045114000D47917 /* AFNetworkReachabilityManager.m in Sources */,
-				D5CFF1622045114000D47917 /* AFSecurityPolicy.m in Sources */,
-				D5CFF15C2045114000D47917 /* AFURLConnectionOperation.m in Sources */,
-				D5CFF15F2045114000D47917 /* AFURLRequestSerialization.m in Sources */,
-				D5CFF14B2045114000D47917 /* AFURLResponseSerialization.m in Sources */,
-				D5CFF15D2045114000D47917 /* AFURLSessionManager.m in Sources */,
 				D54103E120453CEA00BE79E7 /* MBAPI.m in Sources */,
 				D5CFF0FC20450E5A00D47917 /* MBAppKit.m in Sources */,
 				D5BA552A2046491B00E4F335 /* MBApplicationDelegate.m in Sources */,
@@ -1249,61 +507,6 @@
 				D562811020477EB000E58406 /* MBUserDefaults.m in Sources */,
 				D54103F42045492600BE79E7 /* MBWorker.m in Sources */,
 				D54103F32045492600BE79E7 /* MBWorkerQueue.m in Sources */,
-				D5CFF4E420451EA300D47917 /* RFAnimationTransitioning.m in Sources */,
-				D5CFF46220451D7F00D47917 /* RFAPI.m in Sources */,
-				D5CFF46120451D7F00D47917 /* RFAPICacheManager.m in Sources */,
-				D5CFF45F20451D7F00D47917 /* RFAPIDefine.m in Sources */,
-				D5CFF46020451D7F00D47917 /* RFAPIDefineConfigFileKeys.m in Sources */,
-				D5CFF45E20451D7F00D47917 /* RFAPIDefineManager.m in Sources */,
-				D5CFF46E20451DB100D47917 /* RFAsynchronousPresentSegue.m in Sources */,
-				D5CFF46C20451DB100D47917 /* RFAsynchronousPushAsRootSegue.m in Sources */,
-				D5CFF46D20451DB100D47917 /* RFAsynchronousPushSegue.m in Sources */,
-				D5CFF46F20451DB100D47917 /* RFAsynchronousSegue.m in Sources */,
-				D5CFF47320451DCD00D47917 /* RFBlockSelectorPerform.m in Sources */,
-				D5CFF47920451DDD00D47917 /* RFButton.m in Sources */,
-				D5CFF47E20451DF900D47917 /* RFContainerView.m in Sources */,
-				D5CFF47A20451DDD00D47917 /* RFControl.m in Sources */,
-				D5CFF48220451E0900D47917 /* RFDataSourceArray.m in Sources */,
-				D5CFF32720451BBF00D47917 /* RFDelegateChain.m in Sources */,
-				D5CFF48920451E1B00D47917 /* RFDrawImage.m in Sources */,
-				D5CFF4DD20451EA300D47917 /* RFDrawView.m in Sources */,
-				D5CFF43C20451BD400D47917 /* RFKeyboard.m in Sources */,
-				D5CFF48A20451E1B00D47917 /* RFKVOWrapper.m in Sources */,
-				D5CFF4DB20451EA300D47917 /* RFLine.m in Sources */,
-				D5CFF4E520451EA300D47917 /* RFMagicMoveTransitioning.m in Sources */,
-				D5CFF49C20451E3200D47917 /* RFMessageManager+RFDisplay.m in Sources */,
-				D5CFF49920451E3200D47917 /* RFMessageManager.m in Sources */,
-				D5CFF4E620451EA300D47917 /* RFMoveInFromBottomTransitioning.m in Sources */,
-				D5CFF49820451E3200D47917 /* RFNavigationController.m in Sources */,
-				D5CFF4E320451EA300D47917 /* RFNavigationControllerTransitionDelegate.m in Sources */,
-				D5CFF4E120451EA300D47917 /* RFNavigationPopInteractionController.m in Sources */,
-				D5CFF4B620451E8F00D47917 /* RFPageTabController.m in Sources */,
-				D5CFF4E220451EA300D47917 /* RFPullDownToPopInteractionController.m in Sources */,
-				D5CFF5892045253300D47917 /* RFRefreshButton.m in Sources */,
-				D5CFF584204524D700D47917 /* RFRefreshControl.m in Sources */,
-				D5CFF4DE20451EA300D47917 /* RFRoundingCornersView.m in Sources */,
-				D5CFF4A320451E7500D47917 /* RFSwizzle.m in Sources */,
-				D5CFF4A420451E7500D47917 /* RFSynthesizeCategoryProperty.m in Sources */,
-				D5CFF4B720451E8F00D47917 /* RFTabController.m in Sources */,
-				D5CFF4B320451E8F00D47917 /* RFTableViewAutoFetchDataSource.m in Sources */,
-				D5CFF30E20451B7000D47917 /* RFTableViewCellHeightDelegate.m in Sources */,
-				D5CFF4B520451E8F00D47917 /* RFTableViewPullToFetchPlugin.m in Sources */,
-				D5CFF4E720451EA300D47917 /* RFTimer.m in Sources */,
-				D5CFF43B20451BD400D47917 /* RFUI.m in Sources */,
-				D5CFF4DA20451EA300D47917 /* UIButton+RFResizableBackgroundImage.m in Sources */,
-				D5CFF33620451BBF00D47917 /* UICollectionViewDataSourceChain.m in Sources */,
-				D5CFF32D20451BBF00D47917 /* UICollectionViewDelegateChain.m in Sources */,
-				D5CFF33220451BBF00D47917 /* UICollectionViewDelegateFlowLayoutChain.m in Sources */,
-				D5CFF4B420451E8F00D47917 /* UIScrollView+RFScrollViewContentDistance.m in Sources */,
-				D5CFF32F20451BBF00D47917 /* UIScrollViewDelegateChain.m in Sources */,
-				D5CFF33420451BBF00D47917 /* UISearchBarDelegateChain.m in Sources */,
-				D5CFF30D20451B7000D47917 /* UITableView+RFTableViewCellHeight.m in Sources */,
-				D5CFF32820451BBF00D47917 /* UITextFiledDelegateChain.m in Sources */,
-				D5CFF33520451BBF00D47917 /* UITextViewDelegateChain.m in Sources */,
-				D5CFF4DF20451EA300D47917 /* UIView+RFLayerApperance.m in Sources */,
-				D5CFF4DC20451EA300D47917 /* UIView+RFPatternImageBackground.m in Sources */,
-				D5CFF4E020451EA300D47917 /* UIViewController+RFTransitioning.m in Sources */,
-				D5CFF33320451BBF00D47917 /* UIWebViewDelegateChain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1316,18 +519,6 @@
 			targetProxy = D54103CE204531FD00BE79E7 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		D5CFF45020451D7F00D47917 /* RFAPI.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				D5CFF45220451D7F00D47917 /* en */,
-				D5CFF45120451D7F00D47917 /* zh-Hans */,
-			);
-			name = RFAPI.strings;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		D59CB03F204530D500C6A464 /* Debug */ = {
@@ -1344,7 +535,6 @@
 		};
 		D5CFF0FE20450E5A00D47917 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5CFF16D204518FA00D47917 /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;
@@ -1400,7 +590,6 @@
 		};
 		D5CFF0FF20450E5A00D47917 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D5CFF16F204518FA00D47917 /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_ANALYZER_NONNULL = YES;

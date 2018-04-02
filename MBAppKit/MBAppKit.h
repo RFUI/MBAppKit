@@ -12,7 +12,7 @@
  */
 #pragma once
 
-#import "RFUI.h"
+#import "RFKit.h"
 #import "NSDate+RFKit.h"
 #import "NSDateFormatter+RFKit.h"
 #import "NSURL+RFKit.h"

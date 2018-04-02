@@ -1,5 +1,6 @@
 
 #import "MBUser.h"
+#import <NSArray+RFKit.h>
 
 @interface MBUserCurrentUserChangeObserver : NSObject
 @property (weak) id observer;

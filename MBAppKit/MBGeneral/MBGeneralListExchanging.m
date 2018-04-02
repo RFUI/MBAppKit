@@ -1,6 +1,7 @@
 
 #import "MBGeneralListExchanging.h"
 #import "MBGeneralItemExchanging.h"
+#import "UIView+RFKit.h"
 
 @implementation UITableViewCell (App)
 
