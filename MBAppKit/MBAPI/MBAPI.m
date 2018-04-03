@@ -6,6 +6,10 @@
 
 MBAPI *MBAPI_global_ = nil;
 
+@interface MBAPI ()
+@property (nonnull) NSMutableDictionary<NSString *, NSMutableDictionary<NSString *, NSDate *> *> *requestIntervalRecord;
+@end
+
 @implementation MBAPI
 
 + (MBAPI *)global {
@@ -42,7 +46,7 @@ MBAPI *MBAPI_global_ = nil;
         }
     }];
     _dout_debug(@"载入 %ld 个接口定义", ruleCount);
-    RFAssert(ruleCount == prules.count, @"有规则重名了");
+    RFAssert(ruleCount == prules.count, @"分组中有规则重名了");
     
     [self.defineManager setDefinesWithRulesInfo:prules];
 }
@@ -54,19 +58,19 @@ MBAPI *MBAPI_global_ = nil;
 }
 
 + (AFHTTPRequestOperation *)requestWithName:(NSString *)APIName parameters:(NSDictionary *)parameters viewController:(UIViewController *)viewController forceLoad:(BOOL)forceLoad loadingMessage:(NSString *)message modal:(BOOL)modal success:(void (^)(AFHTTPRequestOperation *, id))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure completion:(void (^)(AFHTTPRequestOperation *))completion {
-    RFAPIControl *cn = [[RFAPIControl alloc] init];
+    RFAPIControl *cn = RFAPIControl.new;
     if (message) {
-        cn.message = [[RFNetworkActivityIndicatorMessage alloc] initWithIdentifier:APIName title:nil message:message status:RFNetworkActivityIndicatorStatusLoading];
+        cn.message = [RFNetworkActivityIndicatorMessage.alloc initWithIdentifier:APIName title:nil message:message status:RFNetworkActivityIndicatorStatusLoading];
         cn.message.modal = modal;
     }
     cn.identifier = APIName;
-    cn.groupIdentifier = NSStringFromClass(viewController.class);
+    cn.groupIdentifier = viewController.APIGroupIdentifier;
     cn.forceLoad = forceLoad;
     return [self.global requestWithName:APIName parameters:parameters controlInfo:cn success:success failure:failure completion:completion];
 }
 
 + (void)backgroundRequestWithName:(NSString *)APIName parameters:(NSDictionary *)parameters completion:(void (^)(BOOL success, id responseObject, NSError *error))completion {
-    RFAPIControl *cn = [[RFAPIControl alloc] init];
+    RFAPIControl *cn = RFAPIControl.new;
     cn.identifier = APIName;
     cn.backgroundTask = YES;
     __block MBGeneralCallback safeCallback = MBSafeCallback(completion);
@@ -83,9 +87,70 @@ MBAPI *MBAPI_global_ = nil;
     }];
 }
 
-+ (void)cancelOperationsWithViewController:(id)viewController {
++ (void)cancelOperationsWithViewController:(UIViewController *)viewController {
     if (!viewController) return;
-    [self.global cancelOperationsWithGroupIdentifier:NSStringFromClass([viewController class])];
+    [self.global cancelOperationsWithGroupIdentifier:viewController.APIGroupIdentifier];
+}
+
+#pragma mark - RequestInterval
+
+- (NSMutableDictionary *)requestIntervalRecord {
+    if (!_requestIntervalRecord) {
+        _requestIntervalRecord = [NSMutableDictionary.alloc initWithCapacity:4];
+    }
+    return _requestIntervalRecord;
+}
+
+- (NSMutableDictionary<NSString *, NSDate *> *)requestIntervalRecordForVC:(UIViewController *)vc {
+    return self.requestIntervalRecord[vc.APIGroupIdentifier];
+}
+
+- (void)enableRequestIntervalForViewController:(UIViewController *)viewController APIName:(NSString *)name {
+    if (!viewController || !name) return;
+    NSMutableDictionary<NSString *, NSDate *> *r = [self requestIntervalRecordForVC:viewController];
+    if (!r) {
+        r = [NSMutableDictionary.alloc initWithCapacity:2];
+        self.requestIntervalRecord[viewController.APIGroupIdentifier] = r;
+    }
+    if (!r[name]) {
+        r[name] = NSDate.distantPast;
+    }
+}
+
+- (void)setRequestIntervalForViewController:(UIViewController *)viewController APIName:(NSString *)name {
+    if (!viewController || !name) return;
+    doutwork()
+    NSMutableDictionary<NSString *, NSDate *> *r = [self requestIntervalRecordForVC:viewController];
+    if (!r || !r[name]) return;
+    r[name] = NSDate.date;
+}
+
+- (BOOL)shouldRequestForViewController:(UIViewController *)viewController minimalInterval:(NSTimeInterval)interval {
+    NSMutableDictionary<NSString *, NSDate *> *r = [self requestIntervalRecordForVC:viewController];
+    NSDate *now = NSDate.date;
+    for (NSDate *d in r.objectEnumerator) {
+        if (fabs([now timeIntervalSinceDate:d]) < interval) {
+            return NO;
+        }
+    }
+    NSArray *names = r.allKeys;
+    // @TODO: 开放 RFAPI 对 control 的接口
+    for (AFHTTPRequestOperation *op in [self operationsWithGroupIdentifier:viewController.APIGroupIdentifier]) {
+        RFAPIControl *ac = op.userInfo[@"RFAPIOperationUIkControl"];
+        if (!ac) continue;
+        if ([names containsObject:ac.identifier]) {
+            return NO;
+        }
+    }
+    return YES;
+}
+
+- (void)clearRequestIntervalForViewController:(UIViewController *)viewController {
+    if (!viewController) return;
+    NSMutableDictionary<NSString *, NSDate *> *r = [self requestIntervalRecordForVC:viewController];
+    for (NSString *key in r) {
+        r[key] = NSDate.distantPast;
+    }
 }
 
 @end
