@@ -148,9 +148,11 @@ MBAPI *MBAPI_global_ = nil;
 - (void)clearRequestIntervalForViewController:(UIViewController *)viewController {
     if (!viewController) return;
     NSMutableDictionary<NSString *, NSDate *> *r = [self requestIntervalRecordForVC:viewController];
+    NSMutableDictionary<NSString *, NSDate *> *copy = r.mutableCopy;
     for (NSString *key in r) {
-        r[key] = NSDate.distantPast;
+        copy[key] = NSDate.distantPast;
     }
+    [r setDictionary:copy];
 }
 
 @end
