@@ -145,6 +145,18 @@ MBAPI *MBAPI_global_ = nil;
     return YES;
 }
 
+- (BOOL)shouldRequestForViewController:(id)viewController APIName:(NSString *)APIName minimalInterval:(NSTimeInterval)interval {
+    if (!APIName) {
+        return [self shouldRequestForViewController:viewController minimalInterval:interval];
+    }
+    NSMutableDictionary<NSString *, NSDate *> *r = [self requestIntervalRecordForVC:viewController];
+    NSDate *now = NSDate.date;
+    if (fabs([now timeIntervalSinceDate:r[APIName]]) < interval) {
+        return NO;
+    }
+    return YES;
+}
+
 - (void)clearRequestIntervalForViewController:(UIViewController *)viewController {
     if (!viewController) return;
     NSMutableDictionary<NSString *, NSDate *> *r = [self requestIntervalRecordForVC:viewController];

@@ -160,6 +160,15 @@
 - (BOOL)shouldRequestForViewController:(nonnull id)viewController minimalInterval:(NSTimeInterval)interval;
 
 /**
+ 是否应当进行刷新操作，一般在 vc 显示时调用
+ 
+ @bug 请求实际完成到通知 vc 完成再调用 setRequestInterval 的这段时间里，不能阻挡新请求的发送
+ 
+ @param APIName 检查特定接口，传空等同于调用 shouldRequestForViewController:minimalInterval:
+ */
+- (BOOL)shouldRequestForViewController:(nonnull id)viewController APIName:(nullable NSString *)APIName minimalInterval:(NSTimeInterval)interval;
+
+/**
  重置给定 vc 的时间间隔记录
  */
 - (void)clearRequestIntervalForViewController:(nonnull id)viewController;
