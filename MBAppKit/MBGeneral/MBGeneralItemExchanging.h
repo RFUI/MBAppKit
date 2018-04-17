@@ -25,6 +25,13 @@
 
 @end
 
+/**
+ 如果 destination 符合 MBGeneralItemExchanging 声明，就把 value 赋值给 destination 的 item 并返回 YES。否则返回 NO
+ 
+ 便于在 Swift 中非显式声明协议传值困难
+ */
+FOUNDATION_EXTERN BOOL MBGeneralItemPassValue(id destination, id value);
+
 
 /**
  item 的可选协议

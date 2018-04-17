@@ -18,6 +18,12 @@
 @property (nonatomic, nullable, strong) NSArray *items;
 @end
 
+/**
+ 如果 destination 符合 MBGeneralListItemExchanging 声明，且 value 是数组，就把 value 赋值给 destination 的 items 并返回 YES。否则返回 NO
+ 
+ 便于在 Swift 中非显式声明协议传值困难
+ */
+FOUNDATION_EXTERN BOOL MBGeneralListItemPassValue(id destination, id value);
 
 /**
  可选协议，标明 sender 有 item 属性
