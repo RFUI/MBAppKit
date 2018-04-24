@@ -7,9 +7,8 @@
  Apache License, Version 2.0
  http://www.apache.org/licenses/LICENSE-2.0
  */
-
-#import "RFAPI.h"
-#import "AFHTTPRequestOperation.h"
+#import <RFAPI/RFAPI.h>
+#import <AFNetworking/AFHTTPRequestOperation.h>
 
 /**
  MBAPI 在 RFAPI 的基础上，

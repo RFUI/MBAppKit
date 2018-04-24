@@ -40,7 +40,7 @@ STAGE_MAIN() {
     elif [ "$RFCI_TASK" = "Xcode9" ]; then
         pod install
         XC_Test "Test-iOS" "platform=iOS Simulator,name=iPhone X,OS=11.3"
-        XC_Test "Test-iOS" "platform=iOS Simulator,name=iPhone 5,OS=9.0"
+        XC_Test "Test-iOS" "platform=iOS Simulator,name=iPhone 5s,OS=9.0"
     else
         echo "Unexpected CI task: $RFCI_TASK"
     fi

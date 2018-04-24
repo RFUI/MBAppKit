@@ -1,8 +1,8 @@
 
 #import "MBAPI.h"
 #import "MBGeneralCallback.h"
-#import "RFMessageManager+RFDisplay.h"
-#import "RFNetworkActivityIndicatorMessage.h"
+#import <RFMessageManager/RFMessageManager+RFDisplay.h>
+#import <RFMessageManager/RFNetworkActivityIndicatorMessage.h>
 
 MBAPI *MBAPI_global_ = nil;
 

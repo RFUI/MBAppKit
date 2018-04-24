@@ -1,7 +1,7 @@
 
 #import "MBGeneralListExchanging.h"
 #import "MBGeneralItemExchanging.h"
-#import "UIView+RFKit.h"
+#import <RFKit/UIView+RFKit.h>
 
 BOOL MBGeneralListItemPassValue(id destination, id value) {
     if (![value isKindOfClass:NSArray.class]) {

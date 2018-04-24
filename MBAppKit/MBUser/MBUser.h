@@ -8,7 +8,7 @@
  http://www.apache.org/licenses/LICENSE-2.0
  */
 #import "MBModel.h"
-#import "RFInitializing.h"
+#import <RFInitializing/RFInitializing.h>
 
 #ifndef MBUserStringUID
 #   define MBUserStringUID 0
