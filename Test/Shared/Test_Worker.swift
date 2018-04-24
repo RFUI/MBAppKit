@@ -9,7 +9,6 @@
 import XCTest
 
 class Test_Worker: XCTestCase {
-
     // MARK: -
     func testThread() {
         let q = MBWorkerQueue()
@@ -41,7 +40,40 @@ class Test_Worker: XCTestCase {
     
     // MARK: - User Required
     func testUserRequired() {
+        let timeout = XCTestExpectation(description: "work done")
+        let endWorker = WaitEndWorker(expectation: timeout)
+        let q = MBWorkerQueue()
+        defer {
+            print(q)
+            wait(for: [timeout], timeout: 2)
+        }
+        let w1 = TestWorker()
+        w1.requiresUserContext = true
+        q.add(w1)
+        XCTAssertNil(q.executingWorker, "No current user, the worker should be dropped.")
+        XCTAssertTrue(q.currentWorkerQueue().isEmpty)
         
+        MBUser.current = MBUser(id: 1)
+        q.add(w1)
+        XCTAssertNotNil(q.executingWorker)
+        
+        q.add(endWorker)
+        print(q)
+    }
+    
+    // MARK: - Parameter
+    func testEdgeParameter() {
+        let q = MBWorkerQueue()
+        q.add(nil)
+        do {
+            try RTHelper.catchException {
+                q.add(MBWorker.fromAny([]))
+            }
+        } catch {
+            XCTAssertNotNil(error)
+        }
+        XCTAssert(q.currentWorkerQueue().isEmpty, "Queue should be empty.")
+        XCTAssertNil(q.executingWorker)
     }
 }
 
@@ -54,3 +86,13 @@ class TestWorker: MBWorker {
     }
 }
 
+class WaitEndWorker: MBWorker {
+    var xcExpectation: XCTestExpectation
+    init(expectation: XCTestExpectation) {
+        xcExpectation = expectation
+    }
+    override func perform() {
+        xcExpectation.fulfill()
+        finish()
+    }
+}
