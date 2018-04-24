@@ -1,6 +1,7 @@
 project 'MBAppKit.xcodeproj'
 
-platform :ios, '9.0'
+target 'Test-iOS' do
+    platform :ios, '9.0'
 
-target 'MBAppKit' do
+    pod 'MBAppKit', :path => '.'
 end

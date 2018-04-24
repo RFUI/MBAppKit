@@ -60,7 +60,7 @@ typedef void (^MBUserCurrentUserChangeCallback)(__kindof MBUser *__nullable curr
 - (nullable instancetype)initWithID:(MBID)uid NS_DESIGNATED_INITIALIZER;
 #endif
 
-- (nullable instancetype)init NS_UNAVAILABLE;
+- (null_unspecified instancetype)init NS_UNAVAILABLE;
 
 /// 用户 ID
 #if MBUserStringUID

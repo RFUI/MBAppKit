@@ -7,7 +7,7 @@
 MBAPI *MBAPI_global_ = nil;
 
 @interface MBAPI ()
-@property (nonnull) NSMutableDictionary<NSString *, NSMutableDictionary<NSString *, NSDate *> *> *requestIntervalRecord;
+@property (nonatomic, nonnull) NSMutableDictionary<NSString *, NSMutableDictionary<NSString *, NSDate *> *> *requestIntervalRecord;
 @end
 
 @implementation MBAPI

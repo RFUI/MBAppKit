@@ -1,20 +1,32 @@
 
 # Xcode Project
-xcuserdata/
-project.xcworkspace/
+**/*.xcodeproj/xcuserdata/
+**/*.xcworkspace/xcuserdata/
+**/*.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+**/*.xcworkspace/xcshareddata/*.xccheckout
+**/*.xcworkspace/xcshareddata/*.xcscmblueprint
+.idea/
 
 # Xcode Injection
 IOSInjectionProject/
 OSXInjectionProject/
 
-# Build
-Scripts/build/
+## Build generated
 build/
-DerivedData
-*.ipa
+DerivedData/
+*.hmap
 
-# CocoaPods
+# CocoaPods & Carthage
 Pods/
+Carthage/Build
+# Ignore the lock file because we are developing a library.
+Podfile.lock
+
+# fastlane
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
 
 # CSV
 *.orig

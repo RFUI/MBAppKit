@@ -12,12 +12,12 @@
  */
 #pragma once
 
-#import "RFKit.h"
-#import "NSDate+RFKit.h"
-#import "NSDateFormatter+RFKit.h"
-#import "NSURL+RFKit.h"
-#import "NSJSONSerialization+RFKit.h"
-#import "NSLayoutConstraint+RFKit.h"
+#import <RFKit/RFKit.h>
+#import <RFKit/NSDate+RFKit.h>
+#import <RFKit/NSDateFormatter+RFKit.h>
+#import <RFKit/NSURL+RFKit.h>
+#import <RFKit/NSJSONSerialization+RFKit.h>
+#import <RFKit/NSLayoutConstraint+RFKit.h>
 
 #import "MBGeneral.h"
 #import "MBModel.h"

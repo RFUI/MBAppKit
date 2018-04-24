@@ -1,11 +1,13 @@
 Pod::Spec.new do |s|
   s.name     = 'MBAppKit'
-  s.version  = '0.4.0'
+  s.version  = '0.5.0'
   s.author   = 'BB9z'
-  s.license  = { :type => 'private', :text => 'Copyright © 2018 BB9z. All rights reserved.' }
+  s.license  = { :type => 'Apache 2.0', :file => 'LICENSE' }
   s.homepage = 'https://github.com/RFUI/MBAppKit'
-  s.source   = { :path => '.' }
   s.summary  = '通用项目基础套件'
+  s.source   = {
+    :git => 'https://github.com/RFUI/MBAppKit.git'
+  }
   
   s.requires_arc = true
   s.ios.deployment_target = '9.0'
@@ -13,7 +15,13 @@ Pod::Spec.new do |s|
   # s.vendored_frameworks = 'Output/*.framework'
   # s.vendored_libraries = 'Output/**/*.a'
 
-  s.dependency 'RFKit'
+  s.dependency 'RFKit', '~> 2.0'
+  s.dependency 'RFKit/Category/NSDate'
+  s.dependency 'RFKit/Category/NSDateFormatter'
+  s.dependency 'RFKit/Category/NSURL'
+  s.dependency 'RFKit/Category/NSJSONSerialization'
+  s.dependency 'RFKit/Category/NSLayoutConstraint'
+  s.dependency 'RFAlpha/RFSwizzle'
   s.dependency 'AFNetworking/NSURLConnection', '~> 2.6'
   s.dependency 'RFMessageManager/RFNetworkActivityIndicatorMessage', '~> 0.2'
   s.dependency 'RFAPI', '~> 1.0'
