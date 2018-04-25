@@ -6,31 +6,29 @@ Pod::Spec.new do |s|
   s.homepage = 'https://github.com/RFUI/MBAppKit'
   s.summary  = '通用项目基础套件'
   s.source   = {
-    :git => 'https://github.com/RFUI/MBAppKit.git'
+    :git => 'https://github.com/RFUI/MBAppKit.git',
+    :tag => s.version.to_s
   }
   
   s.requires_arc = true
   s.ios.deployment_target = '9.0'
-  
-  # s.vendored_frameworks = 'Output/*.framework'
-  # s.vendored_libraries = 'Output/**/*.a'
 
-  s.dependency 'RFKit', '~> 2.0'
-  s.dependency 'RFKit/Category/NSDate'
-  s.dependency 'RFKit/Category/NSDateFormatter'
-  s.dependency 'RFKit/Category/NSURL'
-  s.dependency 'RFKit/Category/NSJSONSerialization'
-  s.dependency 'RFKit/Category/NSLayoutConstraint'
-  s.dependency 'RFAlpha/RFSwizzle'
-  s.dependency 'AFNetworking/NSURLConnection', '~> 2.6'
-  s.dependency 'RFMessageManager/RFNetworkActivityIndicatorMessage', '~> 0.2'
-  s.dependency 'RFAPI', '~> 1.0'
-
-  s.pod_target_xcconfig = { 'HEADER_SEARCH_PATHS' => '"$(SRCROOT)/../Frameworks/RFUI/Alpha/**" "$(SRCROOT)/../MBAppKit/MBAppKit"' }
+  s.pod_target_xcconfig = {
+  }
   s.exclude_files = ['MBAppKit/shadow.h']
 
   s.default_subspec = 'Core'
   s.subspec 'Core' do |ss|
+    ss.dependency 'RFKit', '~> 2.0'
+    ss.dependency 'RFKit/Category/NSDate'
+    ss.dependency 'RFKit/Category/NSDateFormatter'
+    ss.dependency 'RFKit/Category/NSURL'
+    ss.dependency 'RFKit/Category/NSJSONSerialization'
+    ss.dependency 'RFKit/Category/NSLayoutConstraint'
+    ss.dependency 'RFAlpha/RFSwizzle'
+    ss.dependency 'AFNetworking/NSURLConnection', '~> 2.6'
+    ss.dependency 'RFMessageManager/RFNetworkActivityIndicatorMessage', '~> 0.3'
+    ss.dependency 'RFAPI', '~> 1.1'
     ss.source_files = [
       'MBAppKit/**/*.{h,m}'
     ]
