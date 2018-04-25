@@ -72,8 +72,8 @@
 		D5F9F4D6208F217A00427201 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				D5F9F4E2208F25E600427201 /* OC-Bridging-Header.h */,
 				D5F9F4D9208F217A00427201 /* Info.plist */,
+				D5F9F4E2208F25E600427201 /* OC-Bridging-Header.h */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -92,8 +92,8 @@
 			children = (
 				D5F9F4EB208F64CA00427201 /* RTHelper.h */,
 				D5F9F4EA208F64CA00427201 /* RTHelper.m */,
-				D5F9F4E5208F2C9400427201 /* Test_Worker.swift */,
 				D5F9F4E3208F25E700427201 /* shadow.m */,
+				D5F9F4E5208F2C9400427201 /* Test_Worker.swift */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -199,8 +199,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D5F9F4EC208F64CB00427201 /* RTHelper.m in Sources */,
-				D5F9F4E6208F2C9400427201 /* Test_Worker.swift in Sources */,
 				D5F9F4E4208F25E700427201 /* shadow.m in Sources */,
+				D5F9F4E6208F2C9400427201 /* Test_Worker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -321,7 +321,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Test/iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.RFUI.MBAppKit.Test-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -343,7 +343,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Test/iOS/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.RFUI.MBAppKit.Test-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
