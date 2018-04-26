@@ -49,6 +49,12 @@ Pod::Spec.new do |s|
   end
 
   # Components
+  s.subspec 'ApplicationFont' do |ss|
+    ss.dependency 'MBAppKit/Core'
+    ss.source_files = 'Components/MBApplicationFont/*.{h,m}'
+    ss.public_header_files = 'Components/MBApplicationFont/*.h'
+  end
+
   s.subspec 'Worker' do |ss|
     ss.dependency 'MBAppKit/Core'
     ss.source_files = 'Components/MBWorker/*.{h,m}'

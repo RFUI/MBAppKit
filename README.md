@@ -13,7 +13,7 @@ Install using CocoaPods is highly recommended.
 
 ```ruby
 pod 'MBAppKit', :git => 'https://github.com/RFUI/MBAppKit.git', :subspecs => [
-    'Core'
+    'Worker'
 ]
 ```
 
@@ -30,6 +30,10 @@ The core part defines some of the key components of an application and defines a
 * UserIDIsString
 
     By default, the user ID is an integer value. If you want it to be a string, you can include this subspec in your podfile.
+
+* ApplicationFont
+
+    Set the application global font with a few lines of code.
 
 * Worker
 
