@@ -13,6 +13,8 @@ Install using CocoaPods is highly recommended.
 
 ```ruby
 pod 'MBAppKit', :git => 'https://github.com/RFUI/MBAppKit.git', :subspecs => [
+    'Button',
+    'Input',
     'Worker'
 ]
 ```

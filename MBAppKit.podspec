@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'MBAppKit'
-  s.version  = '0.6.0'
+  s.version  = '0.7.0'
   s.author   = 'BB9z'
   s.license  = { :type => 'Apache 2.0', :file => 'LICENSE' }
   s.homepage = 'https://github.com/RFUI/MBAppKit'
@@ -45,6 +45,24 @@ Pod::Spec.new do |s|
     ss.dependency 'MBAppKit/Core'
     ss.source_files = 'Components/MBApplicationFont/*.{h,m}'
     ss.public_header_files = 'Components/MBApplicationFont/*.h'
+  end
+
+  s.subspec 'Button' do |ss|
+    ss.dependency 'RFInitializing'
+    ss.dependency 'RFKit/RFGeometry'
+
+    ss.source_files = 'Components/Button/*.{h,m}'
+    ss.public_header_files = 'Components/Button/*.h'
+  end
+
+  s.subspec 'Input' do |ss|
+    ss.dependency 'RFInitializing'
+    ss.dependency 'RFKit/RFGeometry'
+    ss.dependency 'RFKit/Category/UIResponder'
+    ss.dependency 'RFAlpha/RFDelegateChain/UITextFiledDelegate'
+
+    ss.source_files = 'Components/Input/*.{h,m}'
+    ss.public_header_files = 'Components/Input/*.h'
   end
 
   s.subspec 'Worker' do |ss|
