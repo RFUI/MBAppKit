@@ -15,6 +15,3 @@ Sort () {
 export ScriptPath
 export -f Sort
 find . -name "*.xcodeproj" -maxdepth 2 -exec bash -c 'Sort "{}"' \;
-
-readonly timeFile="$ScriptPath/PreBuild.time"
-touch "$timeFile"

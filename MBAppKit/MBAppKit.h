@@ -19,9 +19,9 @@
 #import <RFKit/NSJSONSerialization+RFKit.h>
 #import <RFKit/NSLayoutConstraint+RFKit.h>
 
-#import <MBAppKit/NSObject+MBAppKit.h>
-#import <MBAppKit/MBGeneral.h>
-#import <MBAppKit/MBModel.h>
+#import "NSObject+MBAppKit.h"
+#import "MBGeneral.h"
+#import "MBModel.h"
 
 // API、User、AppDelegate 等模块一般都需要在 app 项目中重载，可在项目中的公共头文件中包含
 

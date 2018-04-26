@@ -33,6 +33,11 @@ STAGE_MAIN() {
         else
             echo "TRAVIS_BRANCH = $TRAVIS_BRANCH"
             gem install cocoapods --no-rdoc --no-ri --no-document --quiet
+
+            # Modify podspec, add shadow.m
+            # Replace 'MBAppKit/**/*' => 'Test/Shared/shadow.m',\1
+            sed -i.bak "s/\('MBAppKit\/\*\*\/\*\)/'Test\/Shared\/shadow.m',\1/" "MBAppKit.podspec"
+
             # Always allow warnings as third-party dependencies generate unavoidable warnings.
             pod lib lint --allow-warnings
         fi

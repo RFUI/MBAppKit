@@ -15,7 +15,6 @@ Pod::Spec.new do |s|
 
   s.pod_target_xcconfig = {
   }
-  s.exclude_files = ['MBAppKit/shadow.h']
 
   s.default_subspec = 'Core'
   s.subspec 'Core' do |ss|
@@ -33,12 +32,9 @@ Pod::Spec.new do |s|
       'MBAppKit/**/*.{h,m}'
     ]
     ss.public_header_files = [
-      'MBAppKit/MBAppKit.h',
-      'MBAppKit/MBAPI/*.h',
-      'MBAppKit/MBApplicationDelegate/*.h',
-      'MBAppKit/MBUser/*.h',
-      'MBAppKit/MBUserDefaults/*.h'
+      'MBAppKit/**/*.h'
     ]
+    ss.private_header_files = 'MBAppKit/shadow.h'
   end
 
   # Config
