@@ -28,12 +28,8 @@ Pod::Spec.new do |s|
     ss.dependency 'AFNetworking/NSURLConnection', '~> 2.6'
     ss.dependency 'RFMessageManager/RFNetworkActivityIndicatorMessage', '~> 0.3'
     ss.dependency 'RFAPI', '~> 1.1'
-    ss.source_files = [
-      'MBAppKit/**/*.{h,m}'
-    ]
-    ss.public_header_files = [
-      'MBAppKit/**/*.h'
-    ]
+    ss.source_files = ['MBAppKit/**/*.{h,m}']
+    ss.public_header_files = 'MBAppKit/**/*.h'
     ss.private_header_files = 'MBAppKit/shadow.h'
   end
 
