@@ -4,4 +4,5 @@
 
 #import "RTHelper.h"
 #import "MBAppKit.h"
+#import "MBUser.h"
 #import "MBWorkerQueue.h"

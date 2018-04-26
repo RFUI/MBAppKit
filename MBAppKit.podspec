@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'MBAppKit'
-  s.version  = '0.5.0'
+  s.version  = '0.6.0'
   s.author   = 'BB9z'
   s.license  = { :type => 'Apache 2.0', :file => 'LICENSE' }
   s.homepage = 'https://github.com/RFUI/MBAppKit'
@@ -32,11 +32,26 @@ Pod::Spec.new do |s|
     ss.source_files = [
       'MBAppKit/**/*.{h,m}'
     ]
+    ss.public_header_files = [
+      'MBAppKit/MBAppKit.h',
+      'MBAppKit/MBAPI/*.h',
+      'MBAppKit/MBApplicationDelegate/*.h',
+      'MBAppKit/MBUser/*.h',
+      'MBAppKit/MBUserDefaults/*.h'
+    ]
   end
 
+  # Config
   s.subspec 'UserIDIsString' do |ss|
     ss.dependency 'MBAppKit/Core'
     ss.pod_target_xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'MBUserStringUID=1' }
     ss.user_target_xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'MBUserStringUID=1' }
+  end
+
+  # Components
+  s.subspec 'Worker' do |ss|
+    ss.dependency 'MBAppKit/Core'
+    ss.source_files = 'Components/MBWorker/*.{h,m}'
+    ss.public_header_files = 'Components/MBWorker/*.h'
   end
 end

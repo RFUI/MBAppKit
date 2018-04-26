@@ -3,5 +3,7 @@ project 'MBAppKit.xcodeproj'
 target 'Test-iOS' do
     platform :ios, '9.0'
 
-    pod 'MBAppKit', :path => '.'
+    pod 'MBAppKit', :path => '.', :subspecs => [
+        'Worker'
+    ]
 end
