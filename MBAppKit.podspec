@@ -59,7 +59,7 @@ Pod::Spec.new do |s|
     ss.dependency 'RFInitializing'
     ss.dependency 'RFKit/RFGeometry'
     ss.dependency 'RFKit/Category/UIResponder'
-    ss.dependency 'RFAlpha/RFDelegateChain/UITextFiledDelegate'
+    ss.dependency 'RFAlpha/RFDelegateChain/UITextFieldDelegate'
 
     ss.source_files = 'Components/Input/*.{h,m}'
     ss.public_header_files = 'Components/Input/*.h'
