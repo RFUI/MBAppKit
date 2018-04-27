@@ -56,6 +56,7 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Input' do |ss|
+    ss.dependency 'MBAppKit/Core'
     ss.dependency 'RFInitializing'
     ss.dependency 'RFKit/RFGeometry'
     ss.dependency 'RFKit/Category/UIResponder'
