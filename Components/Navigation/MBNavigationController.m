@@ -1,11 +1,13 @@
 
 #import "MBNavigationController.h"
 #import "MBApplicationDelegate.h"
-#import "MBEnvironment.h"
 #import "MBGeneralViewControllerStateTransitions.h"
 #import "shadow.h"
 #import <RFKit/UIResponder+RFKit.h>
 
+#if KitHas_MBEnvironment
+#import "MBEnvironment.h"
+#endif
 
 @interface MBNavigationController () <
     UIApplicationDelegate,
@@ -28,7 +30,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+#if KitHas_MBEnvironment
     [AppEnv() setFlagOn:MBENVFlagNaigationLoaded];
+#endif
 }
 
 - (UIViewController *)childViewControllerForStatusBarStyle {

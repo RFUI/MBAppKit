@@ -3,25 +3,15 @@
  */
 
 #import <RFKit/RFRuntime.h>
-#import <MBApplicationDelegate.h>
-#import <MBEnvironment.h>
 
 int MBENVFlagNaigationLoaded = 0;
 
 id __nullable AppDelegate(void) {
-    static MBApplicationDelegate *s;
-    if (!s) {
-        s = MBApplicationDelegate.new;
-    }
-    return s;
+    return nil;
 }
 
 id __nullable AppEnv(void) {
-    static MBEnvironment *s;
-    if (!s) {
-        s = MBEnvironment.new;
-    }
-    return s;
+    return nil;
 }
 
 BOOL RFAssertKindOfClass(id obj, Class aClass) {

@@ -50,7 +50,6 @@ Pod::Spec.new do |s|
   s.subspec 'Button' do |ss|
     ss.dependency 'RFInitializing'
     ss.dependency 'RFKit/RFGeometry'
-
     ss.source_files = 'Components/Button/*.{h,m}'
     ss.public_header_files = 'Components/Button/*.h'
   end
@@ -58,9 +57,9 @@ Pod::Spec.new do |s|
   s.subspec 'Environment' do |ss|
     ss.dependency 'RFKit/Runtime'
     ss.dependency 'RFKit/Category/NSArray'
-
     ss.source_files = 'Components/Environment/*.{h,m}'
     ss.public_header_files = 'Components/Environment/*.h'
+    ss.pod_target_xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'KitHas_MBEnvironment=1' }
   end
 
   s.subspec 'Input' do |ss|
@@ -69,7 +68,6 @@ Pod::Spec.new do |s|
     ss.dependency 'RFKit/RFGeometry'
     ss.dependency 'RFKit/Category/UIResponder'
     ss.dependency 'RFAlpha/RFDelegateChain/UITextFieldDelegate'
-
     ss.source_files = 'Components/Input/*.{h,m}'
     ss.public_header_files = 'Components/Input/*.h'
   end
@@ -81,6 +79,7 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'Navigation' do |ss|
+      # weak depend 'Environment'
       ss.dependency 'MBAppKit/Core'
       ss.dependency 'RFAlpha/RFNavigationController'
       ss.dependency 'RFKit/Category/UIResponder'
