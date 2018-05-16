@@ -20,8 +20,6 @@
 #   error "这个文件不应导出到项目"
 #endif
 
-extern int MBENVFlagNaigationLoaded;
-
 #pragma mark - ShortCuts
 
 @class MBApplicationDelegate;

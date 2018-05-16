@@ -5,10 +5,6 @@
 #import "shadow.h"
 #import <RFKit/UIResponder+RFKit.h>
 
-#if KitHas_MBEnvironment
-#import "MBEnvironment.h"
-#endif
-
 @interface MBNavigationController () <
     UIApplicationDelegate,
     UINavigationControllerDelegate
@@ -26,13 +22,6 @@
 - (void)afterInit {
     [super afterInit];
     RFAssert(self.delegate == self, @"MBNavigationController’s delegate must be self");
-}
-
-- (void)viewDidLoad {
-    [super viewDidLoad];
-#if KitHas_MBEnvironment
-    [AppEnv() setFlagOn:MBENVFlagNaigationLoaded];
-#endif
 }
 
 - (UIViewController *)childViewControllerForStatusBarStyle {

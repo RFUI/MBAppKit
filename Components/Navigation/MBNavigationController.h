@@ -36,6 +36,11 @@
 /// 可以执行低优先级的导航操作
 @property (readonly) BOOL shouldPerfromQunedQperation;
 
+#pragma mark -
+
+- (void)applicationDidBecomeActive:(nonnull UIApplication *)application NS_REQUIRES_SUPER;
+- (void)navigationController:(nonnull UINavigationController *)navigationController didShowViewController:(nonnull UIViewController *)viewController animated:(BOOL)animated NS_REQUIRES_SUPER;
+
 @end
 
 /**
