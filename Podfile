@@ -6,7 +6,9 @@ target 'Test-iOS' do
     pod 'MBAppKit', :path => '.', :subspecs => [
         'ApplicationFont',
         'Button',
+        'Environment',
         'Input',
-        'Worker'
+        'Worker',
+        'Navigation',
     ]
 end

@@ -55,6 +55,14 @@ Pod::Spec.new do |s|
     ss.public_header_files = 'Components/Button/*.h'
   end
 
+  s.subspec 'Environment' do |ss|
+    ss.dependency 'RFKit/Runtime'
+    ss.dependency 'RFKit/Category/NSArray'
+
+    ss.source_files = 'Components/Environment/*.{h,m}'
+    ss.public_header_files = 'Components/Environment/*.h'
+  end
+
   s.subspec 'Input' do |ss|
     ss.dependency 'MBAppKit/Core'
     ss.dependency 'RFInitializing'
@@ -70,5 +78,13 @@ Pod::Spec.new do |s|
     ss.dependency 'MBAppKit/Core'
     ss.source_files = 'Components/MBWorker/*.{h,m}'
     ss.public_header_files = 'Components/MBWorker/*.h'
+  end
+  
+  s.subspec 'Navigation' do |ss|
+      ss.dependency 'MBAppKit/Core'
+      ss.dependency 'RFAlpha/RFNavigationController'
+      ss.dependency 'RFKit/Category/UIResponder'
+      ss.source_files = 'Components/Navigation/*.{h,m}'
+      ss.public_header_files = 'Components/Navigation/*.h'
   end
 end

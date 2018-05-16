@@ -1,7 +1,8 @@
 /*!
  MBGeneralSegue
+ MBAppKit
  
- Copyright © 2018 RFUI. All rights reserved.
+ Copyright © 2018 RFUI.
  Copyright © 2016 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
  https://github.com/RFUI/MBAppKit
  

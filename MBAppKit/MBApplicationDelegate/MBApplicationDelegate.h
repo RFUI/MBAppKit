@@ -1,8 +1,9 @@
 /*!
  MBApplicationDelegate
+ MBAppKit
  
- Copyright © 2018 RFUI. All rights reserved.
- Copyright © 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd. All rights reserved.
+ Copyright © 2018 RFUI.
+ Copyright © 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
  https://github.com/RFUI/MBAppKit
  
  Apache License, Version 2.0
@@ -76,37 +77,37 @@ API_AVAILABLE(ios(9.0), tvos(9.0))
  子类如果重写下列方法，必须调用 super 以免破坏通知机制
  */
 
-- (void)applicationDidFinishLaunching:(nullable UIApplication *)application;
-- (void)applicationDidBecomeActive:(nonnull UIApplication *)application;
-- (void)applicationWillResignActive:(nonnull UIApplication *)application;
+- (void)applicationDidFinishLaunching:(nullable UIApplication *)application NS_REQUIRES_SUPER;
+- (void)applicationDidBecomeActive:(nonnull UIApplication *)application NS_REQUIRES_SUPER;
+- (void)applicationWillResignActive:(nonnull UIApplication *)application NS_REQUIRES_SUPER;
 
-- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options;
+- (BOOL)application:(UIApplication *)app openURL:(NSURL *)url options:(NSDictionary<UIApplicationOpenURLOptionsKey, id> *)options NS_REQUIRES_SUPER;
 
-- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application;
-- (void)applicationWillTerminate:(UIApplication *)application;
-- (void)applicationSignificantTimeChange:(UIApplication *)application;
+- (void)applicationDidReceiveMemoryWarning:(UIApplication *)application NS_REQUIRES_SUPER;
+- (void)applicationWillTerminate:(UIApplication *)application NS_REQUIRES_SUPER;
+- (void)applicationSignificantTimeChange:(UIApplication *)application NS_REQUIRES_SUPER;
 
-- (void)application:(UIApplication *)application willChangeStatusBarOrientation:(UIInterfaceOrientation)newStatusBarOrientation duration:(NSTimeInterval)duration;
-- (void)application:(UIApplication *)application didChangeStatusBarOrientation:(UIInterfaceOrientation)oldStatusBarOrientation;
-- (void)application:(UIApplication *)application willChangeStatusBarFrame:(CGRect)newStatusBarFrame;
-- (void)application:(UIApplication *)application didChangeStatusBarFrame:(CGRect)oldStatusBarFrame;
+- (void)application:(UIApplication *)application willChangeStatusBarOrientation:(UIInterfaceOrientation)newStatusBarOrientation duration:(NSTimeInterval)duration NS_REQUIRES_SUPER;
+- (void)application:(UIApplication *)application didChangeStatusBarOrientation:(UIInterfaceOrientation)oldStatusBarOrientation NS_REQUIRES_SUPER;
+- (void)application:(UIApplication *)application willChangeStatusBarFrame:(CGRect)newStatusBarFrame NS_REQUIRES_SUPER;
+- (void)application:(UIApplication *)application didChangeStatusBarFrame:(CGRect)oldStatusBarFrame NS_REQUIRES_SUPER;
 
 // iOS 10+ 替换
-- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings;
-- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken;
-- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error;
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings NS_REQUIRES_SUPER;
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken NS_REQUIRES_SUPER;
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error NS_REQUIRES_SUPER;
 // iOS 10+ 替换
-- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo;
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo NS_REQUIRES_SUPER;
 // iOS 10+ 替换
-- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification;
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification NS_REQUIRES_SUPER;
 
-- (void)applicationShouldRequestHealthAuthorization:(UIApplication *)application;
+- (void)applicationShouldRequestHealthAuthorization:(UIApplication *)application NS_REQUIRES_SUPER;
 
-- (void)applicationDidEnterBackground:(UIApplication *)application;
-- (void)applicationWillEnterForeground:(UIApplication *)application;
+- (void)applicationDidEnterBackground:(UIApplication *)application NS_REQUIRES_SUPER;
+- (void)applicationWillEnterForeground:(UIApplication *)application NS_REQUIRES_SUPER;
 
-- (void)applicationProtectedDataWillBecomeUnavailable:(UIApplication *)application;
-- (void)applicationProtectedDataDidBecomeAvailable:(UIApplication *)application;
+- (void)applicationProtectedDataWillBecomeUnavailable:(UIApplication *)application NS_REQUIRES_SUPER;
+- (void)applicationProtectedDataDidBecomeAvailable:(UIApplication *)application NS_REQUIRES_SUPER;
 
 @end
 

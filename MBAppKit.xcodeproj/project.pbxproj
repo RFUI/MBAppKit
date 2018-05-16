@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		47B44CE2155DD49CC1F8A8F4 /* libPods-Test-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 315C7E6772024C22BD086A56 /* libPods-Test-iOS.a */; };
+		D55959D820ABC2D40019D733 /* Test_MBEnviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D55959D720ABC2D20019D733 /* Test_MBEnviroment.swift */; };
 		D5F9F4E4208F25E700427201 /* shadow.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F9F4E3208F25E700427201 /* shadow.m */; };
 		D5F9F4E6208F2C9400427201 /* Test_Worker.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F9F4E5208F2C9400427201 /* Test_Worker.swift */; };
 		D5F9F4EC208F64CB00427201 /* RTHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F9F4EA208F64CA00427201 /* RTHelper.m */; };
@@ -18,6 +19,7 @@
 		51B6E2E8389FA8B31B728BC9 /* Pods-Test-iOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test-iOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Test-iOS/Pods-Test-iOS.release.xcconfig"; sourceTree = "<group>"; };
 		A2739E95C550FEE8CC48583F /* Pods-Test-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Test-iOS/Pods-Test-iOS.debug.xcconfig"; sourceTree = "<group>"; };
 		D558FDFD2046927100A01EE6 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D55959D720ABC2D20019D733 /* Test_MBEnviroment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Test_MBEnviroment.swift; path = "../../../../../#98 Sensoroapp/Test/Test_MBEnviroment.swift"; sourceTree = "<group>"; };
 		D5CFF54E204521E000D47917 /* MBAppKit.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; path = MBAppKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		D5F9F4D5208F217A00427201 /* Test-iOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Test-iOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5F9F4D9208F217A00427201 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -93,6 +95,7 @@
 				D5F9F4EB208F64CA00427201 /* RTHelper.h */,
 				D5F9F4EA208F64CA00427201 /* RTHelper.m */,
 				D5F9F4E3208F25E700427201 /* shadow.m */,
+				D55959D720ABC2D20019D733 /* Test_MBEnviroment.swift */,
 				D5F9F4E5208F2C9400427201 /* Test_Worker.swift */,
 			);
 			path = Shared;
@@ -200,6 +203,7 @@
 			files = (
 				D5F9F4EC208F64CB00427201 /* RTHelper.m in Sources */,
 				D5F9F4E4208F25E700427201 /* shadow.m in Sources */,
+				D55959D820ABC2D40019D733 /* Test_MBEnviroment.swift in Sources */,
 				D5F9F4E6208F2C9400427201 /* Test_Worker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

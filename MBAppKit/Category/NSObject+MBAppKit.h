@@ -1,7 +1,8 @@
 /*!
  NSObject+MBAppKit
+ MBAppKit
 
- Copyright © 2018 RFUI. All rights reserved.
+ Copyright © 2018 RFUI.
  Copyright © 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
  https://github.com/RFUI/MBAppKit
  
@@ -15,7 +16,7 @@
 /// 类名字符串，Swift 类名只保留 . 最后的部分
 @property (class, nonnull, readonly) NSString *className;
 
-/// 类名字符串
+/// 类名字符串，Swift 类名只保留 . 最后的部分
 @property (nonnull, readonly) NSString *className;
 
 @end

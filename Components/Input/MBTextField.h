@@ -1,11 +1,12 @@
 /*!
-    MBTextField
-
-    Copyright © 2018 RFUI. All rights reserved.
-    https://github.com/RFUI/MBAppKit
-
-    Apache License, Version 2.0
-    http://www.apache.org/licenses/LICENSE-2.0
+ MBTextField
+ MBAppKit
+ 
+ Copyright © 2018 RFUI.
+ https://github.com/RFUI/MBAppKit
+ 
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
  */
 #import <RFKit/RFRuntime.h>
 #import <RFInitializing/RFInitializing.h>

@@ -1,7 +1,8 @@
 /*!
  MBEntityExchanging
+ MBAppKit
  
- Copyright © 2018 RFUI. All rights reserved.
+ Copyright © 2018 RFUI.
  Copyright © 2014-2016 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
  Copyright © 2014 Chinamobo Co., Ltd.
  https://github.com/RFUI/MBAppKit

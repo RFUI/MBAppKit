@@ -1,7 +1,8 @@
 /*!
- shadow
+ shadow.h
+ MBAppKit
  
- Copyright © 2018 RFUI. All rights reserved.
+ Copyright © 2018 RFUI.
  https://github.com/RFUI/MBAppKit
  
  Apache License, Version 2.0
@@ -19,7 +20,12 @@
 #   error "这个文件不应导出到项目"
 #endif
 
+extern int MBENVFlagNaigationLoaded;
+
 #pragma mark - ShortCuts
+
+@class MBApplicationDelegate;
+MBApplicationDelegate *__nullable AppDelegate(void);
 
 @class MBEnvironment;
 /// 状态依赖

@@ -1,7 +1,8 @@
 /*!
  MBUserDefaults
+ MBAppKit
  
- Copyright © 2018 RFUI. All rights reserved.
+ Copyright © 2018 RFUI.
  https://github.com/RFUI/MBAppKit
  
  Apache License, Version 2.0
