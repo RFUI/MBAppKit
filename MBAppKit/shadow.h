@@ -29,6 +29,14 @@ MBApplicationDelegate *__nullable AppDelegate(void);
 /// 状态依赖
 MBEnvironment *__nullable AppEnv(void);
 
+@class MBUser;
+/// 当前登录的用户，可以用来判断是否已登录
+MBUser *__nullable AppUser(void);
+
+@class MBNavigationController;
+/// 全局导航
+MBNavigationController *__nullable AppNavigationController(void);
+
 #pragma mark - debug
 /**
  debug 方法应当随项目编译，但套件仍需要引用部分 debug 中的方法

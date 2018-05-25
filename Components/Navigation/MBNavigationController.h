@@ -71,4 +71,47 @@
 
 @end
 
+#pragma mark - 基于每个页面的登入控制
+
+@interface UIViewController (MBUserLoginRequired)
+
+/**
+ 标记这个 vc 需要登录才能查看
+ */
+@property IBInspectable BOOL MBUserLoginRequired;
+@end
+
+@interface MBNavigationController (MBUserLoginRequired)
+
+/**
+ 被需要登入阻塞 push 的 vc，登入成功后需要根据业务需要手动还原或者丢弃
+ 
+ push 时界面需要登入时内部押入这个变量
+ */
+@property (nullable) UIViewController *loginSuspendedViewController;
+
+/**
+ 需要重写，根据业务决定如何把登入页面展示出来
+ 
+ 外部不应手动调用
+ */
+- (void)presentLoginScene;
+@end
+
+/**
+ 导航 push 需要登入查看的页面时已自动处理。
+ 当一个操作需要登入时，可以先调用这个方法手动检查，并在需要时显示登入界面
+ 
+ @return 已登入返回 NO，未登入返回 YES
+ */
+FOUNDATION_EXPORT BOOL MBOperationLoginRequired(void);
+
+/**
+ MBOperationLoginRequired() 的便捷宏
+ 
+ 参数是用户未登入时的返回值
+ */
+#define UserLoginRequired(RETURN) \
+if (MBOperationLoginRequired()) return RETURN;
+
 #import "MBNavigationOperation.h"

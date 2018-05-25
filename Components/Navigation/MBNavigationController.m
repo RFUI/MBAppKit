@@ -4,11 +4,13 @@
 #import "MBGeneralViewControllerStateTransitions.h"
 #import "shadow.h"
 #import <RFKit/UIResponder+RFKit.h>
+#import <RFAlpha/RFSynthesizeCategoryProperty.h>
 
 @interface MBNavigationController () <
     UIApplicationDelegate,
     UINavigationControllerDelegate
 >
+@property UIViewController *loginSuspendedViewController;
 @end
 
 @implementation MBNavigationController
@@ -108,6 +110,16 @@
 
 @implementation MBNavigationController (StackManagement)
 
+- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    if (!AppUser()
+        && viewController.MBUserLoginRequired) {
+        self.loginSuspendedViewController = viewController;
+        [self _MBNavigationController_tryLogin];
+        return;
+    }
+    [super pushViewController:viewController animated:animated];
+}
+
 - (IBAction)navigationPop:(id)sender {
     [self popViewControllerAnimated:YES];
 }
@@ -132,4 +144,28 @@
     [self popToViewController:vc animated:YES];
 }
 
+- (void)_MBNavigationController_tryLogin {
+    if (AppUser()) return;
+    [self presentLoginScene];
+}
+
 @end
+
+@implementation UIViewController (MBUserLoginRequired)
+RFSynthesizeCategoryBoolProperty(MBUserLoginRequired, setMBUserLoginRequired);
+@end
+
+@implementation MBNavigationController (MBUserLoginRequired)
+@dynamic loginSuspendedViewController;
+
+- (void)presentLoginScene {
+    // for overwrite
+}
+
+@end
+
+BOOL MBOperationLoginRequired(void) {
+    if (AppUser()) return NO;
+    [AppNavigationController() _MBNavigationController_tryLogin];
+    return YES;
+}

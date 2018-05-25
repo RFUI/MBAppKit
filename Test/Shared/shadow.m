@@ -14,6 +14,14 @@ id __nullable AppEnv(void) {
     return nil;
 }
 
+id __nullable AppUser(void) {
+    return nil;
+}
+
+id __nullable AppNavigationController(void) {
+    return nil;
+}
+
 BOOL RFAssertKindOfClass(id obj, Class aClass) {
     if (obj
         && ![obj isKindOfClass:aClass]) {
