@@ -11,6 +11,9 @@
     UINavigationControllerDelegate
 >
 @property UIViewController *loginSuspendedViewController;
+// 跳转到登入页了，被阻塞的页面也暂存了，但是用户之后退出登入，之前暂存的状态需要取消
+// 这个变量辅助达到上述效果
+@property (weak) UIViewController *_MBNavigationController_loginSuspendedVCKeeper;
 @end
 
 @implementation MBNavigationController
@@ -46,6 +49,24 @@
     if (self.prefersBackBarButtonTitleHidden) {
         if (!viewController.navigationItem.backBarButtonItem) {
             viewController.navigationItem.backBarButtonItem = [UIBarButtonItem.alloc initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+        }
+    }
+    if (self.loginSuspendedViewController) {
+        BOOL keeperNotFound = YES;
+        if (self.visibleViewController == self._MBNavigationController_loginSuspendedVCKeeper) {
+            keeperNotFound = NO;
+        }
+        else {
+            for (UIViewController *vc in self.viewControllers) {
+                if (vc == self._MBNavigationController_loginSuspendedVCKeeper) {
+                    keeperNotFound = NO;
+                    break;
+                }
+            }
+        }
+        if (keeperNotFound) {
+            self.loginSuspendedViewController = nil;
+            self._MBNavigationController_loginSuspendedVCKeeper = nil;
         }
     }
     [self changeNavigationStack:^(MBNavigationController *this) {
@@ -147,6 +168,7 @@
 - (void)_MBNavigationController_tryLogin {
     if (AppUser()) return;
     [self presentLoginScene];
+    self._MBNavigationController_loginSuspendedVCKeeper =  self.visibleViewController;
 }
 
 @end
