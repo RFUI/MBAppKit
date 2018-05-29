@@ -103,7 +103,3 @@ RFInitializingRootForUIView
 }
 
 @end
-
-
-@implementation MBItemButton
-@end

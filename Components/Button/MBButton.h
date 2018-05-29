@@ -94,8 +94,3 @@
 @interface MBControlTouchExpandContainerView : UIView
 @property (nonatomic, nullable) IBOutletCollection(UIControl) NSArray *controls;
 @end
-
-
-@interface MBItemButton : MBButton
-@property (nonatomic, nullable) id item;
-@end
