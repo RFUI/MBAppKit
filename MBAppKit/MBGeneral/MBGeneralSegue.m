@@ -44,7 +44,8 @@ id _Nullable MBGeneralSegueItem(UIStoryboardSegue *_Nonnull segue, id _Nullable 
             return;
         }
         UIView *v = sender;
-        if (v.viewController == self) {
+        if ([v respondsToSelector:@selector(viewController)]
+            && v.viewController == self) {
             while ((v = v.superview)) {
                 if ([v respondsToSelector:@selector(item)]) {
                     vc.item = [(id<MBGeneralItemExchanging>)v item];
@@ -65,7 +66,8 @@ id _Nullable MBGeneralSegueItem(UIStoryboardSegue *_Nonnull segue, id _Nullable 
             return;
         }
         UIView *v = sender;
-        if (v.viewController == self) {
+        if ([v respondsToSelector:@selector(viewController)]
+            && v.viewController == self) {
             while ((v = v.superview)) {
                 if ([v respondsToSelector:@selector(items)]) {
                     vc.items = [(id<MBGeneralListItemExchanging>)v items];

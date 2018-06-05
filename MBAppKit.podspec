@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'MBAppKit'
-  s.version  = '0.7.1'
+  s.version  = '0.7.2'
   s.author   = 'BB9z'
   s.license  = { :type => 'Apache 2.0', :file => 'LICENSE' }
   s.homepage = 'https://github.com/RFUI/MBAppKit'
