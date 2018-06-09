@@ -29,13 +29,6 @@
     RFAssert(self.delegate == self, @"MBNavigationController’s delegate must be self");
 }
 
-- (UIViewController *)childViewControllerForStatusBarStyle {
-    if (self.navigationBarHidden) {
-        return self.topViewController;
-    }
-    return nil;
-}
-
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     UIViewController<MBGeneralViewControllerStateTransitions> *vc = (id)self.topViewController;
     if ([vc respondsToSelector:@selector(MBViewDidAppear:)]) {
