@@ -18,7 +18,7 @@
 typedef long MBID;
 
 /// 字符串标示
-typedef NSString * MBIdentifier;
+typedef NSString* MBIdentifier;
 
 #pragma mark - 时间
 
@@ -32,7 +32,7 @@ typedef NS_ENUM(long long, MBDateTimeStamp) {
 };
 /// 浮点时长、时间戳统一使用 NSTimeInterval
 
-/// 专用于标示日期哪一天，格式统一为 yyyyMMdd
+/// 专用于标示日期哪一天
 typedef NSString* MBDateDayIdentifier;
 
 /**
