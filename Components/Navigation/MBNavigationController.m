@@ -134,6 +134,20 @@
     [super pushViewController:viewController animated:animated];
 }
 
+- (void)setViewControllers:(NSArray<UIViewController *> *)viewControllers animated:(BOOL)animated {
+    UIViewController *lastVC = viewControllers.lastObject;
+    if (!AppUser()
+        && lastVC.MBUserLoginRequired) {
+        self.loginSuspendedViewController = lastVC;
+        NSMutableArray *vcs = viewControllers.mutableCopy;
+        [vcs removeLastObject];
+        [super setViewControllers:vcs animated:animated];
+        [self _MBNavigationController_tryLogin];
+        return;
+    }
+    [super setViewControllers:viewControllers animated:animated];
+}
+
 - (IBAction)navigationPop:(id)sender {
     [self popViewControllerAnimated:YES];
 }
