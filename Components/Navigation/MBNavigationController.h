@@ -55,6 +55,16 @@
 
 @interface MBNavigationController (StackManagement)
 
+/**
+ 有 view controller 从导航堆栈中移除时调用
+ 
+ 默认实现会把这些 view controller 相关联的 API 请求取消
+ */
+- (void)didRemoveViewControllers:(nonnull NSArray<UIViewController *> *)vcs NS_REQUIRES_SUPER;
+
+/**
+ 便于在 IB 中调用 popViewControllerAnimated()
+ */
 - (IBAction)navigationPop:(id _Nullable)sender;
 
 /**

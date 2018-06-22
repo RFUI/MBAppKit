@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'MBAppKit'
-  s.version  = '0.7.3'
+  s.version  = '0.8.0'
   s.author   = 'BB9z'
   s.license  = { :type => 'Apache 2.0', :file => 'LICENSE' }
   s.homepage = 'https://github.com/RFUI/MBAppKit'
@@ -81,6 +81,7 @@ Pod::Spec.new do |s|
       ss.dependency 'MBAppKit/Core'
       ss.dependency 'RFAlpha/RFSynthesize'
       ss.dependency 'RFAlpha/RFNavigationController'
+      ss.dependency 'RFKit/Category/NSArray'
       ss.dependency 'RFKit/Category/UIResponder'
       ss.source_files = 'Components/Navigation/*.{h,m}'
       ss.public_header_files = 'Components/Navigation/*.h'

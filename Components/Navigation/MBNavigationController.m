@@ -1,8 +1,10 @@
 
 #import "MBNavigationController.h"
+#import "MBAPI.h"
 #import "MBApplicationDelegate.h"
 #import "MBGeneralViewControllerStateTransitions.h"
 #import "shadow.h"
+#import <RFKit/NSArray+RFKit.h>
 #import <RFKit/UIResponder+RFKit.h>
 #import <RFAlpha/RFSynthesizeCategoryProperty.h>
 
@@ -14,6 +16,7 @@
 // 跳转到登入页了，被阻塞的页面也暂存了，但是用户之后退出登入，之前暂存的状态需要取消
 // 这个变量辅助达到上述效果
 @property (weak) UIViewController *_MBNavigationController_loginSuspendedVCKeeper;
+@property (nonatomic) NSArray<UIViewController *> *_MBNavigationController_lastViewControllers;
 @end
 
 @implementation MBNavigationController
@@ -38,7 +41,8 @@
 
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
     [super navigationController:navigationController didShowViewController:viewController animated:animated];
-
+    self._MBNavigationController_lastViewControllers = self.viewControllers;
+    
     if (self.prefersBackBarButtonTitleHidden) {
         if (!viewController.navigationItem.backBarButtonItem) {
             viewController.navigationItem.backBarButtonItem = [UIBarButtonItem.alloc initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
@@ -65,6 +69,18 @@
     [self changeNavigationStack:^(MBNavigationController *this) {
         [this setNeedsPerformNavigationOperation];
     }];
+}
+
+- (void)set_MBNavigationController_lastViewControllers:(NSArray<UIViewController *> *)viewControllers {
+    if ([__MBNavigationController_lastViewControllers isEqualToArray:viewControllers]) return;
+    NSMutableArray *vcRemoved = [NSMutableArray.alloc initWithArray:__MBNavigationController_lastViewControllers];
+    [vcRemoved removeObjectsPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        return [viewControllers containsObject:obj];
+    }];
+    __MBNavigationController_lastViewControllers = viewControllers.copy;
+    if (vcRemoved.count) {
+        [self didRemoveViewControllers:vcRemoved];
+    }
 }
 
 #pragma mark - 导航队列
@@ -146,6 +162,12 @@
         return;
     }
     [super setViewControllers:viewControllers animated:animated];
+}
+
+- (void)didRemoveViewControllers:(NSArray<UIViewController *> *)vcs {
+    for (UIViewController *vc in vcs) {
+        [MBAPI.global cancelOperationsWithGroupIdentifier:vc.APIGroupIdentifier];
+    }
 }
 
 - (IBAction)navigationPop:(id)sender {
