@@ -18,6 +18,7 @@
 #import <RFKit/NSURL+RFKit.h>
 #import <RFKit/NSJSONSerialization+RFKit.h>
 #import <RFKit/NSLayoutConstraint+RFKit.h>
+#import <RFInitializing/RFInitializing.h>
 
 #import "NSObject+MBAppKit.h"
 #import "MBGeneral.h"
