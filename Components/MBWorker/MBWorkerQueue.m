@@ -169,7 +169,10 @@ RFInitializingRootForNSObject
     if (!queue.count) return nil;
 
     MBWorker *w = nil;
-    BOOL inBackground = (UIApplication.sharedApplication.applicationState == UIApplicationStateBackground);
+    __block BOOL inBackground = NO;
+    dispatch_sync_on_main(^{
+        inBackground = (UIApplication.sharedApplication.applicationState == UIApplicationStateBackground);
+    });
 
     for (MBWorker *item in queue) {
         // 遍历队列直到找到一个符合执行条件的
