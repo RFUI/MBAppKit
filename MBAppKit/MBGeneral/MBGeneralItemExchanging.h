@@ -31,7 +31,7 @@
  
  便于在 Swift 中非显式声明协议传值困难
  */
-FOUNDATION_EXTERN BOOL MBGeneralItemPassValue(id destination, id value);
+FOUNDATION_EXTERN BOOL MBGeneralItemPassValue(id __nullable destination, id __nullable value);
 
 
 /**
