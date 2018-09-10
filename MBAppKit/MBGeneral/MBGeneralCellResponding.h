@@ -34,7 +34,7 @@
  @code
  - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     if (MBGeneralCellRespondingTableViewDidSelectImplementation(tableView, indexPath)) {
-        retrurn;
+        return;
     }
     // 其他自定义逻辑
  }
