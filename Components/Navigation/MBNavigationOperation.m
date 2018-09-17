@@ -24,7 +24,7 @@ RFInitializingRootForNSObject
     return des;
 }
 
-+ (instancetype)operationWithConfiguration:(void (^)(__kindof MBNavigationOperation * _Nonnull))configBlock {
++ (instancetype)operationWithConfiguration:(NS_NOESCAPE void (^)(__kindof MBNavigationOperation * _Nonnull))configBlock {
     MBNavigationOperation *ins = self.new;
     configBlock(ins);
     if (![ins validateConfiguration]) {
