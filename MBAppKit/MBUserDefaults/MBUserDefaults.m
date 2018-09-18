@@ -17,7 +17,7 @@ MBSynthesizeSetNeedsDelayMethodUsingAssociatedObject(setNeedsSynchronized, synch
 
 @implementation NSAccountDefaults
 
-- (BOOL)synchronizeBlock:(void (^)(NSAccountDefaults *))block {
+- (BOOL)synchronizeBlock:(NS_NOESCAPE void (^)(NSAccountDefaults *))block {
     return [super synchronizeBlock:block];
 }
 
