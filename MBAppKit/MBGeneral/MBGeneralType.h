@@ -15,7 +15,7 @@
 #pragma mark - ID
 
 /// 整形 ID
-typedef long MBID;
+typedef int64_t MBID;
 
 /// 字符串标示
 typedef NSString* MBIdentifier;
