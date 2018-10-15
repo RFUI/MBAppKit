@@ -1,6 +1,6 @@
 
 #import "MBTextField.h"
-#import "MBGeneral.h"
+#import <MBAppKit/MBGeneralItemExchanging.h>
 #import <RFKit/RFGeometry.h>
 #import <RFKit/UIResponder+RFKit.h>
 #import <RFAlpha/UITextFiledDelegateChain.h>
@@ -8,7 +8,6 @@
 @interface MBTextField ()
 @property BOOL appearanceSetupDone;
 @property (nonatomic) UITextFiledDelegateChain *trueDelegate;
-@property (nonatomic) BOOL noBorder;
 @end
 
 @implementation MBTextField
@@ -17,17 +16,6 @@ RFInitializingRootForUIView
 - (void)onInit {
     // 文字距边框设定
     self.textEdgeInsets = UIEdgeInsetsMake(7, 10, 7, 10);
-
-    // 获取焦点自动高亮
-    // 只在非默认风格下设置背景图
-    if (self.borderStyle == UITextBorderStyleNone) {
-        self.noBorder = YES;
-    }
-
-    if (self.borderStyle == UITextBorderStyleRoundedRect) {
-        self.borderStyle = UITextBorderStyleNone;
-    }
-
     [super setDelegate:self.trueDelegate];
 }
 
@@ -42,11 +30,10 @@ RFInitializingRootForUIView
         [self MBTextField_setupReturnKeyType];
     }
 
-    [self addTarget:self action:@selector(MBTextField_onTextFieldChanged:) forControlEvents:UIControlEventEditingChanged];
+    [self addTarget:self action:@selector(updateUIForTextChanged) forControlEvents:UIControlEventEditingChanged];
     [self _setupAppearance];
     
-    if (!self.noBorder) {
-        self.disabledBackground = [[UIImage imageNamed:@"text_field_bg_disabled"] resizableImageWithCapInsets:UIEdgeInsetsMakeWithSameMargin(3)];
+    if (self.backgroundHighlightedImage) {
         [self MBTextField_updateBackgroundForHighlighted:self.isFirstResponder];
     }
 }
@@ -73,6 +60,13 @@ RFInitializingRootForUIView
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    // 焦点自动设置
+    if (self.backgroundHighlightedImage) {
+        if (!self.backgroundImage) {
+            self.backgroundImage = self.background;
+        }
+        self.borderStyle = UITextBorderStyleNone;
+    }
     [self _setupAppearance];
 }
 
@@ -82,6 +76,7 @@ RFInitializingRootForUIView
     if (!self.skipAppearanceSetup) {
         [self setupAppearance];
     }
+    [self updateUIForTextChanged];
 }
 
 - (void)setupAppearance {
@@ -148,14 +143,8 @@ RFInitializingRootForUIView
 }
 
 - (void)MBTextField_updateBackgroundForHighlighted:(BOOL)highlighted {
-    if (self.noBorder) return;
-    if (highlighted
-        && self.backgroundHighlightedImage) {
-        self.background = self.backgroundHighlightedImage;
-    }
-    if (self.backgroundImage) {
-        self.background = self.backgroundImage;
-    }
+    if (!self.backgroundHighlightedImage) return;
+    self.background = highlighted? self.backgroundHighlightedImage : self.backgroundImage;
 }
 
 #pragma mark - 自动获取焦点
@@ -243,7 +232,11 @@ RFInitializingRootForUIView
     };
 }
 
-#pragma mark - 文本长度限制
+#pragma mark - 文本变化
+
+- (void)updateUIForTextChanged {
+    [self MBTextField_onTextFieldChanged:self];
+}
 
 - (void)MBTextField_onTextFieldChanged:(UITextField *)textField {
     if (self.iconImageView) {
@@ -252,6 +245,9 @@ RFInitializingRootForUIView
             on = NO;
         }
         self.iconImageView.highlighted = on;
+    }
+    if (self.contentAccessoryView) {
+        self.contentAccessoryView.hidden = !textField.text.length;
     }
     if (!self.maxLength) return;
 

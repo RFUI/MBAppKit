@@ -56,15 +56,28 @@
 @property (nonatomic) UIEdgeInsets textEdgeInsets;
 #endif
 
-/// 默认背景图
-@property (nonatomic, nullable) IBInspectable UIImage *backgroundImage;
-/// 获取焦点背景图
+/// 非空时，text filed 获取/失去键盘焦点时会在 backgroundHighlightedImage 和 backgroundImage 之间切换
 @property (nonatomic, nullable) IBInspectable UIImage *backgroundHighlightedImage;
+
+/// 默认背景图，从 nib 载入时如果 backgroundHighlightedImage 非空，会自动拷贝 background 的属性
+@property (nonatomic, nullable) IBInspectable UIImage *backgroundImage;
 
 @property (nonatomic, nullable) NSDictionary *placeholderTextAttributes;
 
+/**
+ 文字变更时调用
+ 
+ 用户通过键盘改变文字时会自动调用，程序通过 setText: 需要手动调用以便更新 UI
+ */
+- (void)updateUIForTextChanged;
+
+#pragma mark - 附加 view
+
 /// 内容非空时设置状态为 highlighted
 @property (nonatomic, nullable, weak) IBOutlet UIImageView *iconImageView;
+
+/// 文字非空时显示的 view，布局交给外部，text field 不进行管理
+@property (nonatomic, nullable, weak) IBOutlet UIView *contentAccessoryView;
 
 #pragma mark - 表单
 
