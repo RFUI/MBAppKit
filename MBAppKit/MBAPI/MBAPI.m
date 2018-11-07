@@ -69,6 +69,21 @@ MBAPI *MBAPI_global_ = nil;
     return [self.global requestWithName:APIName parameters:parameters controlInfo:cn success:success failure:failure completion:completion];
 }
 
++ (AFHTTPRequestOperation *)requestWithName:(NSString *)APIName parameters:(NSDictionary *)parameters viewController:(UIViewController *)viewController loadingMessage:(NSString *)message modal:(BOOL)modal completion:(MBGeneralCallback)completion {
+    __block MBGeneralCallback cb = completion;
+    return [self requestWithName:APIName parameters:parameters viewController:viewController forceLoad:NO loadingMessage:message modal:modal success:^(AFHTTPRequestOperation * _Nullable operation, id  _Nullable responseObject) {
+        cb(YES, responseObject, nil);
+        cb = nil;
+    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
+        cb(NO, nil, error);
+        cb = nil;
+    } completion:^(AFHTTPRequestOperation * _Nullable operation) {
+        if (cb) {
+            cb(NO, nil, nil);
+        }
+    }];
+}
+
 + (void)backgroundRequestWithName:(NSString *)APIName parameters:(NSDictionary *)parameters completion:(void (^)(BOOL success, id responseObject, NSError *error))completion {
     RFAPIControl *cn = RFAPIControl.new;
     cn.identifier = APIName;

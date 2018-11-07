@@ -95,6 +95,7 @@
 #pragma mark - 请求管理
 
 /**
+ 标准请求，默认错误处理方式
  
  @param APIName 接口名，同时会作为请求的 identifier
  @param viewController 请求所属视图，会取到它的 class 名作为请求的 groupIdentifier
@@ -102,9 +103,18 @@
 + (nullable AFHTTPRequestOperation *)requestWithName:(nonnull NSString *)APIName parameters:(nullable NSDictionary *)parameters viewController:(nullable UIViewController *)viewController loadingMessage:(nullable NSString *)message modal:(BOOL)modal success:(nullable void (^)(AFHTTPRequestOperation *__nullable operation, id __nullable responseObject))success completion:(nullable void (^)(AFHTTPRequestOperation *__nullable operation))completion;
 
 /**
+ 全参数请求，自定义错误处理
+ 
  @param failure 为 nil 发生错误时自动弹出错误信息
  */
 + (nullable AFHTTPRequestOperation *)requestWithName:(nonnull NSString *)APIName parameters:(nullable NSDictionary *)parameters viewController:(nullable UIViewController *)viewController forceLoad:(BOOL)forceLoad loadingMessage:(nullable NSString *)message modal:(BOOL)modal success:(nullable void (^)(AFHTTPRequestOperation *__nullable operation, id __nullable responseObject))success failure:(nullable void (^)(AFHTTPRequestOperation *__nullable operation, NSError *__nonnull error))failure completion:(nullable void (^)(AFHTTPRequestOperation *__nullable operation))completion;
+
+/**
+ 请求回调合一
+ 
+ 不要忘记处理错误
+ */
++ (nullable AFHTTPRequestOperation *)requestWithName:(nonnull NSString *)APIName parameters:(nullable NSDictionary *)parameters viewController:(nullable UIViewController *)viewController loadingMessage:(nullable NSString *)message modal:(BOOL)modal completion:(nullable void (^)(BOOL success, id __nullable responseObject, NSError *__nullable error))completion;
 
 /**
  发送一个后台请求
