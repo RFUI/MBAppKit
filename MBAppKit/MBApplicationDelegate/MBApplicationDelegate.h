@@ -54,7 +54,7 @@ API_AVAILABLE(ios(9.0), tvos(9.0))
 @property (nonatomic) UIWindow *window;
 
 /**
- 重写了大部分 UIApplicationDelegate 的事件，不会重写的有：
+ 重写了大部分常用 UIApplicationDelegate 事件，不会重写的有：
  
  - iOS 9 以下废弃的方法
  - 带完成回调的方法
@@ -92,6 +92,33 @@ API_AVAILABLE(ios(9.0), tvos(9.0))
 - (void)application:(UIApplication *)application willChangeStatusBarFrame:(CGRect)newStatusBarFrame NS_REQUIRES_SUPER;
 - (void)application:(UIApplication *)application didChangeStatusBarFrame:(CGRect)oldStatusBarFrame NS_REQUIRES_SUPER;
 
+- (void)applicationShouldRequestHealthAuthorization:(UIApplication *)application NS_REQUIRES_SUPER;
+
+- (void)applicationDidEnterBackground:(UIApplication *)application NS_REQUIRES_SUPER;
+- (void)applicationWillEnterForeground:(UIApplication *)application NS_REQUIRES_SUPER;
+
+- (void)applicationProtectedDataWillBecomeUnavailable:(UIApplication *)application NS_REQUIRES_SUPER;
+- (void)applicationProtectedDataDidBecomeAvailable:(UIApplication *)application NS_REQUIRES_SUPER;
+
+#pragma mark - 推送
+
+// Tips: 如需 application:didReceiveRemoteNotification:fetchCompletionHandler: 请在子类中实现
+
+/**
+ 推送通知的 device token
+ 
+ 支持 KVO
+ 
+ 设置的时机不稳定，实测结果：
+ iOS 12，应该是只要联网拿到后可以一直拿到，卸载会变
+ iOS 11，直接允许、从关到开：给了立即调用（有网时，无网等网络有了给）
+ iOS 11，直接拒绝、从开到关：token、error 都不调用
+ iOS 9-10 未测试
+ 
+ didFailToRegisterForRemoteNotificationsWithError: iOS 11-12 真机未见调用过
+ */
+@property (readonly, nullable) NSData *remoteNotificationDeviceToken;
+
 // iOS 10+ 替换
 - (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings NS_REQUIRES_SUPER;
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken NS_REQUIRES_SUPER;
@@ -100,14 +127,6 @@ API_AVAILABLE(ios(9.0), tvos(9.0))
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo NS_REQUIRES_SUPER;
 // iOS 10+ 替换
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification NS_REQUIRES_SUPER;
-
-- (void)applicationShouldRequestHealthAuthorization:(UIApplication *)application NS_REQUIRES_SUPER;
-
-- (void)applicationDidEnterBackground:(UIApplication *)application NS_REQUIRES_SUPER;
-- (void)applicationWillEnterForeground:(UIApplication *)application NS_REQUIRES_SUPER;
-
-- (void)applicationProtectedDataWillBecomeUnavailable:(UIApplication *)application NS_REQUIRES_SUPER;
-- (void)applicationProtectedDataDidBecomeAvailable:(UIApplication *)application NS_REQUIRES_SUPER;
 
 @end
 

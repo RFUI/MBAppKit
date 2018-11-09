@@ -19,6 +19,13 @@
     @synchronized(self) {
         [self._MBApplicationDelegate_eventListeners addObject:listener];
     }
+    dispatch_async_on_main(^{
+        if (![self._MBApplicationDelegate_eventListeners containsObject:listener]) return;
+        if (self.remoteNotificationDeviceToken
+            && [listener respondsToSelector:@selector(application:didRegisterForRemoteNotificationsWithDeviceToken:)]) {
+            [listener application:UIApplication.sharedApplication didRegisterForRemoteNotificationsWithDeviceToken:self.remoteNotificationDeviceToken];
+        }
+    });
 }
 
 - (void)removeAppEventListener:(nullable id<UIApplicationDelegate>)listener {
@@ -87,8 +94,15 @@ _app_delegate_event_method(applicationSignificantTimeChange)
 }
 
 _app_delegate_event_method2(didRegisterUserNotificationSettings)
-_app_delegate_event_method2(didRegisterForRemoteNotificationsWithDeviceToken)
+
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
+    [self willChangeValueForKey:@keypath(self.remoteNotificationDeviceToken)];
+    _remoteNotificationDeviceToken = deviceToken;
+    [self didChangeValueForKey:@keypath(self.remoteNotificationDeviceToken)];
+    _app_delegate_event_notice2(didRegisterForRemoteNotificationsWithDeviceToken, deviceToken)
+}
 _app_delegate_event_method2(didFailToRegisterForRemoteNotificationsWithError)
+
 _app_delegate_event_method2(didReceiveRemoteNotification)
 _app_delegate_event_method2(didReceiveLocalNotification)
 
