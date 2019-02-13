@@ -1,7 +1,9 @@
 
 #import "MBGeneralListExchanging.h"
 #import "MBGeneralItemExchanging.h"
+#if !TARGET_OS_OSX
 #import <RFKit/UIView+RFKit.h>
+#endif
 
 BOOL MBGeneralListItemPassValue(id destination, id value) {
     if (![value isKindOfClass:NSArray.class]) {
@@ -14,6 +16,7 @@ BOOL MBGeneralListItemPassValue(id destination, id value) {
     return NO;
 }
 
+#if defined(UITableViewCell)
 @implementation UITableViewCell (App)
 
 + (nullable id)itemFromSender:(nullable id)sender {
@@ -28,7 +31,9 @@ BOOL MBGeneralListItemPassValue(id destination, id value) {
 }
 
 @end
+#endif
 
+#if defined(UICollectionViewCell)
 @implementation UICollectionViewCell (App)
 
 + (nullable id)itemFromSender:(nullable id)sender {
@@ -43,3 +48,4 @@ BOOL MBGeneralListItemPassValue(id destination, id value) {
 }
 
 @end
+#endif

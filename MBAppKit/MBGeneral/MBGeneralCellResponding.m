@@ -1,6 +1,7 @@
 
 #import "MBGeneralCellResponding.h"
 
+#if !TARGET_OS_OSX
 BOOL MBGeneralCellRespondingTableViewDidSelectImplementation(UITableView *__nonnull tableView, NSIndexPath *__nonnull indexPath) {
     UITableViewCell<MBGeneralCellResponding> *cell = [tableView cellForRowAtIndexPath:indexPath];
     if (![cell respondsToSelector:@selector(respondsCellSelection)]) {
@@ -24,3 +25,4 @@ BOOL MBGeneralCellRespondingCollectionViewDidSelectImplementation(UICollectionVi
     }
     return NO;
 }
+#endif

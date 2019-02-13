@@ -17,7 +17,10 @@
 #import <RFKit/NSDateFormatter+RFKit.h>
 #import <RFKit/NSURL+RFKit.h>
 #import <RFKit/NSJSONSerialization+RFKit.h>
+#if TARGET_OS_OSX
+#else
 #import <RFKit/NSLayoutConstraint+RFKit.h>
+#endif
 #import <RFInitializing/RFInitializing.h>
 
 #import "NSObject+MBAppKit.h"

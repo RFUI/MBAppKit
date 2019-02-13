@@ -32,7 +32,11 @@ id _Nullable MBGeneralSegueItem(UIStoryboardSegue *_Nonnull segue, id _Nullable 
 }
 
 - (void)RFPrepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+#if TARGET_OS_OSX
+    id dvc = segue.destinationController;
+#else
     __kindof UIViewController *dvc = segue.destinationViewController;
+#endif
     if ([dvc respondsToSelector:@selector(setItem:)]) {
         UIViewController<MBGeneralItemExchanging> *vc = dvc;
         if ([self respondsToSelector:@selector(itemForSegue:sender:)]) {

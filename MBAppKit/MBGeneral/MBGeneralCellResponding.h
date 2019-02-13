@@ -28,6 +28,8 @@
 
 @end
 
+#if !TARGET_OS_OSX
+
 /**
  一般响应逻辑的 table view 实现
  
@@ -46,3 +48,4 @@ BOOL MBGeneralCellRespondingTableViewDidSelectImplementation(UITableView *__nonn
 
 BOOL MBGeneralCellRespondingCollectionViewDidSelectImplementation(UICollectionView *__nonnull collectionView, NSIndexPath *__nonnull indexPath);
 
+#endif

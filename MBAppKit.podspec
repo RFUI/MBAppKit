@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'MBAppKit'
-  s.version  = '0.8.1'
+  s.version  = '0.9.0'
   s.author   = 'BB9z'
   s.license  = { :type => 'Apache 2.0', :file => 'LICENSE' }
   s.homepage = 'https://github.com/RFUI/MBAppKit'
@@ -12,6 +12,7 @@ Pod::Spec.new do |s|
   
   s.requires_arc = true
   s.ios.deployment_target = '9.0'
+  s.macos.deployment_target = '10.10'
 
   s.pod_target_xcconfig = {
   }
@@ -23,13 +24,25 @@ Pod::Spec.new do |s|
     ss.dependency 'RFKit/Category/NSDateFormatter'
     ss.dependency 'RFKit/Category/NSURL'
     ss.dependency 'RFKit/Category/NSJSONSerialization'
-    ss.dependency 'RFKit/Category/NSLayoutConstraint'
     ss.dependency 'RFAlpha/RFSwizzle'
-    ss.dependency 'AFNetworking/NSURLConnection', '~> 2.6'
-    ss.dependency 'RFMessageManager/RFNetworkActivityIndicatorMessage', '~> 0.3'
-    ss.dependency 'RFAPI', '~> 1.1'
-    ss.source_files = ['MBAppKit/**/*.{h,m}']
-    ss.public_header_files = 'MBAppKit/**/*.h'
+
+    ss.ios.dependency 'RFKit/Category/NSLayoutConstraint'
+    ss.ios.dependency 'AFNetworking/NSURLConnection', '~> 2.6'
+    ss.ios.dependency 'RFMessageManager/RFNetworkActivityIndicatorMessage', '~> 0.3'
+    ss.ios.dependency 'RFAPI', '~> 1.1'
+    ss.ios.source_files = ['MBAppKit/**/*.{h,m}']
+    ss.ios.public_header_files = 'MBAppKit/**/*.h'
+
+    ss.macos.source_files = [
+      'MBAppKit/MBApplicationDelegate/macos/*.{h,m}',
+      'MBAppKit/MBGeneral/*.{h,m}',
+      'MBAppKit/MBUserDefaults/*.{h,m}',
+    ]
+    ss.macos.public_header_files = [
+      'MBAppKit/MBApplicationDelegate/macos/*.h',
+      'MBAppKit/MBGeneral/*.h',
+      'MBAppKit/MBUserDefaults/*.h',
+    ]
     ss.private_header_files = 'MBAppKit/shadow.h'
   end
 

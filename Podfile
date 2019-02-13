@@ -12,3 +12,11 @@ target 'Test-iOS' do
         'Navigation',
     ]
 end
+
+target 'Test-macOS' do
+    platform :macos, '10.10'
+
+    pod 'MBAppKit', :path => '.', :subspecs => [
+        'Core',
+    ]
+end
