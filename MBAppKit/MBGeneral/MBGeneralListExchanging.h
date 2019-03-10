@@ -52,14 +52,12 @@ FOUNDATION_EXTERN BOOL MBGeneralListItemPassValue(id __nullable destination, id 
 
 @end
 
-#if defined(UITableViewCell)
+#if !TARGET_OS_OSX
 @interface UITableViewCell (MBGeneralListExchanging) <
     MBGeneralListExchanging
 >
 @end
-#endif
 
-#if defined(UICollectionViewCell)
 @interface UICollectionViewCell (MBGeneralListExchanging) <
     MBGeneralListExchanging
 >

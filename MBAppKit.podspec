@@ -31,6 +31,7 @@ Pod::Spec.new do |s|
     ss.ios.dependency 'RFMessageManager/RFNetworkActivityIndicatorMessage', '~> 0.3'
     ss.ios.dependency 'RFAPI', '~> 1.1'
     ss.ios.source_files = ['MBAppKit/**/*.{h,m}']
+    ss.ios.exclude_files = '**/macos/*'
     ss.ios.public_header_files = 'MBAppKit/**/*.h'
 
     ss.macos.source_files = [

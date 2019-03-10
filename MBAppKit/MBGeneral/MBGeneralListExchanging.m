@@ -16,7 +16,7 @@ BOOL MBGeneralListItemPassValue(id destination, id value) {
     return NO;
 }
 
-#if defined(UITableViewCell)
+#if !TARGET_OS_OSX
 @implementation UITableViewCell (App)
 
 + (nullable id)itemFromSender:(nullable id)sender {
@@ -31,9 +31,7 @@ BOOL MBGeneralListItemPassValue(id destination, id value) {
 }
 
 @end
-#endif
 
-#if defined(UICollectionViewCell)
 @implementation UICollectionViewCell (App)
 
 + (nullable id)itemFromSender:(nullable id)sender {
