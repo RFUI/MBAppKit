@@ -184,14 +184,23 @@
     }];
 }
 
-- (void)popViewControllersOfScence:(Protocol *)aProtocol {
+- (void)popViewControllersOfScence:(Protocol *)aProtocol animated:(BOOL)animated {
     UIViewController *vc;
     for (UIViewController *obj in self.viewControllers.reverseObjectEnumerator) {
         if ([obj conformsToProtocol:aProtocol]) continue;
         vc = obj;
         break;
     }
-    [self popToViewController:vc animated:YES];
+    [self popToViewController:vc animated:animated];
+}
+
+- (void)replaceViewControllersOfScence:(Protocol *)aProtocol withViewController:(UIViewController *)viewController animated:(BOOL)animated {
+    NSMutableArray *vcs = self.viewControllers.mutableCopy;
+    while ([vcs.lastObject conformsToProtocol:aProtocol]) {
+        [vcs removeLastObject];
+    }
+    [vcs addObject:viewController];
+    [self setViewControllers:vcs animated:animated];
 }
 
 - (void)_MBNavigationController_tryLogin {

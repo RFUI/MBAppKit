@@ -77,7 +77,15 @@
 /**
  从栈顶依次弹出符合给定协议声明的视图，直到一个不是的
  */
-- (void)popViewControllersOfScence:(nonnull Protocol *)aProtocol;
+- (void)popViewControllersOfScence:(nonnull Protocol *)aProtocol animated:(BOOL)animated;
+
+/**
+ 把导航堆栈顶部符合给定协议声明的视图用新 viewController 替换掉
+ 
+ 典型场景是完成流程后需要用结果页把之前一系列页面替换掉
+ */
+- (void)replaceViewControllersOfScence:(nonnull Protocol *)aProtocol withViewController:(nonnull UIViewController *)viewController animated:(BOOL)animated;
+
 
 @end
 
