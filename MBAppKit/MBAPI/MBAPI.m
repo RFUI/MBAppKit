@@ -2,7 +2,7 @@
 #import "MBAPI.h"
 #import "MBGeneralCallback.h"
 #import <RFMessageManager/RFMessageManager+RFDisplay.h>
-#import <RFMessageManager/RFNetworkActivityIndicatorMessage.h>
+#import <RFMessageManager/RFNetworkActivityMessage.h>
 
 MBAPI *MBAPI_global_ = nil;
 
@@ -60,7 +60,7 @@ MBAPI *MBAPI_global_ = nil;
 + (AFHTTPRequestOperation *)requestWithName:(NSString *)APIName parameters:(NSDictionary *)parameters viewController:(UIViewController *)viewController forceLoad:(BOOL)forceLoad loadingMessage:(NSString *)message modal:(BOOL)modal success:(void (^)(AFHTTPRequestOperation *, id))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure completion:(void (^)(AFHTTPRequestOperation *))completion {
     RFAPIControl *cn = RFAPIControl.new;
     if (message) {
-        cn.message = [RFNetworkActivityIndicatorMessage.alloc initWithIdentifier:APIName title:nil message:message status:RFNetworkActivityIndicatorStatusLoading];
+        cn.message = [RFNetworkActivityMessage.alloc initWithIdentifier:APIName message:message status:RFNetworkActivityStatusLoading];
         cn.message.modal = modal;
     }
     cn.identifier = APIName;
