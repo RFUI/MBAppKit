@@ -39,4 +39,9 @@
     return YES;
 }
 
++ (NSData *)dataFromModels:(NSArray<JSONModel *> *)models {
+    NSArray *json = [JSONModel arrayOfDictionariesFromModels:models];
+    return [NSJSONSerialization dataWithJSONObject:json options:0 error:nil];
+}
+
 @end

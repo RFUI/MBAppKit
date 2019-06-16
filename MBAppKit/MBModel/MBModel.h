@@ -25,6 +25,8 @@
 /// 用另一个模型更新当前模型（另一个模型的空字段不作为新数据）
 - (BOOL)mergeFromModel:(__kindof JSONModel *)anotherModel;
 
++ (nullable NSData *)dataFromModels:(NSArray<JSONModel *> *)models;
+
 @end
 
 /**
