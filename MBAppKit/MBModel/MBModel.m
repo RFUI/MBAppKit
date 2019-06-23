@@ -19,8 +19,8 @@
     }
 }
 
-- (BOOL)mergeFromModel:(MBModel *)anotherModel {
-    if (!anotherModel)  return YES;
+- (BOOL)mergeFromModel:(nullable MBModel *)anotherModel {
+    if (!anotherModel) return YES;
     
     if (![anotherModel isMemberOfClass:[self class]]) {
         RFAssert(false, @"相同类型的模型才能merge");

@@ -23,9 +23,9 @@
 @interface MBModel : JSONModel
 
 /// 用另一个模型更新当前模型（另一个模型的空字段不作为新数据）
-- (BOOL)mergeFromModel:(__kindof JSONModel *)anotherModel;
+- (BOOL)mergeFromModel:(nullable __kindof JSONModel *)anotherModel;
 
-+ (nullable NSData *)dataFromModels:(NSArray<JSONModel *> *)models;
++ (nullable NSData *)dataFromModels:(nonnull NSArray<JSONModel *> *)models;
 
 @end
 
@@ -100,12 +100,12 @@
 @protocol MBModelCompleteness <NSObject>
 @required
 /// 信息不完整标记，需要获取详情
-@property (strong, nonatomic) NSNumber<Ignore> *incompletion;
+@property (nullable, nonatomic) NSNumber<Ignore> *incompletion;
 
 @optional
 
 /// 从缓存补全模型的可选方法
-- (id)completeEntityFromCache;
+- (nullable id)completeEntityFromCache;
 
 @end
 
@@ -124,10 +124,10 @@ typedef NS_ENUM(int, MBModelSyncFlag) {
 @protocol MBModelUpdating <NSObject>
 @optional
 
-@property (readonly, nonatomic) NSHashTable<Ignore> *displayers;
+@property (readonly, nonnull, nonatomic) NSHashTable<Ignore> *displayers;
 
-- (void)addDisplayer:(id)displayer;
-- (void)removeDisplayer:(id)displayer;
+- (void)addDisplayer:(nullable id)displayer;
+- (void)removeDisplayer:(nullable id)displayer;
 
 @end
 
