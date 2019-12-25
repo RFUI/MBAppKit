@@ -1,13 +1,23 @@
-#! /usr/bin/env sh
+#! /bin/sh
 
-set -eo pipefail
-# set -euxo pipefail
+set -euo pipefail
 
 echo $TRAVIS_COMMIT_MESSAGE
 echo "RFCI_TASK = $RFCI_TASK"
-readonly RFWorkspace="MBAppKit.xcworkspace"
 readonly RFSTAGE="$1"
 echo "RFSTAGE = $RFSTAGE"
+
+logInfo () {
+    echo "\033[32m$1\033[0m" >&2
+}
+
+logWarning () {
+    echo "\033[33m$1\033[0m" >&2
+}
+
+logError () {
+    echo "\033[31m$1\033[0m" >&2
+}
 
 # Run test
 # $1 scheme
@@ -21,9 +31,13 @@ XC_TestMac() {
     xcodebuild test -enableCodeCoverage YES -workspace "$RFWorkspace" -scheme "Test-macOS" GCC_INSTRUMENT_PROGRAM_FLOW_ARCS=YES GCC_GENERATE_TEST_COVERAGE_FILES=YES | xcpretty
 }
 
-# Run watchOS test
+# Run watchOS build
 XC_TestWatch() {
-    xcodebuild build -workspace "$RFWorkspace" -scheme Target-watchOS ONLY_ACTIVE_ARCH=NO | xcpretty
+    xcodebuild build -workspace "$RFWorkspace" -scheme "Target-watchOS" ONLY_ACTIVE_ARCH=NO | xcpretty
+}
+
+STAGE_SETUP() {
+    gem install cocoapods --no-document
 }
 
 STAGE_MAIN() {
@@ -32,7 +46,6 @@ STAGE_MAIN() {
             echo "Skip pod lint"
         else
             echo "TRAVIS_BRANCH = $TRAVIS_BRANCH"
-            gem install cocoapods --no-document --quiet
 
             # Modify podspec, add shadow.m
             # Replace 'MBAppKit/**/*' => 'Test/Shared/shadow.m',\1
