@@ -32,7 +32,7 @@ STAGE_MAIN() {
             echo "Skip pod lint"
         else
             echo "TRAVIS_BRANCH = $TRAVIS_BRANCH"
-            gem install cocoapods --no-rdoc --no-ri --no-document --quiet
+            gem install cocoapods --no-document --quiet
 
             # Modify podspec, add shadow.m
             # Replace 'MBAppKit/**/*' => 'Test/Shared/shadow.m',\1
