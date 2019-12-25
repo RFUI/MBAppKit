@@ -37,6 +37,7 @@ Pod::Spec.new do |s|
       'MBAppKit/MBApplicationDelegate/macos/*.{h,m}',
       'MBAppKit/MBGeneral/*.{h,m}',
       'MBAppKit/MBUserDefaults/*.{h,m}',
+      'MBAppKit/shadow.h',
     ]
     ss.macos.public_header_files = [
       'MBAppKit/MBApplicationDelegate/macos/*.h',
@@ -55,12 +56,16 @@ Pod::Spec.new do |s|
 
   # Components
   s.subspec 'ApplicationFont' do |ss|
+    ss.ios.deployment_target = '9.0'
+
     ss.dependency 'MBAppKit/Core'
     ss.source_files = 'Components/MBApplicationFont/*.{h,m}'
     ss.public_header_files = 'Components/MBApplicationFont/*.h'
   end
 
   s.subspec 'Button' do |ss|
+    ss.ios.deployment_target = '9.0'
+
     ss.dependency 'RFInitializing'
     ss.dependency 'RFKit/RFGeometry'
     ss.source_files = 'Components/Button/*.{h,m}'
@@ -68,6 +73,8 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Environment' do |ss|
+    ss.ios.deployment_target = '9.0'
+
     ss.dependency 'RFKit/Runtime'
     ss.dependency 'RFKit/Category/NSArray'
     ss.source_files = 'Components/Environment/*.{h,m}'
@@ -75,6 +82,8 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Input' do |ss|
+    ss.ios.deployment_target = '9.0'
+
     ss.dependency 'MBAppKit/Core'
     ss.dependency 'RFInitializing'
     ss.dependency 'RFKit/RFGeometry'
@@ -91,12 +100,14 @@ Pod::Spec.new do |s|
   end
   
   s.subspec 'Navigation' do |ss|
-      ss.dependency 'MBAppKit/Core'
-      ss.dependency 'RFAlpha/RFSynthesize'
-      ss.dependency 'RFAlpha/RFNavigationController'
-      ss.dependency 'RFKit/Category/NSArray'
-      ss.dependency 'RFKit/Category/UIResponder'
-      ss.source_files = 'Components/Navigation/*.{h,m}'
-      ss.public_header_files = 'Components/Navigation/*.h'
+    ss.ios.deployment_target = '9.0'
+
+    ss.dependency 'MBAppKit/Core'
+    ss.dependency 'RFAlpha/RFSynthesize'
+    ss.dependency 'RFAlpha/RFNavigationController'
+    ss.dependency 'RFKit/Category/NSArray'
+    ss.dependency 'RFKit/Category/UIResponder'
+    ss.source_files = 'Components/Navigation/*.{h,m}'
+    ss.public_header_files = 'Components/Navigation/*.h'
   end
 end

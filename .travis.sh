@@ -2,11 +2,6 @@
 
 set -euo pipefail
 
-echo $TRAVIS_COMMIT_MESSAGE
-echo "RFCI_TASK = $RFCI_TASK"
-readonly RFSTAGE="$1"
-echo "RFSTAGE = $RFSTAGE"
-
 logInfo () {
     echo "\033[32m$1\033[0m" >&2
 }
@@ -18,6 +13,11 @@ logWarning () {
 logError () {
     echo "\033[31m$1\033[0m" >&2
 }
+
+logInfo $TRAVIS_COMMIT_MESSAGE
+logInfo "RFCI_TASK = $RFCI_TASK"
+readonly RFSTAGE="$1"
+logInfo "RFSTAGE = $RFSTAGE"
 
 # Run test
 # $1 scheme
@@ -43,16 +43,16 @@ STAGE_SETUP() {
 STAGE_MAIN() {
     if [ "$RFCI_TASK" = "POD_LINT" ]; then
         if [[ "$TRAVIS_COMMIT_MESSAGE" = *"[skip lint]"* ]]; then
-            echo "Skip pod lint"
+            logWarning "Skip pod lint"
         else
-            echo "TRAVIS_BRANCH = $TRAVIS_BRANCH"
+            logInfo "TRAVIS_BRANCH = $TRAVIS_BRANCH"
 
             # Modify podspec, add shadow.m
             # Replace 'MBAppKit/**/*' => 'Test/Shared/shadow.m',\1
             sed -i.bak "s/\[\('MBAppKit\/\*\*\/\*\)/\['Test\/Shared\/shadow.m',\1/" "MBAppKit.podspec"
 
             # Always allow warnings as third-party dependencies generate unavoidable warnings.
-            pod lib lint --allow-warnings
+            pod lib lint --fail-fast --allow-warnings
         fi
 
     elif [ "$RFCI_TASK" = "Xcode9" ]; then
@@ -60,7 +60,7 @@ STAGE_MAIN() {
         XC_Test "Test-iOS" "platform=iOS Simulator,name=iPhone X,OS=11.3"
         XC_Test "Test-iOS" "platform=iOS Simulator,name=iPhone 5,OS=9.0"
     else
-        echo "Unexpected CI task: $RFCI_TASK"
+        logError "Unexpected CI task: $RFCI_TASK"
     fi
 }
 
