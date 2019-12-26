@@ -94,7 +94,10 @@ Pod::Spec.new do |s|
   end
 
   s.subspec 'Worker' do |ss|
+    ss.ios.deployment_target = '9.0'
+    
     ss.dependency 'MBAppKit/Core'
+    ss.dependency 'RFInitializing'
     ss.source_files = 'Components/MBWorker/*.{h,m}'
     ss.public_header_files = 'Components/MBWorker/*.h'
   end

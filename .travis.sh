@@ -14,7 +14,7 @@ logError () {
     echo "\033[31m$1\033[0m" >&2
 }
 
-logInfo $TRAVIS_COMMIT_MESSAGE
+logInfo "$TRAVIS_COMMIT_MESSAGE"
 logInfo "RFCI_TASK = $RFCI_TASK"
 readonly RFSTAGE="$1"
 logInfo "RFSTAGE = $RFSTAGE"
