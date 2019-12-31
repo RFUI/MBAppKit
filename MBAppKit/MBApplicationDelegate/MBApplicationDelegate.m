@@ -63,7 +63,6 @@
     - (void)application:(UIApplication *)application SELECTOR:(id)obj {\
         _app_delegate_event_notice2(SELECTOR, obj) }
 
-_app_delegate_event_method(applicationDidFinishLaunching)
 _app_delegate_event_method(applicationDidBecomeActive)
 _app_delegate_event_method(applicationWillResignActive)
 
@@ -80,6 +79,7 @@ _app_delegate_event_method(applicationDidReceiveMemoryWarning)
 _app_delegate_event_method(applicationWillTerminate)
 _app_delegate_event_method(applicationSignificantTimeChange)
 
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_13_0
 - (void)application:(UIApplication *)application willChangeStatusBarOrientation:(UIInterfaceOrientation)p1 duration:(NSTimeInterval)p2 {
     _app_delegate_event_notice3(willChangeStatusBarOrientation, p1, duration, p2)
 }
@@ -92,8 +92,7 @@ _app_delegate_event_method(applicationSignificantTimeChange)
 - (void)application:(UIApplication *)application didChangeStatusBarFrame:(CGRect)p1 {
     _app_delegate_event_notice2(didChangeStatusBarFrame, p1)
 }
-
-_app_delegate_event_method2(didRegisterUserNotificationSettings)
+#endif
 
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {
     [self willChangeValueForKey:@keypath(self.remoteNotificationDeviceToken)];
@@ -103,8 +102,15 @@ _app_delegate_event_method2(didRegisterUserNotificationSettings)
 }
 _app_delegate_event_method2(didFailToRegisterForRemoteNotificationsWithError)
 
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_10_0
+_app_delegate_event_method2(didRegisterUserNotificationSettings)
 _app_delegate_event_method2(didReceiveRemoteNotification)
 _app_delegate_event_method2(didReceiveLocalNotification)
+#endif
+
+- (void)application:(UIApplication *)application handleWatchKitExtensionRequest:(NSDictionary *)userInfo reply:(void (^)(NSDictionary * _Nullable))reply {
+    _app_delegate_event_notice3(handleWatchKitExtensionRequest, userInfo, reply, reply)
+}
 
 _app_delegate_event_method(applicationShouldRequestHealthAuthorization)
 
@@ -113,5 +119,8 @@ _app_delegate_event_method(applicationWillEnterForeground)
 
 _app_delegate_event_method(applicationProtectedDataWillBecomeUnavailable)
 _app_delegate_event_method(applicationProtectedDataDidBecomeAvailable)
+
+_app_delegate_event_method2(userDidAcceptCloudKitShareWithMetadata)
+_app_delegate_event_method2(didDiscardSceneSessions)
 
 @end

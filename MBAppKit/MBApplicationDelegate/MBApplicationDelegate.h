@@ -56,28 +56,32 @@ API_AVAILABLE(ios(9.0), tvos(9.0))
 /**
  重写了大部分常用 UIApplicationDelegate 事件，不会重写的有：
  
- - iOS 9 以下废弃的方法
+ - iOS 9 以下废弃的方法，及当前 deployment target 下废弃的方法
  - 带完成回调的方法
  - application:willFinishLaunchingWithOptions:
  - application:didFinishLaunchingWithOptions:
  - application:supportedInterfaceOrientationsForWindow:
  - application:shouldAllowExtensionPointIdentifier:
- - application:userDidAcceptCloudKitShareWithMetadata:
- 
- - application:viewControllerWithRestorationIdentifierPath:coder:
- - application:shouldSaveApplicationState:
- - application:shouldRestoreApplicationState:
- - application:willEncodeRestorableStateWithCoder:
- - application:didDecodeRestorableStateWithCoder:
+
+ - 状态还原的方法，包括：
+     - application:viewControllerWithRestorationIdentifierPath:coder:
+     - application:shouldSaveApplicationState:
+     - application:shouldSaveSecureApplicationState:
+     - application:shouldRestoreApplicationState:
+     - application:shouldRestoreSecureApplicationState:
+     - application:willEncodeRestorableStateWithCoder:
+     - application:didDecodeRestorableStateWithCoder:
  
  - application:willContinueUserActivityWithType:
+ - application:continueUserActivity:restorationHandler:
  - application:didFailToContinueUserActivityWithType:error:
  - application:didUpdateUserActivity:
+
+ - application:configurationForConnectingSceneSession:options:
  
  子类如果重写下列方法，必须调用 super 以免破坏通知机制
  */
 
-- (void)applicationDidFinishLaunching:(nullable UIApplication *)application NS_REQUIRES_SUPER;
 - (void)applicationDidBecomeActive:(nonnull UIApplication *)application NS_REQUIRES_SUPER;
 - (void)applicationWillResignActive:(nonnull UIApplication *)application NS_REQUIRES_SUPER;
 
@@ -87,10 +91,14 @@ API_AVAILABLE(ios(9.0), tvos(9.0))
 - (void)applicationWillTerminate:(UIApplication *)application NS_REQUIRES_SUPER;
 - (void)applicationSignificantTimeChange:(UIApplication *)application NS_REQUIRES_SUPER;
 
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_13_0
 - (void)application:(UIApplication *)application willChangeStatusBarOrientation:(UIInterfaceOrientation)newStatusBarOrientation duration:(NSTimeInterval)duration NS_REQUIRES_SUPER;
 - (void)application:(UIApplication *)application didChangeStatusBarOrientation:(UIInterfaceOrientation)oldStatusBarOrientation NS_REQUIRES_SUPER;
 - (void)application:(UIApplication *)application willChangeStatusBarFrame:(CGRect)newStatusBarFrame NS_REQUIRES_SUPER;
 - (void)application:(UIApplication *)application didChangeStatusBarFrame:(CGRect)oldStatusBarFrame NS_REQUIRES_SUPER;
+#endif
+
+- (void)application:(UIApplication *)application handleWatchKitExtensionRequest:(nullable NSDictionary *)userInfo reply:(void(^)(NSDictionary * __nullable replyInfo))reply NS_REQUIRES_SUPER;
 
 - (void)applicationShouldRequestHealthAuthorization:(UIApplication *)application NS_REQUIRES_SUPER;
 
@@ -99,6 +107,10 @@ API_AVAILABLE(ios(9.0), tvos(9.0))
 
 - (void)applicationProtectedDataWillBecomeUnavailable:(UIApplication *)application NS_REQUIRES_SUPER;
 - (void)applicationProtectedDataDidBecomeAvailable:(UIApplication *)application NS_REQUIRES_SUPER;
+
+- (void)application:(UIApplication *)application userDidAcceptCloudKitShareWithMetadata:(CKShareMetadata *)cloudKitShareMetadata API_AVAILABLE(ios(10.0)) NS_REQUIRES_SUPER;
+
+- (void)application:(UIApplication *)application didDiscardSceneSessions:(NSSet<UISceneSession *> *)sceneSessions API_AVAILABLE(ios(13.0)) NS_REQUIRES_SUPER;
 
 #pragma mark - 推送
 
@@ -109,24 +121,27 @@ API_AVAILABLE(ios(9.0), tvos(9.0))
  
  支持 KVO
  
- 设置的时机不稳定，实测结果：
- iOS 12，应该是只要联网拿到后可以一直拿到，卸载会变
- iOS 11，直接允许、从关到开：给了立即调用（有网时，无网等网络有了给）
- iOS 11，直接拒绝、从开到关：token、error 都不调用
+ 设置的时机不稳定，实测结果（调用 registerForRemoteNotifications 方法后）：
+ iOS 12-13，联网后可以拿到，和是否授权无关，能拿到后可以一直拿到，卸载会变
+ iOS 11，直接允许或从关到开时：有网立即设置，无网等网络可用时设置
+ iOS 11，直接拒绝或从开到关时：token、error 都不调用
  iOS 9-10 未测试
  
- didFailToRegisterForRemoteNotificationsWithError: iOS 11-12 真机未见调用过
+ didFailToRegisterForRemoteNotificationsWithError: iOS 11-13 真机未见调用过
  */
 @property (readonly, nullable) NSData *remoteNotificationDeviceToken;
 
-// iOS 10+ 替换
-- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings NS_REQUIRES_SUPER;
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken NS_REQUIRES_SUPER;
 - (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error NS_REQUIRES_SUPER;
+
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_10_0
+// iOS 10+ 替换
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings NS_REQUIRES_SUPER;
 // iOS 10+ 替换
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo NS_REQUIRES_SUPER;
 // iOS 10+ 替换
 - (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification NS_REQUIRES_SUPER;
+#endif
 
 @end
 
