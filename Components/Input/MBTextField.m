@@ -1,9 +1,9 @@
 
 #import "MBTextField.h"
 #import <MBAppKit/MBGeneralItemExchanging.h>
+#import <RFDelegateChain/UITextFiledDelegateChain.h>
 #import <RFKit/RFGeometry.h>
 #import <RFKit/UIResponder+RFKit.h>
-#import <RFAlpha/UITextFiledDelegateChain.h>
 
 @interface MBTextField ()
 @property BOOL appearanceSetupDone;
