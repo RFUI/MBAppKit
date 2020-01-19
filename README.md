@@ -5,7 +5,7 @@
 
 ## Requirements
 
-Xcode 9, iOS 9+
+Xcode 10+, iOS 9+ / macOS 10.10+.
 
 ## Install
 
