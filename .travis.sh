@@ -79,8 +79,8 @@ STAGE_MAIN() {
             logInfo "Lint the podspec."
 
             # Modify podspec, add shadow.m
-            # Replace 'MBAppKit/**/*' => 'Test/Shared/shadow.m',\1
-            sed -i.bak "s/\[\('MBAppKit\/\*\*\/\*\)/\['Test\/Shared\/shadow.m',\1/" "MBAppKit.podspec"
+            # Replace 'MBAppKit/**/*' => 'Tests/Shared/shadow.m',\1
+            sed -i.bak "s/\[\('MBAppKit\/\*\*\/\*\)/\['Tests\/Shared\/shadow.m',\1/" "MBAppKit.podspec"
 
             # Always allow warnings as third-party dependencies generate unavoidable warnings.
             pod lib lint --fail-fast --allow-warnings

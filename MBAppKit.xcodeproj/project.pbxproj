@@ -86,7 +86,7 @@
 				F85DEE878A11D5D9E9E0C062 /* Frameworks */,
 				A2062B4966742DB76E4293A8 /* Pods */,
 				D5CFF0F820450E5A00D47917 /* Products */,
-				D5F9F4DD208F218C00427201 /* Test */,
+				D5F9F4DD208F218C00427201 /* Tests */,
 				D5CFF54E204521E000D47917 /* MBAppKit.podspec */,
 				D558FDFD2046927100A01EE6 /* README.md */,
 			);
@@ -110,14 +110,14 @@
 			path = iOS;
 			sourceTree = "<group>";
 		};
-		D5F9F4DD208F218C00427201 /* Test */ = {
+		D5F9F4DD208F218C00427201 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
 				D5F9F4D6208F217A00427201 /* iOS */,
 				D521A10D22138E29007E62AC /* macOS */,
 				D5F9F4E1208F22F000427201 /* Shared */,
 			);
-			path = Test;
+			path = Tests;
 			sourceTree = "<group>";
 		};
 		D5F9F4E1208F22F000427201 /* Shared */ = {
@@ -312,7 +312,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = Test/macOS/Info.plist;
+				INFOPLIST_FILE = Tests/macOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -324,7 +324,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OBJC_BRIDGING_HEADER = "Test/macOS/OC-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/macOS/OC-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 			};
@@ -340,7 +340,7 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = Test/macOS/Info.plist;
+				INFOPLIST_FILE = Tests/macOS/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -351,7 +351,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OBJC_BRIDGING_HEADER = "Test/macOS/OC-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/macOS/OC-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.2;
 			};
@@ -480,7 +480,7 @@
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Test/iOS/Info.plist;
+				INFOPLIST_FILE = Tests/iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -490,7 +490,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.RFUI.MBAppKit.Test-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OBJC_BRIDGING_HEADER = "Test/iOS/OC-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/iOS/OC-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -506,7 +506,7 @@
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Test/iOS/Info.plist;
+				INFOPLIST_FILE = Tests/iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -516,7 +516,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.github.RFUI.MBAppKit.Test-iOS";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_COMPILATION_MODE = wholemodule;
-				SWIFT_OBJC_BRIDGING_HEADER = "Test/iOS/OC-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "Tests/iOS/OC-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
