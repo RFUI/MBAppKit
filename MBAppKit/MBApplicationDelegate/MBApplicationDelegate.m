@@ -79,7 +79,7 @@ _app_delegate_event_method(applicationDidReceiveMemoryWarning)
 _app_delegate_event_method(applicationWillTerminate)
 _app_delegate_event_method(applicationSignificantTimeChange)
 
-#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_13_0
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < 130000
 - (void)application:(UIApplication *)application willChangeStatusBarOrientation:(UIInterfaceOrientation)p1 duration:(NSTimeInterval)p2 {
     _app_delegate_event_notice3(willChangeStatusBarOrientation, p1, duration, p2)
 }
@@ -121,6 +121,8 @@ _app_delegate_event_method(applicationProtectedDataWillBecomeUnavailable)
 _app_delegate_event_method(applicationProtectedDataDidBecomeAvailable)
 
 _app_delegate_event_method2(userDidAcceptCloudKitShareWithMetadata)
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
 _app_delegate_event_method2(didDiscardSceneSessions)
+#endif
 
 @end

@@ -2,7 +2,7 @@
  MBApplicationDelegate
  MBAppKit
  
- Copyright © 2018 RFUI.
+ Copyright © 2018-2020 RFUI.
  Copyright © 2016 Beijing ZhiYun ZhiYuan Technology Co., Ltd.
  https://github.com/RFUI/MBAppKit
  
@@ -91,7 +91,7 @@ API_AVAILABLE(ios(9.0), tvos(9.0))
 - (void)applicationWillTerminate:(UIApplication *)application NS_REQUIRES_SUPER;
 - (void)applicationSignificantTimeChange:(UIApplication *)application NS_REQUIRES_SUPER;
 
-#if __IPHONE_OS_VERSION_MIN_REQUIRED < __IPHONE_13_0
+#if __IPHONE_OS_VERSION_MIN_REQUIRED < 130000
 - (void)application:(UIApplication *)application willChangeStatusBarOrientation:(UIInterfaceOrientation)newStatusBarOrientation duration:(NSTimeInterval)duration NS_REQUIRES_SUPER;
 - (void)application:(UIApplication *)application didChangeStatusBarOrientation:(UIInterfaceOrientation)oldStatusBarOrientation NS_REQUIRES_SUPER;
 - (void)application:(UIApplication *)application willChangeStatusBarFrame:(CGRect)newStatusBarFrame NS_REQUIRES_SUPER;
@@ -110,7 +110,9 @@ API_AVAILABLE(ios(9.0), tvos(9.0))
 
 - (void)application:(UIApplication *)application userDidAcceptCloudKitShareWithMetadata:(CKShareMetadata *)cloudKitShareMetadata API_AVAILABLE(ios(10.0)) NS_REQUIRES_SUPER;
 
+#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
 - (void)application:(UIApplication *)application didDiscardSceneSessions:(NSSet<UISceneSession *> *)sceneSessions API_AVAILABLE(ios(13.0)) NS_REQUIRES_SUPER;
+#endif
 
 #pragma mark - 推送
 
