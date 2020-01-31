@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>DEFAULT</key>
+	<dict>
+		<key>Base</key>
+		<string>https://httpbin.org</string>
+		<key>Authorization</key>
+		<false/>
+	</dict>
+	<key>Anything</key>
+	<dict>
+		<key>Path</key>
+		<string>anything/{path}</string>
+		<key>Method</key>
+		<string>POST</string>
+	</dict>
+	<key>@ Status</key>
+	<dict>
+		<key>Status</key>
+		<dict>
+			<key>Path</key>
+			<string>status/{code}</string>
+		</dict>
+		<key>404</key>
+		<dict>
+			<key>Path</key>
+			<string>status/404</string>
+		</dict>
+	</dict>
+</dict>
+</plist>

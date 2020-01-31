@@ -11,6 +11,7 @@ target 'Test-iOS' do
         'Worker',
         'Navigation',
     ]
+    pod 'RFAPI', :git => 'https://github.com/RFUI/RFAPI.git'
 end
 
 target 'Test-macOS' do
@@ -19,4 +20,5 @@ target 'Test-macOS' do
     pod 'MBAppKit', :path => '.', :subspecs => [
         'Core',
     ]
+    pod 'RFAPI', :git => 'https://github.com/RFUI/RFAPI.git'
 end

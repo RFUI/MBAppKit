@@ -2,20 +2,17 @@
  MBAPI
  MBAppKit
  
- Copyright © 2018 RFUI.
+ Copyright © 2018-2020 RFUI.
  https://github.com/RFUI/MBAppKit
  
  Apache License, Version 2.0
  http://www.apache.org/licenses/LICENSE-2.0
  */
 #import <RFAPI/RFAPI.h>
-#import <AFNetworking/AFHTTPRequestOperation.h>
 
 /**
  MBAPI 在 RFAPI 的基础上，
- 
- - 设置队列并发数为 5
- - 设置了响应处理的后台队列
+
  - 基于 view controller 的请求管理
  
  使用
@@ -30,11 +27,16 @@
  */
 @interface MBAPI : RFAPI
 
+/**
+ 共享实例，默认为空不自动创建
+
+ 项目代码应该在使用下面便捷方法前设置该共享实例
+ */
 @property (nullable, class) __kindof MBAPI *global;
 
 /**
  从一个 plist 文件中载入接口定义
- 
+
  Plist 例子：
  @code
  <?xml version="1.0" encoding="UTF-8"?>
@@ -87,7 +89,7 @@
  </dict>
  </plist>
  @endcode
- 
+
  如果接口比较多，可以使用分组字典，key 的名必须以 @ 开头
  */
 - (void)setupAPIDefineWithPlistPath:(nonnull NSString *)path;
@@ -100,21 +102,21 @@
  @param APIName 接口名，同时会作为请求的 identifier
  @param viewController 请求所属视图，会取到它的 class 名作为请求的 groupIdentifier
  */
-+ (nullable AFHTTPRequestOperation *)requestWithName:(nonnull NSString *)APIName parameters:(nullable NSDictionary *)parameters viewController:(nullable UIViewController *)viewController loadingMessage:(nullable NSString *)message modal:(BOOL)modal success:(nullable void (^)(AFHTTPRequestOperation *__nullable operation, id __nullable responseObject))success completion:(nullable void (^)(AFHTTPRequestOperation *__nullable operation))completion;
++ (nullable id<RFAPITask>)requestWithName:(nonnull NSString *)APIName parameters:(nullable NSDictionary *)parameters viewController:(nullable UIViewController *)viewController loadingMessage:(nullable NSString *)message modal:(BOOL)modal success:(nullable RFAPIRequestSuccessCallback)success completion:(nullable RFAPIRequestFinishedCallback)completion;
 
 /**
  全参数请求，自定义错误处理
  
  @param failure 为 nil 发生错误时自动弹出错误信息
  */
-+ (nullable AFHTTPRequestOperation *)requestWithName:(nonnull NSString *)APIName parameters:(nullable NSDictionary *)parameters viewController:(nullable UIViewController *)viewController forceLoad:(BOOL)forceLoad loadingMessage:(nullable NSString *)message modal:(BOOL)modal success:(nullable void (^)(AFHTTPRequestOperation *__nullable operation, id __nullable responseObject))success failure:(nullable void (^)(AFHTTPRequestOperation *__nullable operation, NSError *__nonnull error))failure completion:(nullable void (^)(AFHTTPRequestOperation *__nullable operation))completion;
++ (nullable id<RFAPITask>)requestWithName:(nonnull NSString *)APIName parameters:(nullable NSDictionary *)parameters viewController:(nullable UIViewController *)viewController forceLoad:(BOOL)forceLoad loadingMessage:(nullable NSString *)message modal:(BOOL)modal success:(nullable RFAPIRequestSuccessCallback)success failure:(nullable RFAPIRequestFailureCallback)failure completion:(nullable RFAPIRequestFinishedCallback)completion API_DEPRECATED_WITH_REPLACEMENT("+requestWithName:context:", ios(8.0, 13.0));
 
 /**
  请求回调合一
  
  不要忘记处理错误
  */
-+ (nullable AFHTTPRequestOperation *)requestWithName:(nonnull NSString *)APIName parameters:(nullable NSDictionary *)parameters viewController:(nullable UIViewController *)viewController loadingMessage:(nullable NSString *)message modal:(BOOL)modal completion:(nullable void (^)(BOOL success, id __nullable responseObject, NSError *__nullable error))completion;
++ (nullable id<RFAPITask>)requestWithName:(nonnull NSString *)APIName parameters:(nullable NSDictionary *)parameters viewController:(nullable UIViewController *)viewController loadingMessage:(nullable NSString *)message modal:(BOOL)modal completion:(nullable RFAPIRequestCombinedCompletionCallback)completion API_DEPRECATED_WITH_REPLACEMENT("+requestWithName:context:", ios(8.0, 13.0));
 
 /**
  发送一个后台请求
@@ -126,7 +128,7 @@
 #pragma mark -
 
 /**
- 取消属于 viewController 的请求，这些请求必须用 viewController 的类名做为 groupIdentifier
+ 取消属于 viewController 的请求，用 view controller 的 APIGroupIdentifier 匹配请求
  */
 + (void)cancelOperationsWithViewController:(nullable id)viewController;
 
@@ -134,8 +136,10 @@
 
 /**
  背景：
- 
-    有的界面需要每次进入都刷新，如果刷新的请求还在进行或刚刚刷新且不是数据失效必须重刷，那么就没必要再此刷新了。为了实现这个效果，vc 必须记录时间，判定与上次成功获取的时间间隔，加上检查是否正在进行，至少要存两个属性，逻辑完善的话至少 10 行左右。
+
+    有的界面需要每次进入都刷新，如果刷新的请求还在进行或刚刚刷新且不是数据失效必须重刷，
+    那么就没必要再此刷新了。为了实现这个效果，vc 需要记录时间，判定与上次成功获取的时间间隔，
+    加上检查是否正在进行，至少要存两个属性，逻辑完善的话至少 10 行左右。
  
     RequestInterval 机制就是为了简化、复用上述机制。内部用 APIGroupIdentifier 跟踪请求的 groud id
  
@@ -194,8 +198,8 @@
  
  关联的方式就是 APIGroupIdentifier 属性，默认是 view controller 的 class name。
  
- 当 view controller 嵌套时，子控制器应该返回父控制器的 APIGroupIdentifier，以便整个页面销毁时，
- 子控制器中的请求也可以被取消。
+ 当 view controller 嵌套时，子控制器应该返回父控制器的 APIGroupIdentifier，
+ 以便整个页面销毁时，子控制器中的请求也可以被取消。
  */
 @property (nonatomic, nonnull, copy) NSString *APIGroupIdentifier;
 

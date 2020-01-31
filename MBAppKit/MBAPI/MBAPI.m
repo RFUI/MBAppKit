@@ -1,6 +1,7 @@
 
 #import "MBAPI.h"
 #import "MBGeneralCallback.h"
+#import <RFAPI/RFAPIDefineConfigFile.h>
 #import <RFMessageManager/RFMessageManager+RFDisplay.h>
 #import <RFMessageManager/RFNetworkActivityMessage.h>
 
@@ -14,6 +15,9 @@ MBAPI *MBAPI_global_ = nil;
 
 + (MBAPI *)global {
     @synchronized(self) {
+#if DEBUG
+        NSLog(@"⚠️ MBAPI global instance has not been set.");
+#endif
         return MBAPI_global_;
     }
 }
@@ -24,80 +28,53 @@ MBAPI *MBAPI_global_ = nil;
     }
 }
 
-- (void)onInit {
-    [super onInit];
-    self.maxConcurrentOperationCount = 5;
-    self.responseProcessingQueue = dispatch_queue_create("API.Processing", DISPATCH_QUEUE_SERIAL);
-}
-
 - (void)setupAPIDefineWithPlistPath:(NSString *)path {
     NSDictionary *rules = [[NSDictionary alloc] initWithContentsOfFile:path];
     RFAssert(rules, @"Cannot get api define rules at path: %@", path);
-    NSMutableDictionary<NSString *, NSDictionary *> *prules = [NSMutableDictionary dictionary];
-    __block NSInteger ruleCount = 0;
-    [rules enumerateKeysAndObjectsUsingBlock:^(id  _Nonnull key, NSDictionary * _Nonnull obj, BOOL * _Nonnull stop) {
-        if ([key hasPrefix:@"@"]) {
-            [prules addEntriesFromDictionary:obj];
-            ruleCount += obj.count;
-        }
-        else {
-            prules[key] = obj;
-            ruleCount++;
-        }
-    }];
-    _dout_debug(@"载入 %ld 个接口定义", ruleCount);
-    RFAssert(ruleCount == prules.count, @"分组中有规则重名了");
-    
-    [self.defineManager setDefinesWithRulesInfo:prules];
+    [self.defineManager setDefinesWithRulesInfo:rules];
 }
 
 #pragma mark - 请求管理
 
-+ (AFHTTPRequestOperation *)requestWithName:(NSString *)APIName parameters:(NSDictionary *)parameters viewController:(UIViewController *)viewController loadingMessage:(NSString *)message modal:(BOOL)modal success:(void (^)(AFHTTPRequestOperation *, id))success completion:(void (^)(AFHTTPRequestOperation *))completion {
++ (id<RFAPITask>)requestWithName:(NSString *)APIName parameters:(NSDictionary *)parameters viewController:(UIViewController *)viewController loadingMessage:(NSString *)message modal:(BOOL)modal success:(RFAPIRequestSuccessCallback)success completion:(RFAPIRequestFinishedCallback)completion {
     return [self requestWithName:APIName parameters:parameters viewController:viewController forceLoad:NO loadingMessage:message modal:modal success:success failure:nil completion:completion];
 }
 
-+ (AFHTTPRequestOperation *)requestWithName:(NSString *)APIName parameters:(NSDictionary *)parameters viewController:(UIViewController *)viewController forceLoad:(BOOL)forceLoad loadingMessage:(NSString *)message modal:(BOOL)modal success:(void (^)(AFHTTPRequestOperation *, id))success failure:(void (^)(AFHTTPRequestOperation *operation, NSError *error))failure completion:(void (^)(AFHTTPRequestOperation *))completion {
-    RFAPIControl *cn = RFAPIControl.new;
-    if (message) {
-        cn.message = [RFNetworkActivityMessage.alloc initWithIdentifier:APIName message:message status:RFNetworkActivityStatusLoading];
-        cn.message.modal = modal;
-    }
-    cn.identifier = APIName;
-    cn.groupIdentifier = viewController.APIGroupIdentifier;
-    cn.forceLoad = forceLoad;
-    return [self.global requestWithName:APIName parameters:parameters controlInfo:cn success:success failure:failure completion:completion];
++ (id<RFAPITask>)requestWithName:(NSString *)APIName parameters:(NSDictionary *)parameters viewController:(UIViewController *)viewController forceLoad:(BOOL)forceLoad loadingMessage:(NSString *)message modal:(BOOL)modal success:(RFAPIRequestSuccessCallback)success failure:(RFAPIRequestFailureCallback)failure completion:(RFAPIRequestFinishedCallback)completion {
+    id<RFAPITask> task = [self.global requestWithName:APIName context:^(__kindof RFAPIRequestConext *c) {
+        c.parameters = parameters;
+        c.loadMessage = message;
+        c.loadMessageShownModal = modal;
+        c.identifier = APIName;
+        c.groupIdentifier = viewController.APIGroupIdentifier;
+        c.success = success;
+        c.failure = failure;
+        c.finished = completion;
+    }];
+    return task;
 }
 
-+ (AFHTTPRequestOperation *)requestWithName:(NSString *)APIName parameters:(NSDictionary *)parameters viewController:(UIViewController *)viewController loadingMessage:(NSString *)message modal:(BOOL)modal completion:(MBGeneralCallback)completion {
-    __block MBGeneralCallback cb = completion;
-    return [self requestWithName:APIName parameters:parameters viewController:viewController forceLoad:NO loadingMessage:message modal:modal success:^(AFHTTPRequestOperation * _Nullable operation, id  _Nullable responseObject) {
-        cb(YES, responseObject, nil);
-        cb = nil;
-    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-        cb(NO, nil, error);
-        cb = nil;
-    } completion:^(AFHTTPRequestOperation * _Nullable operation) {
-        if (cb) {
-            cb(NO, nil, nil);
-        }
++ (nullable id<RFAPITask>)requestWithName:(nonnull NSString *)APIName parameters:(nullable NSDictionary *)parameters viewController:(nullable UIViewController *)viewController loadingMessage:(nullable NSString *)message modal:(BOOL)modal completion:(nullable RFAPIRequestCombinedCompletionCallback)completion {
+    id<RFAPITask> task = [self.global requestWithName:APIName context:^(__kindof RFAPIRequestConext *c) {
+        c.parameters = parameters;
+        c.loadMessage = message;
+        c.loadMessageShownModal = modal;
+        c.identifier = APIName;
+        c.groupIdentifier = viewController.APIGroupIdentifier;
+        c.combinedComplation = completion;
     }];
+    return task;
 }
 
 + (void)backgroundRequestWithName:(NSString *)APIName parameters:(NSDictionary *)parameters completion:(void (^)(BOOL success, id responseObject, NSError *error))completion {
-    RFAPIControl *cn = RFAPIControl.new;
-    cn.identifier = APIName;
-    cn.backgroundTask = YES;
-    __block MBGeneralCallback safeCallback = MBSafeCallback(completion);
-    [self.global requestWithName:APIName parameters:parameters controlInfo:cn success:^(AFHTTPRequestOperation * _Nullable operation, id  _Nullable responseObject) {
-        safeCallback(YES, responseObject, nil);
-        safeCallback = nil;
-    } failure:^(AFHTTPRequestOperation * _Nullable operation, NSError * _Nonnull error) {
-        safeCallback(NO, nil, error);
-        safeCallback = nil;
-    } completion:^(AFHTTPRequestOperation * _Nullable operation) {
-        if (safeCallback) {
-            safeCallback(NO, nil, nil);
+    [self.global requestWithName:APIName context:^(__kindof RFAPIRequestConext *c) {
+        c.parameters = parameters;
+        c.identifier = APIName;
+        if (completion) {
+            c.combinedComplation = ^(id<RFAPITask>  _Nullable task, id  _Nullable responseObject, NSError * _Nullable error) {
+                BOOL success = !error && !!responseObject;
+                completion(success, responseObject, error);
+            };
         }
     }];
 }
@@ -149,11 +126,8 @@ MBAPI *MBAPI_global_ = nil;
         }
     }
     NSArray *names = r.allKeys;
-    // @TODO: 开放 RFAPI 对 control 的接口
-    for (AFHTTPRequestOperation *op in [self operationsWithGroupIdentifier:viewController.APIGroupIdentifier]) {
-        RFAPIControl *ac = op.userInfo[@"RFAPIOperationUIkControl"];
-        if (!ac) continue;
-        if ([names containsObject:ac.identifier]) {
+    for (id<RFAPITask> op in [self operationsWithGroupIdentifier:viewController.APIGroupIdentifier]) {
+        if ([names containsObject:op.identifier]) {
             return NO;
         }
     }

@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		47B44CE2155DD49CC1F8A8F4 /* libPods-Test-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 315C7E6772024C22BD086A56 /* libPods-Test-iOS.a */; };
 		CD4577B9FBCED1DEA4E3B424 /* libPods-Test-macOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7294DDDFEC76F5C6D455B7C4 /* libPods-Test-macOS.a */; };
+		D509DDBD23E03B3700E6FA28 /* TestAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = D509DDBC23E03B3700E6FA28 /* TestAPI.swift */; };
+		D509DDBF23E03CC200E6FA28 /* test_defines.plist in Resources */ = {isa = PBXBuildFile; fileRef = D509DDBE23E03CC200E6FA28 /* test_defines.plist */; };
+		D509DDC023E03CC200E6FA28 /* test_defines.plist in Resources */ = {isa = PBXBuildFile; fileRef = D509DDBE23E03CC200E6FA28 /* test_defines.plist */; };
 		D521A10F22138E29007E62AC /* Test_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = D521A10E22138E29007E62AC /* Test_macOS.swift */; };
 		D5F6188620ABD70700E9F424 /* Test_Enviroment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5F6188520ABD70700E9F424 /* Test_Enviroment.swift */; };
 		D5F9F4E4208F25E700427201 /* shadow.m in Sources */ = {isa = PBXBuildFile; fileRef = D5F9F4E3208F25E700427201 /* shadow.m */; };
@@ -22,6 +25,8 @@
 		7294DDDFEC76F5C6D455B7C4 /* libPods-Test-macOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Test-macOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8118C5567BE6B271E386829B /* Pods-Test-macOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test-macOS.release.xcconfig"; path = "Pods/Target Support Files/Pods-Test-macOS/Pods-Test-macOS.release.xcconfig"; sourceTree = "<group>"; };
 		A2739E95C550FEE8CC48583F /* Pods-Test-iOS.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Test-iOS.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Test-iOS/Pods-Test-iOS.debug.xcconfig"; sourceTree = "<group>"; };
+		D509DDBC23E03B3700E6FA28 /* TestAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestAPI.swift; sourceTree = "<group>"; };
+		D509DDBE23E03CC200E6FA28 /* test_defines.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = test_defines.plist; sourceTree = "<group>"; };
 		D521A10C22138E29007E62AC /* Test-macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Test-macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D521A10E22138E29007E62AC /* Test_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test_macOS.swift; sourceTree = "<group>"; };
 		D521A11022138E29007E62AC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -106,6 +111,7 @@
 			children = (
 				D5F9F4D9208F217A00427201 /* Info.plist */,
 				D5F9F4E2208F25E600427201 /* OC-Bridging-Header.h */,
+				D509DDBC23E03B3700E6FA28 /* TestAPI.swift */,
 			);
 			path = iOS;
 			sourceTree = "<group>";
@@ -126,6 +132,7 @@
 				D5F9F4EB208F64CA00427201 /* RTHelper.h */,
 				D5F9F4EA208F64CA00427201 /* RTHelper.m */,
 				D5F9F4E3208F25E700427201 /* shadow.m */,
+				D509DDBE23E03CC200E6FA28 /* test_defines.plist */,
 				D5F6188520ABD70700E9F424 /* Test_Enviroment.swift */,
 				D5F9F4E5208F2C9400427201 /* Test_Worker.swift */,
 			);
@@ -224,6 +231,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D509DDBF23E03CC200E6FA28 /* test_defines.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -231,6 +239,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D509DDC023E03CC200E6FA28 /* test_defines.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,6 +305,7 @@
 				D5F9F4E4208F25E700427201 /* shadow.m in Sources */,
 				D5F6188620ABD70700E9F424 /* Test_Enviroment.swift in Sources */,
 				D5F9F4E6208F2C9400427201 /* Test_Worker.swift in Sources */,
+				D509DDBD23E03B3700E6FA28 /* TestAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -479,6 +489,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Tests/iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -505,6 +516,7 @@
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "-";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Tests/iOS/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
