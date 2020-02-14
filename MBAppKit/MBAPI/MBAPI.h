@@ -116,7 +116,7 @@
  
  不要忘记处理错误
  */
-+ (nullable id<RFAPITask>)requestWithName:(nonnull NSString *)APIName parameters:(nullable NSDictionary *)parameters viewController:(nullable UIViewController *)viewController loadingMessage:(nullable NSString *)message modal:(BOOL)modal completion:(nullable RFAPIRequestCombinedCompletionCallback)completion API_DEPRECATED_WITH_REPLACEMENT("+requestWithName:context:", ios(8.0, 13.0));
++ (nullable id<RFAPITask>)requestWithName:(nonnull NSString *)APIName parameters:(nullable NSDictionary *)parameters viewController:(nullable UIViewController *)viewController loadingMessage:(nullable NSString *)message modal:(BOOL)modal completion:(nullable void (^)(BOOL success, id __nullable responseObject, NSError *__nullable error))completion API_DEPRECATED_WITH_REPLACEMENT("+requestWithName:context:", ios(8.0, 13.0));
 
 /**
  发送一个后台请求

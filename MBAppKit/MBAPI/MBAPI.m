@@ -54,14 +54,18 @@ MBAPI *MBAPI_global_ = nil;
     return task;
 }
 
-+ (nullable id<RFAPITask>)requestWithName:(nonnull NSString *)APIName parameters:(nullable NSDictionary *)parameters viewController:(nullable UIViewController *)viewController loadingMessage:(nullable NSString *)message modal:(BOOL)modal completion:(nullable RFAPIRequestCombinedCompletionCallback)completion {
++ (nullable id<RFAPITask>)requestWithName:(nonnull NSString *)APIName parameters:(nullable NSDictionary *)parameters viewController:(nullable UIViewController *)viewController loadingMessage:(nullable NSString *)message modal:(BOOL)modal completion:(nullable void (^)(BOOL success, id __nullable responseObject, NSError *__nullable error))completion {
     id<RFAPITask> task = [self.global requestWithName:APIName context:^(__kindof RFAPIRequestConext *c) {
         c.parameters = parameters;
         c.loadMessage = message;
         c.loadMessageShownModal = modal;
         c.identifier = APIName;
         c.groupIdentifier = viewController.APIGroupIdentifier;
-        c.combinedComplation = completion;
+        if (completion) {
+            c.finished = ^(id<RFAPITask>  _Nullable task, BOOL success) {
+                completion(success, task.responseObject, task.error);
+            };
+        }
     }];
     return task;
 }
