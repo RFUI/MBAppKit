@@ -58,6 +58,7 @@ API_AVAILABLE(ios(9.0), tvos(9.0))
  
  - iOS 9 以下废弃的方法，及当前 deployment target 下废弃的方法
  - 带完成回调的方法
+ - UISceneSession 相关方法
  - application:willFinishLaunchingWithOptions:
  - application:didFinishLaunchingWithOptions:
  - application:supportedInterfaceOrientationsForWindow:
@@ -109,10 +110,6 @@ API_AVAILABLE(ios(9.0), tvos(9.0))
 - (void)applicationProtectedDataDidBecomeAvailable:(UIApplication *)application NS_REQUIRES_SUPER;
 
 - (void)application:(UIApplication *)application userDidAcceptCloudKitShareWithMetadata:(CKShareMetadata *)cloudKitShareMetadata API_AVAILABLE(ios(10.0)) NS_REQUIRES_SUPER;
-
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
-- (void)application:(UIApplication *)application didDiscardSceneSessions:(NSSet<UISceneSession *> *)sceneSessions API_AVAILABLE(ios(13.0)) NS_REQUIRES_SUPER;
-#endif
 
 #pragma mark - 推送
 

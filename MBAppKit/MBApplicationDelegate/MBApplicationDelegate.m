@@ -121,8 +121,5 @@ _app_delegate_event_method(applicationProtectedDataWillBecomeUnavailable)
 _app_delegate_event_method(applicationProtectedDataDidBecomeAvailable)
 
 _app_delegate_event_method2(userDidAcceptCloudKitShareWithMetadata)
-#if __IPHONE_OS_VERSION_MAX_ALLOWED >= 130000
-_app_delegate_event_method2(didDiscardSceneSessions)
-#endif
 
 @end
