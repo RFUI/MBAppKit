@@ -97,7 +97,12 @@
 #pragma mark - 请求管理
 
 /**
- 标准请求，默认错误处理方式
+ 标准请求
+ */
++ (nullable id<RFAPITask>)requestName:(nonnull NSString *)APIName context:(NS_NOESCAPE void (^__nullable)(RFAPIRequestConext *__nonnull))c;
+
+/**
+ 旧版兼容请求，默认错误处理方式
  
  @param APIName 接口名，同时会作为请求的 identifier
  @param viewController 请求所属视图，会取到它的 class 名作为请求的 groupIdentifier

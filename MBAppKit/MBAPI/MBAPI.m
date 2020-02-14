@@ -15,9 +15,6 @@ MBAPI *MBAPI_global_ = nil;
 
 + (MBAPI *)global {
     @synchronized(self) {
-#if DEBUG
-        NSLog(@"⚠️ MBAPI global instance has not been set.");
-#endif
         return MBAPI_global_;
     }
 }
@@ -36,12 +33,18 @@ MBAPI *MBAPI_global_ = nil;
 
 #pragma mark - 请求管理
 
++ (id<RFAPITask>)requestName:(NSString *)APIName context:(NS_NOESCAPE void (^)(RFAPIRequestConext * _Nonnull))c {
+    MBAPI *instance = self.global;
+    NSAssert(instance, @"⚠️ MBAPI global instance has not been set.");
+    return [instance requestWithName:APIName context:c];
+}
+
 + (id<RFAPITask>)requestWithName:(NSString *)APIName parameters:(NSDictionary *)parameters viewController:(UIViewController *)viewController loadingMessage:(NSString *)message modal:(BOOL)modal success:(RFAPIRequestSuccessCallback)success completion:(RFAPIRequestFinishedCallback)completion {
     return [self requestWithName:APIName parameters:parameters viewController:viewController forceLoad:NO loadingMessage:message modal:modal success:success failure:nil completion:completion];
 }
 
 + (id<RFAPITask>)requestWithName:(NSString *)APIName parameters:(NSDictionary *)parameters viewController:(UIViewController *)viewController forceLoad:(BOOL)forceLoad loadingMessage:(NSString *)message modal:(BOOL)modal success:(RFAPIRequestSuccessCallback)success failure:(RFAPIRequestFailureCallback)failure completion:(RFAPIRequestFinishedCallback)completion {
-    id<RFAPITask> task = [self.global requestWithName:APIName context:^(__kindof RFAPIRequestConext *c) {
+    id<RFAPITask> task = [self requestName:APIName context:^(__kindof RFAPIRequestConext *c) {
         c.parameters = parameters;
         c.loadMessage = message;
         c.loadMessageShownModal = modal;
@@ -55,7 +58,7 @@ MBAPI *MBAPI_global_ = nil;
 }
 
 + (nullable id<RFAPITask>)requestWithName:(nonnull NSString *)APIName parameters:(nullable NSDictionary *)parameters viewController:(nullable UIViewController *)viewController loadingMessage:(nullable NSString *)message modal:(BOOL)modal completion:(nullable void (^)(BOOL success, id __nullable responseObject, NSError *__nullable error))completion {
-    id<RFAPITask> task = [self.global requestWithName:APIName context:^(__kindof RFAPIRequestConext *c) {
+    id<RFAPITask> task = [self requestName:APIName context:^(__kindof RFAPIRequestConext *c) {
         c.parameters = parameters;
         c.loadMessage = message;
         c.loadMessageShownModal = modal;
@@ -71,7 +74,7 @@ MBAPI *MBAPI_global_ = nil;
 }
 
 + (void)backgroundRequestWithName:(NSString *)APIName parameters:(NSDictionary *)parameters completion:(void (^)(BOOL success, id responseObject, NSError *error))completion {
-    [self.global requestWithName:APIName context:^(__kindof RFAPIRequestConext *c) {
+    [self requestName:APIName context:^(__kindof RFAPIRequestConext *c) {
         c.parameters = parameters;
         c.identifier = APIName;
         if (completion) {
