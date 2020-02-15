@@ -32,6 +32,13 @@
     RFAssert(self.delegate == self, @"MBNavigationController’s delegate must be self");
 }
 
+- (void)viewDidLoad {
+    [super viewDidLoad];
+    if (self.prefersNoBarShadow) {
+        [self _hideShadow];
+    }
+}
+
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     UIViewController<MBGeneralViewControllerStateTransitions> *vc = (id)self.topViewController;
     if ([vc respondsToSelector:@selector(MBViewDidAppear:)]) {
@@ -42,11 +49,9 @@
 - (void)navigationController:(UINavigationController *)navigationController didShowViewController:(UIViewController *)viewController animated:(BOOL)animated {
     [super navigationController:navigationController didShowViewController:viewController animated:animated];
     self._MBNavigationController_lastViewControllers = self.viewControllers;
-    
+
     if (self.prefersBackBarButtonTitleHidden) {
-        if (!viewController.navigationItem.backBarButtonItem) {
-            viewController.navigationItem.backBarButtonItem = [UIBarButtonItem.alloc initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-        }
+        [self _setBackItemWithViewController:viewController];
     }
     if (self.loginSuspendedViewController) {
         BOOL keeperNotFound = YES;
@@ -83,12 +88,27 @@
     }
 }
 
+#pragma mark - Style
+
+- (void)_hideShadow {
+    self.navigationBar.shadowImage = UIImage.new;
+    // iOS 10 以下
+    if (NSFoundationVersionNumber <= NSFoundationVersionNumber10_10_Max) {
+        [self.navigationBar setBackgroundImage:UIImage.new forBarMetrics:UIBarMetricsDefault];
+    }
+}
+
+- (void)_setBackItemWithViewController:(UIViewController *)viewController {
+    if (viewController.navigationItem.backBarButtonItem) return;
+    viewController.navigationItem.backBarButtonItem = [UIBarButtonItem.alloc initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+}
+
 #pragma mark - 导航队列
 
 - (void)setNeedsPerformNavigationOperation {
     if (!self.operationQueue.count
         || !self.shouldPerfromQunedQperation) return;
-    
+
     MBNavigationOperation *perfromedOp = nil;
     if ((perfromedOp = [self perfromedNavigationOperation])) {
         [self.operationQueue removeObject:perfromedOp];
@@ -99,10 +119,10 @@
 - (BOOL)shouldPerfromQunedQperation {
     if (self.transitionCoordinator) return NO;
     if (self.presentedViewController) return NO;
-    
+
     // 键盘弹出忽略
     if (UIResponder.firstResponder) return NO;
-    
+
     if ([self.topViewController conformsToProtocol:@protocol(UIViewControllerIsFlowScence)]) {
         return NO;
     }
@@ -115,7 +135,7 @@
     for (__kindof MBNavigationOperation *op in self.operationQueue) {
         NSArray<Class> *topVCClasses = op.topViewControllers;
         if (topVCClasses && ![topVCClasses containsObject:self.topViewController.class]) continue;
-        
+
         if ([op perform:self]) {
             performedOp = op;
             break;
@@ -127,7 +147,7 @@
             [needsRemovedOps addObject:op];
         }
     } // END: each in operationQueue
-    
+
     if (needsRemovedOps.count) {
         [self.operationQueue removeObjectsInArray:needsRemovedOps];
     }
@@ -148,6 +168,9 @@
         return;
     }
     [super pushViewController:viewController animated:animated];
+    if (viewController) {
+        [self didAddViewControllers:@[ viewController ]];
+    }
 }
 
 - (void)setViewControllers:(NSArray<UIViewController *> *)viewControllers animated:(BOOL)animated {
@@ -158,15 +181,26 @@
         NSMutableArray *vcs = viewControllers.mutableCopy;
         [vcs removeLastObject];
         [super setViewControllers:vcs animated:animated];
+        [self didAddViewControllers:vcs];
         [self _MBNavigationController_tryLogin];
         return;
     }
     [super setViewControllers:viewControllers animated:animated];
+    [self didAddViewControllers:viewControllers];
+}
+
+- (void)didAddViewControllers:(NSArray<UIViewController *> *)vcs {
+    if (self.prefersBackBarButtonTitleHidden) {
+        // 调节所有 vc 的返回按钮
+        for (UIViewController *vc in vcs) {
+            [self _setBackItemWithViewController:vc];
+        }
+    }
 }
 
 - (void)didRemoveViewControllers:(NSArray<UIViewController *> *)vcs {
     for (UIViewController *vc in vcs) {
-        [MBAPI.global cancelOperationsWithGroupIdentifier:vc.APIGroupIdentifier];
+        [MBAPI cancelOperationsWithViewController:vc];
     }
 }
 
