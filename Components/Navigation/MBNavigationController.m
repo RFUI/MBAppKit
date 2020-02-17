@@ -82,10 +82,17 @@
     [vcRemoved removeObjectsPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
         return [viewControllers containsObject:obj];
     }];
+    NSMutableArray *vcAdded = [NSMutableArray.alloc initWithArray:viewControllers];
+    [vcAdded removeObjectsPassingTest:^BOOL(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        return [__MBNavigationController_lastViewControllers containsObject:obj];
+    }];
     __MBNavigationController_lastViewControllers = viewControllers.copy;
     if (vcRemoved.count) {
         [self didRemoveViewControllers:vcRemoved];
     }
+    if (vcAdded.count) {
+         [self didAddViewControllers:vcAdded];
+     }
 }
 
 #pragma mark - Style
@@ -101,6 +108,19 @@
 - (void)_setBackItemWithViewController:(UIViewController *)viewController {
     if (viewController.navigationItem.backBarButtonItem) return;
     viewController.navigationItem.backBarButtonItem = [UIBarButtonItem.alloc initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+}
+
+- (UIViewController *)childViewControllerForHomeIndicatorAutoHidden {
+    return self.visibleViewController;
+}
+- (UIViewController *)childViewControllerForScreenEdgesDeferringSystemGestures {
+    return self.visibleViewController;
+}
+- (UIViewController *)childViewControllerForStatusBarHidden {
+    return self.visibleViewController;
+}
+- (UIViewController *)childViewControllerForStatusBarStyle {
+    return self.visibleViewController;
 }
 
 #pragma mark - 导航队列
@@ -168,9 +188,6 @@
         return;
     }
     [super pushViewController:viewController animated:animated];
-    if (viewController) {
-        [self didAddViewControllers:@[ viewController ]];
-    }
 }
 
 - (void)setViewControllers:(NSArray<UIViewController *> *)viewControllers animated:(BOOL)animated {
@@ -180,13 +197,11 @@
         self.loginSuspendedViewController = lastVC;
         NSMutableArray *vcs = viewControllers.mutableCopy;
         [vcs removeLastObject];
-        [super setViewControllers:vcs animated:animated];
-        [self didAddViewControllers:vcs];
+        [super setViewControllers:viewControllers animated:animated];
         [self _MBNavigationController_tryLogin];
         return;
     }
     [super setViewControllers:viewControllers animated:animated];
-    [self didAddViewControllers:viewControllers];
 }
 
 - (void)didAddViewControllers:(NSArray<UIViewController *> *)vcs {

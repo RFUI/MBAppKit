@@ -67,7 +67,7 @@
 /**
  有 view controller 被添加到导航堆栈中调用
 
- 同一个 vc 可能会反复传入（如调用 setViewControllers 方法），默认实现会
+ 默认实现会设置这些 view controller 的返回按钮
  */
 - (void)didAddViewControllers:(nonnull NSArray<UIViewController *> *)vcs NS_REQUIRES_SUPER;
 
