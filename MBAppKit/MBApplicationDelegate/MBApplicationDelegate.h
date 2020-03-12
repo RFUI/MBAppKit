@@ -49,6 +49,11 @@ API_AVAILABLE(ios(9.0), tvos(9.0))
  */
 - (void)removeAppEventListener:(nullable id<UIApplicationDelegate>)listener;
 
+/**
+ 遍历已注册的事件监听，可用于自定义通知的发送
+ */
+- (void)enumerateEventListenersUsingBlock:(NS_NOESCAPE void (^)(id<UIApplicationDelegate> listener))block;
+
 #pragma mark - UIApplicationDelegate
 
 @property (nonatomic) UIWindow *window;

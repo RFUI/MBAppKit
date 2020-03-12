@@ -2,14 +2,14 @@
 #import "MBApplicationDelegate.h"
 
 @interface MBApplicationDelegate ()
-@property (nonatomic) NSHashTable *_MBApplicationDelegate_eventListeners;
+@property (nonatomic) NSHashTable<id<UIApplicationDelegate>> *_MBApplicationDelegate_eventListeners;
 @end
 
 @implementation MBApplicationDelegate
 
 #pragma mark - 通用事件监听
 
-- (NSHashTable *)_MBApplicationDelegate_eventListeners {
+- (NSHashTable<id<UIApplicationDelegate>> *)_MBApplicationDelegate_eventListeners {
     if (__MBApplicationDelegate_eventListeners) return __MBApplicationDelegate_eventListeners;
     __MBApplicationDelegate_eventListeners = [NSHashTable weakObjectsHashTable];
     return __MBApplicationDelegate_eventListeners;
@@ -31,6 +31,14 @@
 - (void)removeAppEventListener:(nullable id<UIApplicationDelegate>)listener {
     @synchronized(self) {
         [self._MBApplicationDelegate_eventListeners removeObject:listener];
+    }
+}
+
+- (void)enumerateEventListenersUsingBlock:(NS_NOESCAPE void (^)(id<UIApplicationDelegate> _Nonnull))block {
+    if (!block) return;
+    NSArray *all = self._MBApplicationDelegate_eventListeners.allObjects;
+    for (id<UIApplicationDelegate> listener in all) {
+        block(listener);
     }
 }
 

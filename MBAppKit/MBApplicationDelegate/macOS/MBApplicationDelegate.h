@@ -2,7 +2,11 @@
  MBApplicationDelegate
  MBAppKit
  
- Copyright © 2018 BB9z. All rights reserved.
+ Copyright © 2018, 2020 RFUI.
+ https://github.com/RFUI/MBAppKit
+
+ Apache License, Version 2.0
+ http://www.apache.org/licenses/LICENSE-2.0
  */
 
 #import <RFKit/RFRuntime.h>
@@ -44,6 +48,11 @@ NS_AVAILABLE_MAC(10_13)
  移除应用事件监听
  */
 - (void)removeAppEventListener:(nullable id<NSApplicationDelegate>)listener;
+
+/**
+ 遍历已注册的事件监听，可用于自定义通知的发送
+ */
+- (void)enumerateEventListenersUsingBlock:(NS_NOESCAPE void (^)(id<NSApplicationDelegate> listener))block;
 
 /**
  重写了大部分常用 NSApplicationDelegate 事件，不会重写的有：
