@@ -174,7 +174,7 @@ static char UIViewController_APIControl_CateogryProperty;
 - (NSString *)APIGroupIdentifier {
     id value = objc_getAssociatedObject(self, &UIViewController_APIControl_CateogryProperty);
     if (value) return value;
-    return NSStringFromClass(self.class);
+    return [NSString.alloc initWithFormat:@"vc:%p", (void *)self];
 }
 
 - (void)setAPIGroupIdentifier:(NSString *)APIGroupIdentifier {
