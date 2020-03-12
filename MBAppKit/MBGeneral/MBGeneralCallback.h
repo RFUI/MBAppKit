@@ -2,7 +2,7 @@
  MBGeneralCallback
  MBAppKit
  
- Copyright © 2018 RFUI.
+ Copyright © 2018, 2020 RFUI.
  Copyright © 2016 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
  https://github.com/RFUI/MBAppKit
  
@@ -43,7 +43,7 @@
 /**
  一般的异步请求数据回调
  
- success 表示成功、失败，取消也算失败。失败时 error 不应为空
+ success 表示成功、失败，取消也算失败。失败时 error 不应为空；取消 error 应为空
  */
 typedef void (^MBGeneralCallback)(BOOL success, id _Nullable item, NSError *_Nullable error);
 
