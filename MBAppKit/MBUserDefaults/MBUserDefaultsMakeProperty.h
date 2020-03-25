@@ -72,9 +72,9 @@
     - (MODEL_CLASS *)NAME {\
         NSData *json = [self dataForKey:_makeKey(NAME)];\
         if (json) {\
-            IVAR = [[MODEL_CLASS alloc] initWithData:json error:nil];\
+            return [[MODEL_CLASS alloc] initWithData:json error:nil];\
         }\
-        return IVAR;\
+        return nil;\
     }\
     - (void)SETTER:(MODEL_CLASS *)NAME {\
         NSData *json = [NAME toJSONData];\
