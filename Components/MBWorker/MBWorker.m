@@ -2,10 +2,7 @@
 #import "MBWorker.h"
 #import "MBWorkerQueue.h"
 #import "shadow.h"
-
-@interface MBUser
-@property (readonly) long uid;
-@end
+#import "MBUser.h"
 
 @interface MBWorkerQueue (/* Private */)
 - (void)_endWorker:(MBWorker *)worker;
@@ -40,7 +37,11 @@ RFInitializingRootForNSObject
         [text appendString:@"; allow background"];
     }
     if (self.requiresUserContext) {
+#if MBUserStringUID
+        [text appendFormat:@"; requires user: %@", self.userRequired.uid];
+#else
         [text appendFormat:@"; requires user: %ld", self.userRequired.uid];
+#endif
     }
     if (self.enqueueDelay) {
         [text appendFormat:@"; enqueueDelay = %f", self.enqueueDelay];

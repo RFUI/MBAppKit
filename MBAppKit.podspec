@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'MBAppKit'
-  s.version  = '0.9.1'
+  s.version  = '0.9.2'
   s.author   = 'BB9z'
   s.license  = { :type => 'Apache 2.0', :file => 'LICENSE' }
   s.homepage = 'https://github.com/RFUI/MBAppKit'
@@ -49,8 +49,14 @@ Pod::Spec.new do |s|
   # Config
   s.subspec 'UserIDIsString' do |ss|
     ss.dependency 'MBAppKit/Core'
-    ss.pod_target_xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'MBUserStringUID=1' }
-    ss.user_target_xcconfig = { 'GCC_PREPROCESSOR_DEFINITIONS' => 'MBUserStringUID=1' }
+    ss.pod_target_xcconfig = {
+      'GCC_PREPROCESSOR_DEFINITIONS' => 'MBUserStringUID=1',
+      'SWIFT_ACTIVE_COMPILATION_CONDITIONS' => 'MBUserStringUID'
+     }
+    ss.user_target_xcconfig = {
+      'GCC_PREPROCESSOR_DEFINITIONS' => 'MBUserStringUID=1' ,
+      'SWIFT_ACTIVE_COMPILATION_CONDITIONS' => 'MBUserStringUID'
+    }
   end
 
   # Components
