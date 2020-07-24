@@ -73,8 +73,8 @@ typedef NS_OPTIONS(int64_t, MBENVFlag) {
  若状态符合指定状态，立即执行一个 block，否则等待直到状态满足时执行
 
  @param flags 需要的状态
- @param block 如果调用方法时状态符合，block 将在当前线程调用；block 若没有立即调用，之后会在 在 queue 队列调用
- @param timeout 等待状态符合的最长时间，超出后将不等待，0 无限制
+ @param block 如果调用方法时状态符合，block 将在当前线程调用；block 若没有立即调用，之后会在 queue 队列调用
+ @param timeout 等待状态符合的最长时间，超出后将不等待立即执行，0 无限制，一直等待
  */
 - (void)waitFlags:(MBENVFlag)flags do:(nonnull dispatch_block_t)block timeout:(NSTimeInterval)timeout;
 

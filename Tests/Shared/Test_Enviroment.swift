@@ -26,6 +26,18 @@ class Test_Enviroment: XCTestCase {
         env.setFlagOff(.flagA)
         XCTAssertFalse(env.meetFlags(.flagA))
     }
+
+    func testMultiFlag() {
+        let env = MBEnvironment()
+        env.setFlagOn(.flagA)
+        XCTAssertFalse(env.meetFlags([.flagA, .flagB]))
+
+        env.setFlagOn(.flagB)
+        XCTAssertTrue(env.meetFlags([.flagA, .flagB]))
+
+        env.setFlagOff(.flagA)
+        XCTAssertFalse(env.meetFlags([.flagA, .flagB]))
+    }
     
     func testWait() {
         var callFlag = false
@@ -39,30 +51,43 @@ class Test_Enviroment: XCTestCase {
         env.setFlagOn(.flagA)
         XCTAssertFalse(callFlag)
         env.setFlagOn(.flagB)
-        
+        XCTAssertFalse(callFlag)
+
         wait(for: [exp], timeout: 1)
         XCTAssertTrue(callFlag)
+    }
+
+    func testWaitTimeoutForever() {
+        var callFlag = false
+        let env = MBEnvironment()
+        let exp = XCTestExpectation(description: "do")
+        env.waitFlags([.flagA], do: {
+            callFlag = true
+            exp.fulfill()
+        }, timeout: 0)
+
+        dispatch_after_seconds(0.9) {
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1)
+        XCTAssertFalse(callFlag)
     }
     
     func testWaitTimeout() {
         var callFlag = false
         let env = MBEnvironment()
         let exp = XCTestExpectation(description: "do")
-        env.waitFlags([.flagA, .flagB], do: {
+        env.waitFlags(.flagA, do: {
             callFlag = true
-            exp.fulfill()
         }, timeout: 0.1)
-        
+
         dispatch_after_seconds(0.2) {
-            env.setFlagOn(.flagA)
-            env.setFlagOn(.flagB)
-        }
-        dispatch_after_seconds(0.4) {
+            XCTAssertTrue(callFlag)
             exp.fulfill()
         }
-        
-        wait(for: [exp], timeout: 1)
         XCTAssertFalse(callFlag)
+
+        wait(for: [exp], timeout: 1)
     }
     
     func testWaitMeetBefore() {

@@ -139,27 +139,30 @@ static NSMutableArray<MBEnvironmentObserver *> *MBApplicationDefaultHandlers;
 - (void)waitFlags:(MBENVFlag)flags do:(dispatch_block_t)block timeout:(NSTimeInterval)timeout {
     if ([self meetFlags:flags]) {
         block();
+        return;
     }
-    else {
-        MBEnvironmentObserver *ob = [MBEnvironmentObserver new];
-        ob.flags = flags;
-        ob.handler = block;
-        ob.removeAfterCall = YES;
+
+    MBEnvironmentObserver *ob = MBEnvironmentObserver.new;
+    ob.flags = flags;
+    ob.handler = block;
+    ob.removeAfterCall = YES;
+    @synchronized(self) {
         [self._MBEnvironment_observers addObject:ob];
-        if (timeout) {
-            @weakify(self);
-            dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeout * NSEC_PER_SEC));
-            dispatch_after(time, self.queue, ^{
-                @strongify(self);
-                [self._MBEnvironment_observers removeObject:ob];
-            });
-        }
     }
+    
+    if (timeout <= 0) return;
+    @weakify(self);
+    dispatch_time_t time = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(timeout * NSEC_PER_SEC));
+    dispatch_after(time, self.queue, ^{
+        @strongify(self);
+        block();
+        [self removeFlagsObserver:ob];
+    });
 }
 
 - (id)registerFlagsObserver:(MBENVFlag)flags handler:(dispatch_block_t)handler {
     NSParameterAssert(handler);
-    MBEnvironmentObserver *ob = [MBEnvironmentObserver new];
+    MBEnvironmentObserver *ob = MBEnvironmentObserver.new;
     ob.flags = flags;
     ob.handler = handler;
     @synchronized(self) {
@@ -170,7 +173,9 @@ static NSMutableArray<MBEnvironmentObserver *> *MBApplicationDefaultHandlers;
 
 - (void)removeFlagsObserver:(id)observer {
     if (observer) {
-        [self._MBEnvironment_observers removeObject:observer];
+        @synchronized(self) {
+            [self._MBEnvironment_observers removeObject:observer];
+        }
     }
 }
 
@@ -181,7 +186,7 @@ static NSMutableArray<MBEnvironmentObserver *> *MBApplicationDefaultHandlers;
     if (!MBApplicationDefaultHandlers) {
         MBApplicationDefaultHandlers = [NSMutableArray arrayWithCapacity:32];
     }
-    MBEnvironmentObserver *ob = [MBEnvironmentObserver new];
+    MBEnvironmentObserver *ob = MBEnvironmentObserver.new;
     ob.flags = flags;
     ob.selector = selector;
     ob.removeAfterCall = handleOnce;
