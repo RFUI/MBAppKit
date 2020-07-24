@@ -8,30 +8,37 @@
 
 import XCTest
 
+extension MBENVFlag {
+    static let flagA = MBENVFlag(rawValue: 1 << 0)
+    static let flagB = MBENVFlag(rawValue: 1 << 1)
+    static let flagC = MBENVFlag(rawValue: 1 << 2)
+    static let flagD = MBENVFlag(rawValue: 1 << 3)
+}
+
 class Test_Enviroment: XCTestCase {
     func testFlag() {
         let env = MBEnvironment()
-        XCTAssertFalse(env.meetFlags(Flag.A.rawValue))
+        XCTAssertFalse(env.meetFlags(.flagA))
         
-        env.setFlagOn(Flag.A.rawValue)
-        XCTAssertTrue(env.meetFlags(Flag.A.rawValue))
+        env.setFlagOn(.flagA)
+        XCTAssertTrue(env.meetFlags(.flagA))
 
-        env.setFlagOff(Flag.A.rawValue)
-        XCTAssertFalse(env.meetFlags(Flag.A.rawValue))
+        env.setFlagOff(.flagA)
+        XCTAssertFalse(env.meetFlags(.flagA))
     }
     
     func testWait() {
         var callFlag = false
         let env = MBEnvironment()
         let exp = XCTestExpectation(description: "do")
-        env.waitFlags((Flag.A.rawValue | Flag.B.rawValue), do: {
+        env.waitFlags([.flagA, .flagB], do: {
             callFlag = true
             exp.fulfill()
         }, timeout: 0)
         
-        env.setFlagOn(Flag.A.rawValue)
+        env.setFlagOn(.flagA)
         XCTAssertFalse(callFlag)
-        env.setFlagOn(Flag.B.rawValue)
+        env.setFlagOn(.flagB)
         
         wait(for: [exp], timeout: 1)
         XCTAssertTrue(callFlag)
@@ -41,14 +48,14 @@ class Test_Enviroment: XCTestCase {
         var callFlag = false
         let env = MBEnvironment()
         let exp = XCTestExpectation(description: "do")
-        env.waitFlags((Flag.A.rawValue | Flag.B.rawValue), do: {
+        env.waitFlags([.flagA, .flagB], do: {
             callFlag = true
             exp.fulfill()
         }, timeout: 0.1)
         
         dispatch_after_seconds(0.2) {
-            env.setFlagOn(Flag.A.rawValue)
-            env.setFlagOn(Flag.B.rawValue)
+            env.setFlagOn(.flagA)
+            env.setFlagOn(.flagB)
         }
         dispatch_after_seconds(0.4) {
             exp.fulfill()
@@ -61,9 +68,9 @@ class Test_Enviroment: XCTestCase {
     func testWaitMeetBefore() {
         var callFlag = false
         let env = MBEnvironment()
-        env.setFlagOn(Flag.A.rawValue)
-        env.setFlagOn(Flag.B.rawValue)
-        env.waitFlags((Flag.A.rawValue | Flag.B.rawValue), do: {
+        env.setFlagOn(.flagA)
+        env.setFlagOn(.flagB)
+        env.waitFlags([.flagA, .flagB], do: {
             callFlag = true
         }, timeout: 0)
         XCTAssertTrue(callFlag)
@@ -73,10 +80,10 @@ class Test_Enviroment: XCTestCase {
         var callFlag = 0
         let exp = XCTestExpectation(description: "do")
         let env = MBEnvironment()
-        env.setFlagOn(Flag.A.rawValue)
-        env.waitFlags(Flag.A.rawValue, do: {
+        env.setFlagOn(.flagA)
+        env.waitFlags(.flagA, do: {
             callFlag = callFlag + 1
-            env.setFlagOn(Flag.A.rawValue)
+            env.setFlagOn(.flagA)
         }, timeout: 0)
 
         dispatch_after_seconds(0.2) {
