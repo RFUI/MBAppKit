@@ -11,7 +11,30 @@
  */
 #import <RFKit/RFRuntime.h>
 
-typedef int32_t MBENVFlag;
+/**
+ 环境状态标志
+
+ 其他状态应定义在 app 的代码中，可用 Swfit extension 去扩展
+
+ @code
+ extension MBENVFlag {
+     /// 用户已登入
+     static let userHasLogged = MBENVFlag(rawValue: 1 << 4)
+
+     /// 本次启动当前用户的用户信息已成功获取过
+     static let userInfoFetched = MBENVFlag(rawValue: 1 << 5)
+
+     /// 导航已加载
+     static let naigationLoaded = MBENVFlag(rawValue: 1 << 10)
+
+     /// 主页已载入
+     static let homeLoaded = MBENVFlag(rawValue: 1 << 11)
+ }
+ @endcode
+ */
+typedef NS_OPTIONS(int64_t, MBENVFlag) {
+    MBENVFlagNone = 0
+};
 
 /**
  状态管理 manager
