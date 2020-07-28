@@ -2,7 +2,7 @@
  MBGeneral
  MBAppKit
  
- Copyright © 2018 RFUI.
+ Copyright © 2018, 2020 RFUI.
  Copyright © 2016 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
  https://github.com/RFUI/MBAppKit
  
@@ -20,6 +20,7 @@
 #import "MBGeneralListDisplaying.h"
 #import "MBGeneralListExchanging.h"
 #import "MBGeneralSegue.h"
+#import "MBGeneralSelection.h"
 #import "MBGeneralSetNeedsDoSomthing.h"
 #import "MBGeneralType.h"
 #import "MBGeneralUnwindSegueExchanging.h"
