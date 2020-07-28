@@ -16,8 +16,9 @@ pod 'MBAppKit', :git => 'https://github.com/RFUI/MBAppKit.git', :subspecs => [
     'Button',
     'Environment',
     'Input',
-    'Worker',
     'Navigation',
+    'RootViewController'
+    'Worker',
 ]
 ```
 
@@ -45,6 +46,10 @@ The core part defines some of the key components of an application and defines a
 
 * Input
 
+* Navigation
+
+* RootViewController
+
 * Worker
 
     MBWorker is a very powerful tool that can write logic in a worker to achieve decoupling.
@@ -58,8 +63,6 @@ The core part defines some of the key components of an application and defines a
     * Support priority. Some operations can only be performed when idle, while some others can be performed prioritized.
     * Support timeout mechanism. Some workers may not finish for a long time (due to network timeouts or bugs). The timeout mechanism ensures that the worker queue is not blocked for these reasons.
     * Support trigger control. Some workers should only be executed when the app is in the foreground, while some workers only execute when the user logs in which switching users or logging out should not be performed. Meanwhile, the worker creation and actual execution time is different. MBWorker can handle these cases in a elegant way.
-
-* Navigation
 
 ## FAQs
 

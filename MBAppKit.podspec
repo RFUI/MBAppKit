@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'MBAppKit'
-  s.version  = '0.9.3'
+  s.version  = '0.10.0'
   s.author   = 'BB9z'
   s.license  = { :type => 'Apache 2.0', :file => 'LICENSE' }
   s.homepage = 'https://github.com/RFUI/MBAppKit'
@@ -96,6 +96,14 @@ Pod::Spec.new do |s|
     ss.dependency 'RFDelegateChain/UITextFieldDelegate'
     ss.source_files = 'Components/Input/*.{h,m}'
     ss.public_header_files = 'Components/Input/*.h'
+  end
+
+  s.subspec 'RootViewController' do |ss|
+    ss.ios.deployment_target = '9.0'
+    
+    ss.dependency 'RFKit/Runtime'
+    ss.source_files = 'Components/RootViewController/*.{h,m}'
+    ss.public_header_files = 'Components/RootViewController/*.h'
   end
 
   s.subspec 'Worker' do |ss|
