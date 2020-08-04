@@ -118,16 +118,21 @@
 @interface MBNavigationController (MBUserLoginRequired)
 
 /**
- 被需要登入阻塞 push 的 vc，登入成功后需要根据业务需要手动还原或者丢弃
+ 修改导航堆栈时，如果将要显示的 vc 声明需要登入且用户未登入，
+ 会把这个 vc 保存起来，供登入成功后还原跳转
 
- push 时界面需要登入时内部押入这个变量
+ 如果业务上不需要还原跳转，可在登入时手动置空该属性；
+ 登入后 pop 回发起登入的页面才会执行还原，如果有跳转到其他页面不进行操作
+
+ 完整的示例参考：
+ https://github.com/BB9z/iOS-Project-Template/tree/demo/Demos/GuestMode
  */
 @property (nullable) UIViewController *loginSuspendedViewController;
 
 /**
- 需要重写，根据业务决定如何把登入页面展示出来
+ 根据业务需求展示登入页面
 
- 外部不应手动调用
+ 需要子类重写，默认什么也不做
  */
 - (void)presentLoginScene;
 @end

@@ -13,8 +13,7 @@
     UINavigationControllerDelegate
 >
 @property UIViewController *loginSuspendedViewController;
-// 跳转到登入页了，被阻塞的页面也暂存了，但是用户之后退出登入，之前暂存的状态需要取消
-// 这个变量辅助达到上述效果
+// 发起登入的页面，以便登入取消时把阻塞页面的跳转恢复行为也取消掉
 @property (weak) UIViewController *_MBNavigationController_loginSuspendedVCKeeper;
 @property (nonatomic) NSArray<UIViewController *> *_MBNavigationController_lastViewControllers;
 @end
@@ -53,23 +52,12 @@
     if (self.prefersBackBarButtonTitleHidden) {
         [self _setBackItemWithViewController:viewController];
     }
-    if (self.loginSuspendedViewController) {
-        BOOL keeperNotFound = YES;
-        if (self.visibleViewController == self._MBNavigationController_loginSuspendedVCKeeper) {
-            keeperNotFound = NO;
+    if (self.loginSuspendedViewController && AppUser()) {
+        if (self._MBNavigationController_loginSuspendedVCKeeper == self.topViewController) {
+            [self pushViewController:self.loginSuspendedViewController animated:YES];
         }
-        else {
-            for (UIViewController *vc in self.viewControllers) {
-                if (vc == self._MBNavigationController_loginSuspendedVCKeeper) {
-                    keeperNotFound = NO;
-                    break;
-                }
-            }
-        }
-        if (keeperNotFound) {
-            self.loginSuspendedViewController = nil;
-            self._MBNavigationController_loginSuspendedVCKeeper = nil;
-        }
+        self.loginSuspendedViewController = nil;
+        self._MBNavigationController_loginSuspendedVCKeeper = nil;
     }
     [self changeNavigationStack:^(MBNavigationController *this) {
         [this setNeedsPerformNavigationOperation];
@@ -197,7 +185,7 @@
         self.loginSuspendedViewController = lastVC;
         NSMutableArray *vcs = viewControllers.mutableCopy;
         [vcs removeLastObject];
-        [super setViewControllers:viewControllers animated:animated];
+        [super setViewControllers:vcs animated:animated];
         [self _MBNavigationController_tryLogin];
         return;
     }
@@ -254,8 +242,13 @@
 
 - (void)_MBNavigationController_tryLogin {
     if (AppUser()) return;
+    self._MBNavigationController_loginSuspendedVCKeeper =  self.topViewController;
     [self presentLoginScene];
-    self._MBNavigationController_loginSuspendedVCKeeper =  self.visibleViewController;
+    if (self._MBNavigationController_loginSuspendedVCKeeper == self.topViewController) {
+        // 导航未更改？取消
+        self._MBNavigationController_loginSuspendedVCKeeper = nil;
+        self.loginSuspendedViewController = nil;
+    }
 }
 
 @end
