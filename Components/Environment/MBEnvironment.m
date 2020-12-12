@@ -30,9 +30,6 @@ static NSMutableArray<MBEnvironmentObserver *> *MBApplicationDefaultHandlers;
         MBApplicationDefaultEnvironment = env;
         if (env) {
             env._MBEnvironment_applicationHandlers = MBApplicationDefaultHandlers;
-            for (MBEnvironmentObserver *ob in MBApplicationDefaultHandlers) {
-                ob.target = env;
-            }
             [env _MBEnvironment_flagChange];
         }
     }
@@ -82,13 +79,13 @@ static NSMutableArray<MBEnvironmentObserver *> *MBApplicationDefaultHandlers;
 - (void)_MBEnvironment_flagChange {
     dispatch_async(self.queue, ^{
         if (self._MBEnvironment_applicationHandlers) {
-            [self _MBEnvironment_handleChange:self._MBEnvironment_applicationHandlers];
+            [self _MBEnvironment_handleChange:self._MBEnvironment_applicationHandlers isStatic:YES];
         }
-        [self _MBEnvironment_handleChange:self._MBEnvironment_observers];
+        [self _MBEnvironment_handleChange:self._MBEnvironment_observers isStatic:NO];
     });
 }
 
-- (void)_MBEnvironment_handleChange:(NSMutableArray *)allObservers {
+- (void)_MBEnvironment_handleChange:(NSMutableArray *)allObservers isStatic:(BOOL)isStatic {
     @synchronized(self) {
         if (!allObservers.count) return;
 
@@ -121,6 +118,10 @@ static NSMutableArray<MBEnvironmentObserver *> *MBApplicationDefaultHandlers;
             }
             else if (ob.target) {
                 [UIApplication.sharedApplication sendAction:ob.selector to:ob.target from:self forEvent:nil];
+                ob.hasCalledWhenMeet = YES;
+            }
+            else if (isStatic) {
+                [self performSelector:ob.selector];
                 ob.hasCalledWhenMeet = YES;
             }
             else {

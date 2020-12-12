@@ -117,4 +117,29 @@ class Test_Enviroment: XCTestCase {
         wait(for: [exp], timeout: 1)
         XCTAssert(callFlag == 1)
     }
+
+    func testStaticRegister() {
+        globalCounter = 0
+
+        MBEnvironment.staticObserve(.flagA, selector: #selector(MBEnvironment.staticRegisterMethod), handleOnce: false)
+        let env = MBEnvironment()
+        MBEnvironment.setAsApplicationDefault(env)
+
+        env.setFlagOn(.flagA)
+        let exp = XCTestExpectation(description: "do")
+
+        dispatch_after_seconds(0.2) {
+            exp.fulfill()
+        }
+        wait(for: [exp], timeout: 1)
+        XCTAssertEqual(globalCounter, 1)
+    }
+}
+
+var globalCounter = 0
+
+extension MBEnvironment {
+     @objc func staticRegisterMethod() {
+        globalCounter += 1
+    }
 }

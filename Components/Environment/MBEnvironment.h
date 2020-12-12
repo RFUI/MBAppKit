@@ -98,26 +98,23 @@ typedef NS_OPTIONS(int64_t, MBENVFlag) {
  */
 - (void)removeFlagsObserver:(nullable id)observer;
 
-#pragma mark - 默认状态响应
+#pragma mark - 静态状态响应
 
 /**
- 关于默认状态响应
+ 关于静态状态响应
  ------
- 
-    我们有了 registerFlagsObserver:handler: 方法，可以监听满足指定状态的要求。
-    但我们有一些固定的时机要执行固定的逻辑，如果都通过加 block 监听，要写多少代码，又在哪写呢？都加 block，多了对内存也不友好。
-    
-    为了解决这些问题，需要建一种新机制：
-    - 创建 MBEnvironment 的 category，在 category 里写状态变化响应的业务代码
-    - category load 方法中添加静态监听，把 category 里写的业务方法和期望的状态关联起来
-    - 创建 MBEnvironment 实例，注册为应用默认环境，只有默认环境才会响应 category 里注册的静态监听
+
+ 有时应用需要在一些固定的时机执行固定的逻辑，如果用上面的监听注册方法，可能没有一个特别好地方去写注册代码。
+ 比如：在联网、用户已登入且应用在前台的情况下后台执行数据的同步，如果用 MBWorker 可能不需要一个数据同步管理类，但放在网络、用户模块又不合适。
+
+ 使用静态注册可以在 MBEnvironment 的扩展中统一管理这类注册。
  */
 
 /**
  注册静态状态响应
 
  @param flags 需要的状态
- @param selector 状态满足时尝试调用的方法
+ @param selector 满足状态时调用的 MBEnvironment 中的方法
  @param handleOnce 调用一次后移除
  */
 + (void)staticObserveFlag:(MBENVFlag)flags selector:(nonnull SEL)selector handleOnce:(BOOL)handleOnce;
