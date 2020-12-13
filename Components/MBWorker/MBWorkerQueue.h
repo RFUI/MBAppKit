@@ -37,4 +37,11 @@
  */
 - (void)addWorker:(nullable MBWorker *)worker;
 
+/**
+ 是否有类型相同的 worker 在队列中正在执行或排队中
+
+ 一般用于在 worker 中 shouldSkipExecutionWithWorkersWillRemove: 取消不必要的执行
+ */
+- (BOOL)containsSameKindWorker:(nullable MBWorker *)worker;
+
 @end

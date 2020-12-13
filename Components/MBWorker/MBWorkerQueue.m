@@ -196,4 +196,14 @@ RFInitializingRootForNSObject
     return w;
 }
 
+- (BOOL)containsSameKindWorker:(MBWorker *)worker {
+    if (!worker) return YES;
+    Class aClass = worker.class;
+    if ([_executingWorker isKindOfClass:aClass]) return YES;
+    for (MBWorker *worker in self.workerQueue) {
+        if ([worker isKindOfClass:aClass]) return YES;
+    }
+    return NO;
+}
+
 @end

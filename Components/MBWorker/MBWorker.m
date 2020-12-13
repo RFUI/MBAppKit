@@ -40,7 +40,7 @@ RFInitializingRootForNSObject
 #if MBUserStringUID
         [text appendFormat:@"; requires user: %@", self.userRequired.uid];
 #else
-        [text appendFormat:@"; requires user: %ld", self.userRequired.uid];
+        [text appendFormat:@"; requires user: %@", @(self.userRequired.uid)];
 #endif
     }
     if (self.enqueueDelay) {

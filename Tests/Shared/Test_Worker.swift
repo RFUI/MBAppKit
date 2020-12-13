@@ -21,23 +21,6 @@ class Test_Worker: XCTestCase {
         q.add(workMain)
     }
     
-    class MainThreadWork: MBWorker {
-        override func perform() {
-            XCTAssertTrue(Thread.isMainThread)
-            finish()
-            if let cb = completionBlock {
-                cb(true, nil, nil)
-            }
-        }
-    }
-    
-    class BackgroundThreadWork: MBWorker {
-        override func perform() {
-            XCTAssertFalse(Thread.isMainThread)
-            finish()
-        }
-    }
-    
     // MARK: - User Required
     func testUserRequired() {
         let timeout = XCTestExpectation(description: "work done")
@@ -47,7 +30,7 @@ class Test_Worker: XCTestCase {
             print(q)
             wait(for: [timeout], timeout: 2)
         }
-        let w1 = TestWorker()
+        let w1 = DelayWorker()
         w1.requiresUserContext = true
         q.add(w1)
         XCTAssertNil(q.executingWorker, "No current user, the worker should be dropped.")
@@ -75,9 +58,60 @@ class Test_Worker: XCTestCase {
         XCTAssert(q.currentWorkerQueue().isEmpty, "Queue should be empty.")
         XCTAssertNil(q.executingWorker)
     }
+
+    // MARK: - Contains Kind
+    func testContainsKindExecuting() {
+        let q = MBWorkerQueue()
+        let workA = MBWorker()
+        let workB = DelayWorker()
+
+        XCTAssertFalse(q.containsSameKindWorker(workA))
+        q.add(workA)
+        XCTAssert(q.executingWorker === workA)
+        XCTAssertTrue(q.containsSameKindWorker(workA))
+        XCTAssertFalse(q.containsSameKindWorker(workB))
+    }
+
+    func testContainsKindInQueue() {
+        let q = MBWorkerQueue()
+        let next = XCTestExpectation(description: "next")
+        let workA = WaitEndWorker(expectation: next)
+        let workB = DelayWorker()
+
+        q.add(workA)
+        q.add(workB)
+        XCTAssertTrue(q.containsSameKindWorker(workA))
+        XCTAssertTrue(q.containsSameKindWorker(workB))
+        XCTAssert(q.executingWorker === workA)
+        
+        wait(for: [next], timeout: 1)
+        XCTAssert(q.executingWorker === workB)
+        XCTAssertFalse(q.containsSameKindWorker(workA))
+        XCTAssertTrue(q.containsSameKindWorker(workB))
+    }
+
 }
 
-class TestWorker: MBWorker {
+// MARK: - Workers
+
+class MainThreadWork: MBWorker {
+    override func perform() {
+        XCTAssertTrue(Thread.isMainThread)
+        finish()
+        if let cb = completionBlock {
+            cb(true, nil, nil)
+        }
+    }
+}
+
+class BackgroundThreadWork: MBWorker {
+    override func perform() {
+        XCTAssertFalse(Thread.isMainThread)
+        finish()
+    }
+}
+
+class DelayWorker: MBWorker {
     var executionDuration: TimeInterval = 0
     override func perform() {
         dispatch_after_seconds(executionDuration) {
