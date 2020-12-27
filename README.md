@@ -5,7 +5,7 @@
 
 ## Requirements
 
-Xcode 10+, iOS 9+ / macOS 10.10+.
+Xcode 11+, iOS 9+ / macOS 10.10+.
 
 ## Install
 
@@ -35,10 +35,6 @@ The core part defines some of the key components of an application and defines a
 * UserIDIsString
 
     By default, the user ID is an integer value. If you want it to be a string, you can include this subspec in your podfile.
-
-* ApplicationFont
-
-    Set the application global font with a few lines of code.
 
 * Button
 

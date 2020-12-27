@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name     = 'MBAppKit'
-  s.version  = '0.11.0'
+  s.version  = '0.12.0'
   s.author   = 'BB9z'
   s.license  = { :type => 'Apache 2.0', :file => 'LICENSE' }
   s.homepage = 'https://github.com/RFUI/MBAppKit'
@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
     ss.dependency 'RFKit/Category/NSURL'
     ss.dependency 'RFKit/Category/NSJSONSerialization'
     ss.dependency 'RFAlpha/RFSwizzle'
-    ss.dependency 'RFAPI', '>= 2.0.0-beta.1'
+    ss.dependency 'RFAPI', '>= 2.0.0'
 
     ss.ios.dependency 'RFKit/Category/NSLayoutConstraint'
     ss.ios.source_files = ['MBAppKit/**/*.{h,m}']
@@ -60,14 +60,6 @@ Pod::Spec.new do |s|
   end
 
   # Components
-  s.subspec 'ApplicationFont' do |ss|
-    ss.ios.deployment_target = '9.0'
-
-    ss.dependency 'MBAppKit/Core'
-    ss.source_files = 'Components/MBApplicationFont/*.{h,m}'
-    ss.public_header_files = 'Components/MBApplicationFont/*.h'
-  end
-
   s.subspec 'Button' do |ss|
     ss.ios.deployment_target = '9.0'
 
