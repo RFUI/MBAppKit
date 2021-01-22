@@ -2,7 +2,7 @@
  MBTextField
  MBAppKit
  
- Copyright © 2018 RFUI.
+ Copyright © 2018, 2021 RFUI.
  https://github.com/RFUI/MBAppKit
  
  Apache License, Version 2.0
@@ -50,11 +50,8 @@
  
  默认上下 7pt，左右 10pt
  */
-#if TARGET_INTERFACE_BUILDER
-@property (nonatomic) IBInspectable CGRect textEdgeInsets;
-#else
 @property (nonatomic) UIEdgeInsets textEdgeInsets;
-#endif
+@property (nonatomic) IBInspectable CGRect _textEdgeInsets;
 
 /// 非空时，text filed 获取/失去键盘焦点时会在 backgroundHighlightedImage 和 backgroundImage 之间切换
 @property (nonatomic, nullable) IBInspectable UIImage *backgroundHighlightedImage;

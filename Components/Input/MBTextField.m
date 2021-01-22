@@ -11,6 +11,7 @@
 @end
 
 @implementation MBTextField
+@dynamic _textEdgeInsets;
 RFInitializingRootForUIView
 
 - (void)onInit {
@@ -107,6 +108,14 @@ RFInitializingRootForUIView
 }
 
 #pragma mark - 文字距边框设定
+
+- (CGRect)_textEdgeInsets {
+    return [NSValue valueWithUIEdgeInsets:self.textEdgeInsets].CGRectValue;
+}
+- (void)set_textEdgeInsets:(CGRect)_textEdgeInsets {
+    self.textEdgeInsets = [NSValue valueWithCGRect:_textEdgeInsets].UIEdgeInsetsValue;
+}
+
 - (void)setTextEdgeInsets:(UIEdgeInsets)textEdgeInsets {
     if (UIEdgeInsetsEqualToEdgeInsets(_textEdgeInsets, textEdgeInsets)) return;
     _textEdgeInsets = textEdgeInsets;

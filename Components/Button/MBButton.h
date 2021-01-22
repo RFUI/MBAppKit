@@ -2,7 +2,7 @@
  MBButton
  MBAppKit
  
- Copyright © 2018 RFUI.
+ Copyright © 2018, 2021 RFUI.
  Copyright © 2014 Beijing ZhiYun ZhiYuan Information Technology Co., Ltd.
  https://github.com/RFUI/MBAppKit
  
@@ -63,16 +63,11 @@
 
 #pragma mark -
 
-
-
 /**
  扩展按钮可响应点击的区域
  */
-#if TARGET_INTERFACE_BUILDER
-@property (nonatomic) IBInspectable CGRect touchHitTestExpandInsets;
-#else
 @property (nonatomic) UIEdgeInsets touchHitTestExpandInsets;
-#endif
+@property (nonatomic) IBInspectable CGRect _touchHitTestExpandInsets;
 
 /**
  非空时按钮原有的点击事件不在发送，而改为执行该 block

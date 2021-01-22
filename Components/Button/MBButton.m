@@ -8,6 +8,7 @@
 @end
 
 @implementation MBButton
+@dynamic _touchHitTestExpandInsets;
 RFInitializingRootForUIView
 
 - (void)onInit {
@@ -70,6 +71,13 @@ RFInitializingRootForUIView
     UIEdgeInsets reversedInsets = UIEdgeInsetsReverse(self.touchHitTestExpandInsets);
     CGRect expandRect = UIEdgeInsetsInsetRect(self.bounds, reversedInsets);
     return CGRectContainsPoint(expandRect, point);
+}
+
+- (CGRect)_touchHitTestExpandInsets {
+    return [NSValue valueWithUIEdgeInsets:self.touchHitTestExpandInsets].CGRectValue;
+}
+- (void)set_touchHitTestExpandInsets:(CGRect)_touchHitTestExpandInsets {
+    self.touchHitTestExpandInsets = [NSValue valueWithCGRect:_touchHitTestExpandInsets].UIEdgeInsetsValue;
 }
 
 - (void)sendAction:(SEL)action to:(id)target forEvent:(UIEvent *)event {
