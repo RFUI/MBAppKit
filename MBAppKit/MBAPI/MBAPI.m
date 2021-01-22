@@ -40,7 +40,14 @@ MBAPI *MBAPI_global_ = nil;
 }
 
 + (id<RFAPITask>)requestWithName:(NSString *)APIName parameters:(NSDictionary *)parameters viewController:(UIViewController *)viewController loadingMessage:(NSString *)message modal:(BOOL)modal success:(RFAPIRequestSuccessCallback)success completion:(RFAPIRequestFinishedCallback)completion {
-    return [self requestWithName:APIName parameters:parameters viewController:viewController forceLoad:NO loadingMessage:message modal:modal success:success failure:nil completion:completion];
+    return [self requestName:APIName context:^(RFAPIRequestConext *c) {
+        c.parameters = parameters;
+        c.groupIdentifier = viewController.APIGroupIdentifier;
+        c.loadMessage = message;
+        c.loadMessageShownModal = modal;
+        c.success = success;
+        c.finished = completion;
+    }];
 }
 
 + (id<RFAPITask>)requestWithName:(NSString *)APIName parameters:(NSDictionary *)parameters viewController:(UIViewController *)viewController forceLoad:(BOOL)forceLoad loadingMessage:(NSString *)message modal:(BOOL)modal success:(RFAPIRequestSuccessCallback)success failure:(RFAPIRequestFailureCallback)failure completion:(RFAPIRequestFinishedCallback)completion {

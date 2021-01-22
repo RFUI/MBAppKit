@@ -25,7 +25,7 @@ Pod::Spec.new do |s|
     ss.dependency 'RFKit/Category/NSURL'
     ss.dependency 'RFKit/Category/NSJSONSerialization'
     ss.dependency 'RFAlpha/RFSwizzle'
-    ss.dependency 'RFAPI', '>= 2.0.0'
+    ss.dependency 'RFAPI', '~> 2.0'
 
     ss.ios.dependency 'RFKit/Category/NSLayoutConstraint'
     ss.ios.source_files = ['MBAppKit/**/*.{h,m}']

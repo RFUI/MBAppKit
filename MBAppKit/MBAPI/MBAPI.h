@@ -1,8 +1,8 @@
-/*!
+/*
  MBAPI
  MBAppKit
  
- Copyright © 2018-2020 RFUI.
+ Copyright © 2018-2021 RFUI.
  https://github.com/RFUI/MBAppKit
  
  Apache License, Version 2.0
