@@ -2,7 +2,7 @@
  MBNavigationController
  MBAppKit
 
- Copyright © 2018-2020 RFUI.
+ Copyright © 2018-2020, 2022 RFUI.
  https://github.com/RFUI/MBAppKit
 
  Apache License, Version 2.0
@@ -33,6 +33,13 @@
  在 didShowViewController 中设置当前 vc 的返回按钮
  */
 @property IBInspectable BOOL prefersBackBarButtonTitleHidden;
+
+/**
+ 当 vc 加入到导航堆栈后执行，定制 navigationItem 样式
+
+ 默认实现应用返回按钮标题是否隐藏的设置
+ */
+- (void)customNavigationItemForViewController:(nonnull UIViewController *)viewController;
 
 #pragma mark 导航队列
 

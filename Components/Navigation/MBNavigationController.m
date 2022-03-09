@@ -49,9 +49,7 @@
     [super navigationController:navigationController didShowViewController:viewController animated:animated];
     self._MBNavigationController_lastViewControllers = self.viewControllers;
 
-    if (self.prefersBackBarButtonTitleHidden) {
-        [self _setBackItemWithViewController:viewController];
-    }
+    [self customNavigationItemForViewController:viewController];
     if (self.loginSuspendedViewController && AppUser()) {
         if (self._MBNavigationController_loginSuspendedVCKeeper == self.topViewController) {
             [self pushViewController:self.loginSuspendedViewController animated:YES];
@@ -87,15 +85,18 @@
 
 - (void)_hideShadow {
     self.navigationBar.shadowImage = UIImage.new;
-    // iOS 10 以下
-    if (NSFoundationVersionNumber <= NSFoundationVersionNumber10_10_Max) {
-        [self.navigationBar setBackgroundImage:UIImage.new forBarMetrics:UIBarMetricsDefault];
-    }
 }
 
-- (void)_setBackItemWithViewController:(UIViewController *)viewController {
-    if (viewController.navigationItem.backBarButtonItem) return;
-    viewController.navigationItem.backBarButtonItem = [UIBarButtonItem.alloc initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+- (void)customNavigationItemForViewController:(nonnull UIViewController *)viewController {
+    if (self.prefersBackBarButtonTitleHidden
+        // 未设置定制返回
+        && !viewController.navigationItem.backBarButtonItem) {
+        if (@available(iOS 14.0, *)) {
+            viewController.navigationItem.backButtonDisplayMode = UINavigationItemBackButtonDisplayModeMinimal;
+        } else {
+            viewController.navigationItem.backBarButtonItem = [UIBarButtonItem.alloc initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
+        }
+    }
 }
 
 - (UIViewController *)childViewControllerForHomeIndicatorAutoHidden {
@@ -193,11 +194,8 @@
 }
 
 - (void)didAddViewControllers:(NSArray<UIViewController *> *)vcs {
-    if (self.prefersBackBarButtonTitleHidden) {
-        // 调节所有 vc 的返回按钮
-        for (UIViewController *vc in vcs) {
-            [self _setBackItemWithViewController:vc];
-        }
+    for (UIViewController *vc in vcs) {
+        [self customNavigationItemForViewController:vc];
     }
 }
 
