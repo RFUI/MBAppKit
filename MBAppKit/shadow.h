@@ -25,10 +25,6 @@
 @class MBApplicationDelegate;
 MBApplicationDelegate *__nullable AppDelegate(void);
 
-@class MBEnvironment;
-/// 状态依赖
-MBEnvironment *__nullable AppEnv(void);
-
 @class MBUser;
 /// 当前登录的用户，可以用来判断是否已登录
 MBUser *__nullable AppUser(void);

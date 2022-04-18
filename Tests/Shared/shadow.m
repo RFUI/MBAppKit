@@ -10,10 +10,6 @@ id __nullable AppDelegate(void) {
     return nil;
 }
 
-id __nullable AppEnv(void) {
-    return nil;
-}
-
 id __nullable AppUser(void) {
     return nil;
 }
