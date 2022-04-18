@@ -85,7 +85,7 @@ MBAPI *MBAPI_global_ = nil;
         c.parameters = parameters;
         c.identifier = APIName;
         if (completion) {
-            c.combinedComplation = ^(id<RFAPITask>  _Nullable task, id  _Nullable responseObject, NSError * _Nullable error) {
+            c.combinedCompletion = ^(id<RFAPITask>  _Nullable task, id  _Nullable responseObject, NSError * _Nullable error) {
                 BOOL success = !error && !!responseObject;
                 completion(success, responseObject, error);
             };
